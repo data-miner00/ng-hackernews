@@ -82,7 +82,7 @@ export class HackernewsService {
      * Story: https://hacker-news.firebaseio.com/v0/item/8863.json?print=pretty
      * @returns Observable
      */
-    public item(itemid: number): Observable<Base> {
-        return this.http.get<Base>(`${this.baseUrl}/item/${itemid}.json`);
+    public item<I extends Base>(itemid: number): Observable<I> {
+        return this.http.get<I>(`${this.baseUrl}/item/${itemid}.json`);
     }
 }
