@@ -6,13 +6,13 @@ type PollOpt = Base & {
      * For pollopts, the relevant poll.
      * @optional
      */
-    parent: number;
+    parent?: number;
 
     /**
      * The story's score, or the votes for a pollopt.
      * @optional
      */
-    score: number;
+    score?: number;
 };
 
 export default PollOpt;

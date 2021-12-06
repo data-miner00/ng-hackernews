@@ -13,7 +13,7 @@ type Base = {
      * `true` if the item is deleted.
      * @optional
      */
-    deleted: boolean;
+    deleted?: boolean;
 
     /**
      * The type of item. One of "job", "story", "comment", "poll", or "pollopt".I
@@ -26,25 +26,25 @@ type Base = {
      * The username of the item's author.
      * @optional
      */
-    by: string;
+    by?: string;
 
     /**
      * Creation date of the item, in Unix Time.
      * @optional
      */
-    time: number;
+    time?: number;
 
     /**
      * `true` if the item is dead.
      * @optional
      */
-    dead: boolean;
+    dead?: boolean;
 
     /**
      * The ids of the item's comments, in ranked display order.
      * @optional
      */
-    kids: Array<number>;
+    kids?: Array<number>;
 };
 
 export default Base;

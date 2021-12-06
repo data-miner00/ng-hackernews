@@ -6,13 +6,13 @@ type Comment = Base & {
      * For pollopts, the relevant poll.
      * @optional
      */
-    parent: number;
+    parent?: number;
 
     /**
      * The comment, story or poll text. HTML.
      * @optional
      */
-    text: string;
+    text?: string;
 };
 
 export default Comment;

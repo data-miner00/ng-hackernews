@@ -14,7 +14,7 @@ type User = {
      * to other users.
      * @optional
      */
-    delay: number;
+    delay?: number;
 
     /**
      * Creation date of the user, in Unix Time.
@@ -32,13 +32,13 @@ type User = {
      * The user's optional self-description. HTML.
      * @optional
      */
-    about: string;
+    about?: string;
 
     /**
      * List of the user's stories, polls and comments.
      * @optional
      */
-    submitted: Array<number>;
+    submitted?: Array<number>;
 };
 
 export default User;

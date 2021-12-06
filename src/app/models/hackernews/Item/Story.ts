@@ -5,26 +5,26 @@ type Story = Base & {
      * In the case of stories or polls, the total comment count.
      * @optional
      */
-    descendants: number;
+    descendants?: number;
 
     /**
      * The story's score, or the votes for a pollopt.
      * @optional
      */
-    score: number;
+    score?: number;
 
     /**
      * The title of the story, poll or job
      * @optional
      */
-    title: string;
+    title?: string;
 
     /**
      * The URL of the story.
      * default: http://stoplight.io/prism
      * @optional
      */
-    url: string;
+    url?: string;
 };
 
 export default Story;

@@ -7,13 +7,13 @@ type Updates = {
      * List of HN Item IDs.
      * @optional
      */
-    items: Array<number>;
+    items?: Array<number>;
 
     /**
      * List of users identifiers.
      * @optional
      */
-    profiles: Array<string>;
+    profiles?: Array<string>;
 };
 
 export default Updates;

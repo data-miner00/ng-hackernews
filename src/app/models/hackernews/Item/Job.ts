@@ -5,19 +5,19 @@ type Job = Base & {
      * The comment, story or poll text, HTML.
      * @optional
      */
-    text: string;
+    text?: string;
 
     /**
      * The URL of the story.
      * @optional
      */
-    url: string;
+    url?: string;
 
     /**
      * The title of the story, poll or job.
      * @optional
      */
-    title: string;
+    title?: string;
 };
 
 export default Job;
