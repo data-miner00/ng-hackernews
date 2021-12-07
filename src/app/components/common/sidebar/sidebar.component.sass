@@ -5,7 +5,7 @@
     left: 0
     height: 100vh
     width: 100vw
-    transition: left .4s ease-in
+    transition: left .8s ease-in
 
     &.hidden
         left: -100%
@@ -19,6 +19,8 @@
         background: white
         height: 100%
         border-right: 1px solid $font
+        display: flex
+        flex-direction: column
 
         li
             border-top: 1px solid $font
@@ -35,3 +37,16 @@
                 &:hover
                     color: white
                     background: $font
+
+        footer
+            padding: 20px
+            margin-top: auto
+            text-align: center
+            font-size: .8rem
+
+            a
+                text-decoration: underline
+                transition: color .4s ease
+
+                &:hover
+                    color: $blue-500
