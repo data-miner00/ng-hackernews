@@ -22,3 +22,17 @@
 
             li
                 display: inline-block
+                position: relative
+
+                &::after
+                    content: ''
+                    position: absolute
+                    left: 0
+                    bottom: -8px
+                    height: 3px
+                    background: white
+                    border-radius: 50px
+
+                &:hover::after
+                    width: 100%
+                    
