@@ -1,0 +1,33 @@
+@import "../../../../assets/sass/_colors"
+.overlay
+    position: absolute
+    top: 0
+    left: 0
+    height: 100vh
+    width: 100vw
+
+    .top
+        height: 200px
+        width: 100%
+
+    nav
+        width: 300px
+        background: white
+        height: 100%
+        border-right: 1px solid $font
+
+        li
+            border-top: 1px solid $font
+
+            &:last-of-type
+                border-bottom: 1px solid $font
+
+            a
+                display: block
+                padding: 40px 50px
+                transition: all .4s ease-in-out
+
+                &.active,
+                &:hover
+                    color: white
+                    background: $font
