@@ -1,4 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+    Component,
+    ElementRef,
+    Input,
+    OnInit,
+    ViewChild,
+    Renderer2,
+} from '@angular/core';
 
 @Component({
     selector: 'app-sidebar',
@@ -8,12 +15,18 @@ import { Component, Input, OnInit } from '@angular/core';
 export class SidebarComponent implements OnInit {
     isShowing: boolean = false;
 
-    constructor() {}
+    @ViewChild('overlay') overlay: ElementRef<HTMLDivElement>;
+
+    constructor(private renderer: Renderer2) {}
 
     ngOnInit(): void {}
 
     public toggleSidebar(): void {
-        this.isShowing = !this.isShowing;
+        if (this.overlay.nativeElement.classList.contains('hidden')) {
+            this.overlay.nativeElement.classList.remove('hidden');
+        } else {
+            this.overlay.nativeElement.classList.add('hidden');
+        }
     }
 
     public stopPropagation(event: Event): void {
