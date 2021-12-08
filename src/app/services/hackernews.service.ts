@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import type Updates from '../models/hackernews/Updates';
 import type User from '../models/hackernews/User';
 import type Base from '../models/hackernews/Item/Base';
+import { IHackernewsService } from '../models/IHackernewsService';
 
 /**
  * Docs: https://hackernews.api-docs.io/v0/overview/introduction
@@ -11,7 +12,7 @@ import type Base from '../models/hackernews/Item/Base';
 @Injectable({
     providedIn: 'root',
 })
-export class HackernewsService {
+export class HackernewsService implements IHackernewsService {
     private readonly baseUrl: string = 'https://hacker-news.firebaseio.com/v0';
 
     constructor(private http: HttpClient) {}
