@@ -1,1 +1,14 @@
-<p>home works!</p>
+<div class="home">
+    <main class=""></main>
+    <app-news-item
+        *ngFor="let story of stories"
+        [id]="story.id"
+        [title]="story.title"
+        [by]="story.by"
+        [descendants]="story.descendants"
+        [score]="story.score"
+        [type]="story.type"
+        [url]="story.url"
+        [time]="story.time"
+    ></app-news-item>
+</div>
