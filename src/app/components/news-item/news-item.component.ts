@@ -15,15 +15,15 @@ export class NewsItemComponent implements OnInit {
     @Input() title?: string;
     @Input() type?: string;
     @Input() url?: string;
-    domain: string = '';
+    domain: string;
     elapsed: number;
 
     constructor() {}
 
     ngOnInit(): void {
         //@ts-ignore
-        const [_, domain] = /\/\/(.*?)\//.exec(this.url);
-        this.domain = domain;
+        const [_, domain] = /\/\/(.*?)\//.exec(this.url!);
+        this.domain = domain || 'unknown.com';
 
         this.elapsed = elapsed(this.time!, Time.Days);
     }
