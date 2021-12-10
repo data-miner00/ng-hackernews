@@ -37,11 +37,12 @@ export class FakernewsService implements IHackernewsService {
         by: 'amichail',
         id: 29484469,
         kids: [29485184, 29484813, 29484788, 29485151],
-        time: new Date().getTime(),
+        time: 1638970365,
         title: 'Pfizer and Biontech provide update on Omicron variant',
         type: 'story',
         url: 'https://www.pfizer.com/news/press-release/press-release-detail/pfizer-and-biontech-provide-update-omicron-variant',
         score: 138,
+        descendants: 23,
     } as Story;
 
     public maxitem(): Observable<number> {
