@@ -20,7 +20,7 @@ type Base = {
      * Allowed Values: job, story, comment, poll, pollopt.
      * @required
      */
-    type: string;
+    type: 'job' | 'story' | 'comment' | 'poll' | 'pollopt';
 
     /**
      * The username of the item's author.
