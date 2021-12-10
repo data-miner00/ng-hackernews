@@ -16,15 +16,35 @@ export class NewsItemComponent implements OnInit {
     @Input() type?: string;
     @Input() url?: string;
     domain: string;
-    elapsed: number;
+    elapsed: string;
 
     constructor() {}
 
     ngOnInit(): void {
-        //@ts-ignore
-        const [_, domain] = /\/\/(.*?)\//.exec(this.url!);
-        this.domain = domain || 'unknown.com';
+        if (this.url) {
+            try {
+                //@ts-ignore
+                const [_, domain] = /\/\/(.*?)\//.exec(this.url!);
+                this.domain = domain;
+            } catch {
+                this.domain = this.url!.slice(8);
+            }
+        } else {
+            this.domain = 'unknown.com';
+        }
 
-        this.elapsed = elapsed(this.time!, Time.Days);
+        switch (true) {
+            case elapsed(this.time!, Time.Days) > 0:
+                this.elapsed = `${elapsed(this.time!, Time.Days)} days ago`;
+                break;
+            case elapsed(this.time!, Time.Hours) > 0:
+                this.elapsed = `${elapsed(this.time!, Time.Hours)} hours ago`;
+                break;
+            default:
+                this.elapsed = `${elapsed(
+                    this.time!,
+                    Time.Minutes
+                )} minutes ago`;
+        }
     }
 }
