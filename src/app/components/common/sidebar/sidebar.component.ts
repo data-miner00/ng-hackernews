@@ -13,8 +13,6 @@ import {
     styleUrls: ['./sidebar.component.sass'],
 })
 export class SidebarComponent implements OnInit {
-    isShowing: boolean = false;
-
     @ViewChild('overlay') overlay: ElementRef<HTMLDivElement>;
 
     constructor(private renderer: Renderer2) {}
