@@ -1,31 +1,34 @@
-<div class="overlay" (click)="toggleSidebar()" #overlay>
-    <nav (click)="stopPropagation($event)">
-        <div class="top"></div>
-        <ul>
-            <li>
-                <a class="active" href=""><span>Top Stories</span></a>
-            </li>
-            <li>
-                <a href=""><span>Ask Stories</span></a>
-            </li>
-            <li>
-                <a href=""><span>Show Stories</span></a>
-            </li>
-            <li>
-                <a href=""><span>Job Stories</span></a>
-            </li>
-        </ul>
-        <footer>
-            <div class="source">
-                API by
-                <a
-                    href="https://news.ycombinator.com/news"
-                    title="Y Combinator"
-                    target="_blank"
-                    >Y Combinator</a
-                >
-            </div>
-            <div class="copyright">&copy; 2021 Shaun Chong.</div>
-        </footer>
-    </nav>
+<div class="overlay hidden" (click)="toggleSidebar()" #overlay>
+  <nav (click)="stopPropagation($event)">
+    <div class="top"></div>
+    <ul>
+      <li>
+        <a class="active" routerLink=""><span>Home</span></a>
+      </li>
+      <li>
+        <a routerLink="top-stories"><span>Top Stories</span></a>
+      </li>
+      <li>
+        <a routerLink="ask-stories"><span>Ask Stories</span></a>
+      </li>
+      <li>
+        <a routerLink="show-stories"><span>Show Stories</span></a>
+      </li>
+      <li>
+        <a routerLink="job-stories"><span>Job Stories</span></a>
+      </li>
+    </ul>
+    <footer>
+      <div class="source">
+        API by
+        <a
+          href="https://news.ycombinator.com/news"
+          title="Y Combinator"
+          target="_blank"
+          >Y Combinator</a
+        >
+      </div>
+      <div class="copyright">&copy; 2021 Shaun Chong.</div>
+    </footer>
+  </nav>
 </div>
