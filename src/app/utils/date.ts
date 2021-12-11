@@ -9,6 +9,13 @@ export enum Time {
     Years = Months * 12,
 }
 
+/**
+ * Calculates the amount of time elapsed from unix timestamp provided.
+ *
+ * @param unixTime Unix timestamp in seconds
+ * @param time Time enumerable of desired conversion
+ * @returns Total amount of time elapsed
+ */
 export function elapsed(unixTime: number, time: Time) {
     const elapsed = unixTime;
     const now = Date.now();
