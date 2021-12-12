@@ -5,19 +5,34 @@ import {
     OnInit,
     ViewChild,
     Renderer2,
+    OnDestroy,
 } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
     selector: 'app-sidebar',
     templateUrl: './sidebar.component.html',
     styleUrls: ['./sidebar.component.sass'],
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent implements OnInit, OnDestroy {
     @ViewChild('overlay') overlay: ElementRef<HTMLDivElement>;
+    private subscription: Subscription;
 
-    constructor(private renderer: Renderer2) {}
+    constructor(
+        private renderer: Renderer2,
+        private dataService: DataService
+    ) {}
 
-    ngOnInit(): void {}
+    ngOnDestroy(): void {
+        this.subscription.unsubscribe();
+    }
+
+    ngOnInit(): void {
+        this.subscription = this.dataService.channel.subscribe((_) => {
+            this.toggleSidebar();
+        });
+    }
 
     public toggleSidebar(): void {
         if (this.overlay.nativeElement.classList.contains('hidden')) {
