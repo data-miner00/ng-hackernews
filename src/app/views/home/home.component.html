@@ -1,14 +1,80 @@
 <div class="home">
-    <main class=""></main>
+  <section class="top-stories">
+    <div class="heading">
+      <h1>Top Stories</h1>
+      <p>Heated topics from around the internet</p>
+    </div>
     <app-news-item
-        *ngFor="let story of stories"
-        [id]="story.id"
-        [title]="story.title"
-        [by]="story.by"
-        [descendants]="story.descendants"
-        [score]="story.score"
-        [type]="story.type"
-        [url]="story.url"
-        [time]="story.time"
+      *ngFor="let story of stories"
+      [id]="story.id"
+      [title]="story.title"
+      [by]="story.by"
+      [descendants]="story.descendants"
+      [score]="story.score"
+      [type]="story.type"
+      [url]="story.url"
+      [time]="story.time"
     ></app-news-item>
+    <a routerLink="top-stories">See more</a>
+  </section>
+
+  <section class="ask-stories">
+    <div class="heading">
+      <h1>Ask Stories</h1>
+      <p>Stories submitted by user to ask HN</p>
+    </div>
+    <app-news-item
+      *ngFor="let story of stories"
+      [id]="story.id"
+      [title]="story.title"
+      [by]="story.by"
+      [descendants]="story.descendants"
+      [score]="story.score"
+      [type]="story.type"
+      [url]="story.url"
+      [time]="story.time"
+    ></app-news-item>
+    <a routerLink="ask-stories">See more</a>
+  </section>
+
+  <section class="show-stories">
+    <div class="heading">
+      <h1>Show Stories</h1>
+      <p>Latest repositories shared by community</p>
+    </div>
+    <app-news-item
+      *ngFor="let story of stories"
+      [id]="story.id"
+      [title]="story.title"
+      [by]="story.by"
+      [descendants]="story.descendants"
+      [score]="story.score"
+      [type]="story.type"
+      [url]="story.url"
+      [time]="story.time"
+    ></app-news-item>
+    <a routerLink="show-stories">See more</a>
+  </section>
+
+  <section class="show-stories">
+    <div class="heading">
+      <h1>Job Stories</h1>
+      <p>
+        Available positions at
+        <a href="https://www.ycombinator.com/jobs">YC startup</a>
+      </p>
+    </div>
+    <app-news-item
+      *ngFor="let story of stories"
+      [id]="story.id"
+      [title]="story.title"
+      [by]="story.by"
+      [descendants]="story.descendants"
+      [score]="story.score"
+      [type]="story.type"
+      [url]="story.url"
+      [time]="story.time"
+    ></app-news-item>
+    <a routerLink="job-stories">See more</a>
+  </section>
 </div>

@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
     styleUrls: ['./home.component.sass'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
-    private readonly STORY_AMOUNT: number = 20;
+    private readonly STORY_AMOUNT: number = 5;
     stories: Array<Story> = [];
     private subscriptionQueue: Array<Subscription> = [];
 
@@ -27,7 +27,6 @@ export class HomeComponent implements OnInit, OnDestroy {
                     });
                 this.subscriptionQueue.push(subscriber);
             }
-            console.log(this.stories);
         });
     }
 
