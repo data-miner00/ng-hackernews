@@ -3,19 +3,32 @@
     <div class="top"></div>
     <ul>
       <li>
-        <a class="active" routerLink=""><span>Home</span></a>
+        <a
+          routerLink=""
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          ><span>Home</span></a
+        >
       </li>
       <li>
-        <a routerLink="top-stories"><span>Top Stories</span></a>
+        <a routerLink="top-stories" routerLinkActive="active"
+          ><span>Top Stories</span></a
+        >
       </li>
       <li>
-        <a routerLink="ask-stories"><span>Ask Stories</span></a>
+        <a routerLink="ask-stories" routerLinkActive="active"
+          ><span>Ask Stories</span></a
+        >
       </li>
       <li>
-        <a routerLink="show-stories"><span>Show Stories</span></a>
+        <a routerLink="show-stories" routerLinkActive="active"
+          ><span>Show Stories</span></a
+        >
       </li>
       <li>
-        <a routerLink="job-stories"><span>Job Stories</span></a>
+        <a routerLink="job-stories" routerLinkActive="active"
+          ><span>Job Stories</span></a
+        >
       </li>
     </ul>
     <footer>
