@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 import type Story from 'src/app/models/hackernews/Item/Story';
+import { IStoriesPage } from 'src/app/models/IStoriesPage';
 import { FakernewsService } from 'src/app/services/fakernews.service';
 
 @Component({
@@ -8,16 +9,16 @@ import { FakernewsService } from 'src/app/services/fakernews.service';
     templateUrl: './top-stories.component.html',
     styleUrls: ['./top-stories.component.sass'],
 })
-export class TopStoriesComponent implements OnInit {
-    private STORY_AMOUNT: number = 20;
-    stories: Array<Story> = [];
-    private subscriptionQueue: Array<Subscription> = [];
+export class TopStoriesComponent implements IStoriesPage {
+    public storiesAmount: number = 20;
+    public stories: Array<Story> = [];
+    public subscriptionQueue: Array<Subscription> = [];
 
-    constructor(private hnService: FakernewsService) {}
+    constructor(public hnService: FakernewsService) {}
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.hnService.topstories().subscribe((storiesId: Array<number>) => {
-            for (let i = 0; i < this.STORY_AMOUNT; i++) {
+            for (let i = 0; i < this.storiesAmount; i++) {
                 const storyId = storiesId[i];
                 const subscriber = this.hnService
                     .item<Story>(storyId)
@@ -26,6 +27,12 @@ export class TopStoriesComponent implements OnInit {
                     });
                 this.subscriptionQueue.push(subscriber);
             }
+        });
+    }
+
+    public ngOnDestroy(): void {
+        this.subscriptionQueue.forEach((subscription) => {
+            subscription.unsubscribe();
         });
     }
 }
