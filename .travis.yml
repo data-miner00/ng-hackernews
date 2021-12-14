@@ -1,0 +1,29 @@
+language: node_js
+node_js:
+  - 14
+
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+
+cache:
+  directories:
+    - ./node_modules
+
+sudo: required
+
+branches:
+  only:
+    - master
+
+before_script:
+  - npm install -g @angular/cli
+
+install:
+  - npm install
+
+script:
+  - npm test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
