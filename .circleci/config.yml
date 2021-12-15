@@ -7,7 +7,6 @@ orbs:
   # Orbs reduce the amount of configuration required for common tasks.
   # See the orb documentation here: https://circleci.com/developer/orbs/orb/circleci/node
   node: circleci/node@4.7
-  browser-tools: circleci/browser-tools@1.2.3
 
 jobs:
   # Below is the definition of your job to build and test your app, you can rename and customize it as you want.
@@ -16,14 +15,18 @@ jobs:
     # You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # A list of available CircleCI Docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/node
     docker:
-      - image: cimg/node:14.17
+      - image: cimg/node:14-browsers
     # Then run your tests!
     # CircleCI will report the results back to your VCS provider.
     steps:
       # Checkout the code as the first step.
       - checkout
-      - browser-tools/install-chrome
-      - browser-tools/install-chromedriver
+
+      # Log the current branch
+      - run:
+          name: Show current branch
+          command: echo ${CIRCLE_BRANCH}
+
       # Next, the node orb's install-packages step will install the dependencies from a package.json.
       # The orb install-packages step will also automatically cache them for faster future runs.
       - node/install-packages:
@@ -31,7 +34,7 @@ jobs:
           pkg-manager: npm
       - run:
           name: Run tests
-          command: npm test
+          command: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
 
 workflows:
   # Below is the definition of your workflow.
