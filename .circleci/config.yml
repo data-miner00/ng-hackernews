@@ -34,7 +34,7 @@ jobs:
           pkg-manager: npm
       - run:
           name: Run tests
-          command: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+          command: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessNoSandbox
 
 workflows:
   # Below is the definition of your workflow.
