@@ -25,7 +25,11 @@
   <div class="right">
     <h2>{{ title }}</h2>
     <p>
-      By <i>{{ by }}</i> {{ elapsed }} | {{ descendants ?? 0 }} comments |
+      By <i>{{ by }}</i> {{ elapsed }} |
+      <a class="individual-link" [routerLink]="'stories/' + id"
+        >{{ descendants ?? 0 }} comments</a
+      >
+      |
       {{ domain }}
     </p>
   </div>
