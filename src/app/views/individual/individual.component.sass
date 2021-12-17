@@ -1,0 +1,32 @@
+@import "../../../assets/sass/_breakpoints"
+@import "../../../assets/sass/_colors"
+
+.individual
+    max-width: $sm
+    margin: 0 auto
+    .row
+        display: flex
+        margin-top: 20px
+        gap: 30px
+    .detail
+        display: flex
+        .color
+            height: 20px
+            width: 20px
+            border-radius: 50%
+            background-color: $purple-300
+            &.p
+                background-color: $green-300
+            &.p2
+                background-color: $blue-300
+        .actual
+            margin-left: 10px
+    .original
+        text-decoration: underline
+    .posted
+        margin-top: 6px
+
+    .comments
+        margin-top: 4rem
+        border: 1px solid $font
+        padding: 50px

@@ -14,9 +14,11 @@ import { AskStoriesComponent } from './views/ask-stories/ask-stories.component';
 import { ShowStoriesComponent } from './views/show-stories/show-stories.component';
 import { JobStoriesComponent } from './views/job-stories/job-stories.component';
 import { FaqsComponent } from './views/faqs/faqs.component';
+import { IndividualComponent } from './views/individual/individual.component';
+import { CommentsComponent } from './components/comments/comments.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, HeaderComponent, SidebarComponent, FooterComponent, NewsItemComponent, TopStoriesComponent, AskStoriesComponent, ShowStoriesComponent, JobStoriesComponent, FaqsComponent],
+  declarations: [AppComponent, HomeComponent, HeaderComponent, SidebarComponent, FooterComponent, NewsItemComponent, TopStoriesComponent, AskStoriesComponent, ShowStoriesComponent, JobStoriesComponent, FaqsComponent, IndividualComponent, CommentsComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

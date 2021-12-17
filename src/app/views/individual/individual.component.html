@@ -1,0 +1,25 @@
+<div class="individual">
+  <p class="mark">NEW</p>
+  <h1>{{ story.title }}</h1>
+  <div class="row">
+    <div class="detail">
+      <div class="color"></div>
+      <div class="actual">{{ story.by }}</div>
+    </div>
+    <div class="detail">
+      <div class="color p"></div>
+      <div class="actual">Upvoted {{ story.score }} times</div>
+    </div>
+    <div class="original">
+      <a [href]="story.url" target="_blank">Read the original post</a>
+    </div>
+  </div>
+  <div class="detail posted">
+    <div class="color p2"></div>
+    <div class="actual">Posted on January 23, 2021 (5 days ago)</div>
+  </div>
+
+  <section class="comments">
+    <h3>Discussion section ({{ story.descendants }})</h3>
+  </section>
+</div>
