@@ -1,1 +1,3 @@
-<p>comments works!</p>
+<p>{{ comment.text ?? '' }}</p>
+
+<app-comments *ngFor="let cmt of comment.kids" [commentId]="cmt"></app-comments>

@@ -21,5 +21,9 @@
 
   <section class="comments">
     <h3>Discussion section ({{ story.descendants }})</h3>
+    <app-comments
+      *ngFor="let cmt of story.kids"
+      [commentId]="cmt"
+    ></app-comments>
   </section>
 </div>
