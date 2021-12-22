@@ -15,6 +15,8 @@ export class CommentsComponent implements OnInit, OnDestroy {
     comment: Comment;
     commentSubscription: Subscription;
 
+    posted: Date = new Date();
+
     constructor(private hnService: HackernewsService) {}
 
     ngOnInit(): void {
@@ -22,6 +24,7 @@ export class CommentsComponent implements OnInit, OnDestroy {
             .item<Comment>(this.commentId)
             .subscribe((comment) => {
                 this.comment = comment;
+                this.posted = new Date(comment.time! * 1000);
             });
     }
 
