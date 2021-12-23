@@ -17,9 +17,10 @@ import { FaqsComponent } from './views/faqs/faqs.component';
 import { IndividualComponent } from './views/individual/individual.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
+import { DisplayableDatePipe } from './pipes/displayable-date.pipe';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, HeaderComponent, SidebarComponent, FooterComponent, NewsItemComponent, TopStoriesComponent, AskStoriesComponent, ShowStoriesComponent, JobStoriesComponent, FaqsComponent, IndividualComponent, CommentsComponent, SafeHtmlPipe],
+  declarations: [AppComponent, HomeComponent, HeaderComponent, SidebarComponent, FooterComponent, NewsItemComponent, TopStoriesComponent, AskStoriesComponent, ShowStoriesComponent, JobStoriesComponent, FaqsComponent, IndividualComponent, CommentsComponent, SafeHtmlPipe, DisplayableDatePipe],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
