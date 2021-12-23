@@ -1,7 +1,7 @@
 <div class="comment">
   <article [innerHtml]="comment?.text ?? '' | safeHtml"></article>
   <div class="author">
-    {{ comment?.by }} |
+    <span>{{ comment?.by }}</span> |
     {{ posted | date: 'd MMM, yyyy' }}
   </div>
 </div>
