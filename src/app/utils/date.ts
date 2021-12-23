@@ -14,9 +14,9 @@ export enum Time {
  *
  * @param unixTime Unix timestamp in seconds
  * @param time Time enumerable of desired conversion
- * @returns Total amount of time elapsed
+ * @returns Total amount of time elapsed in @see Time
  */
-export function elapsed(unixTime: number, time: Time) {
+export function elapsed(unixTime: number, time: Time): number {
     const elapsed = unixTime;
     const now = Date.now();
 
