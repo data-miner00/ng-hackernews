@@ -25,7 +25,7 @@
   <div class="right">
     <h2>{{ title }}</h2>
     <p>
-      By <i>{{ by }}</i> {{ elapsed }} |
+      By <i>{{ by }}</i> {{ posted | durationElapsed }} |
       <a class="individual-link" [routerLink]="'stories/' + id"
         >{{ descendants ?? 0 }} comments</a
       >
