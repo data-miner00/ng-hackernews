@@ -17,12 +17,28 @@ import { FaqsComponent } from './views/faqs/faqs.component';
 import { IndividualComponent } from './views/individual/individual.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
-import { DisplayableDatePipe } from './pipes/displayable-date.pipe';
+import { DurationElapsedPipe } from './pipes/duration-elapsed.pipe';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, HeaderComponent, SidebarComponent, FooterComponent, NewsItemComponent, TopStoriesComponent, AskStoriesComponent, ShowStoriesComponent, JobStoriesComponent, FaqsComponent, IndividualComponent, CommentsComponent, SafeHtmlPipe, DisplayableDatePipe],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [],
-  bootstrap: [AppComponent],
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        HeaderComponent,
+        SidebarComponent,
+        FooterComponent,
+        NewsItemComponent,
+        TopStoriesComponent,
+        AskStoriesComponent,
+        ShowStoriesComponent,
+        JobStoriesComponent,
+        FaqsComponent,
+        IndividualComponent,
+        CommentsComponent,
+        SafeHtmlPipe,
+        DurationElapsedPipe,
+    ],
+    imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+    providers: [],
+    bootstrap: [AppComponent],
 })
 export class AppModule {}
