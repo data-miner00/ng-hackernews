@@ -27,10 +27,11 @@ export class NewsItemComponent implements OnInit {
         if (this.url) {
             try {
                 //@ts-ignore
-                const [_, domain] = /\/\/(.*?)\//.exec(this.url!);
+                const [_, domain] = /\/\/(.*?)\//.exec(this.url);
                 this.domain = domain;
             } catch {
-                this.domain = this.url!.slice(8);
+                // default to https check. TODO need check for http too
+                this.domain = this.url.slice(8);
             }
         } else {
             this.domain = 'unknown.com';
