@@ -20,6 +20,12 @@ export class IndividualComponent implements OnInit, OnDestroy {
         private hnService: FakernewsService
     ) {}
 
+    get isNew(): boolean {
+        if (!this.posted) return false;
+
+        return (Date.now() - this.posted.getTime()) / (3600 * 24 * 1000) < 2;
+    }
+
     ngOnInit(): void {
         this.routeSubscription = this.route.params.subscribe((params) => {
             this.storySubscription = this.hnService

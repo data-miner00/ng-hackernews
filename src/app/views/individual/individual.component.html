@@ -1,14 +1,14 @@
 <div class="individual">
-  <p class="mark">NEW</p>
+  <p *ngIf="isNew" class="mark">NEW</p>
   <h1>{{ story.title }}</h1>
   <div class="row">
     <div class="detail">
       <div class="color"></div>
-      <div class="actual">{{ story.by }}</div>
+      <div class="actual author">{{ story.by }}</div>
     </div>
     <div class="detail">
       <div class="color p"></div>
-      <div class="actual">Upvoted {{ story.score }} times</div>
+      <div class="actual upvote">Upvoted {{ story.score }} times</div>
     </div>
     <div class="original">
       <a [href]="story.url" target="_blank">Read the original post</a>
