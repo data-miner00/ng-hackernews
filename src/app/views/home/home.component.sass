@@ -1,4 +1,5 @@
 @import "../../../assets/sass/_breakpoints"
+@import "../../../assets/sass/_colors"
 
 .home
     min-height: 200vh
@@ -14,6 +15,13 @@
             h1
                 font-size: 2rem
 
+        a.see-more
+            display: block
+            text-align: center
+            padding: 20px 0
+            background: $font
+            color: white
+
 @media screen and(min-width: $xl)
     .home
 
@@ -21,3 +29,11 @@
 
             h1
                 font-size: 2.5rem
+
+            a.see-more
+                display: inline
+                text-align: left
+                padding: 0
+                background: $white
+                color: $font
+                text-decoration: underline

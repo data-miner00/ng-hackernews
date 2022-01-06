@@ -1,8 +1,11 @@
 @import "../../../assets/sass/_colors"
+@import "../../../assets/sass/_breakpoints"
+
 .news-item
     display: flex
+    flex-direction: column
     border: 1px solid $font
-    padding: 25px
+    padding: 10px
     margin-bottom: 5px
     transition: color .4s ease
 
@@ -12,7 +15,7 @@
     .left
         margin: 0 15px 0 10px
         display: flex
-        flex-direction: column
+        flex-direction: row
         justify-content: center
         align-items: center
         min-width: 28px
@@ -21,6 +24,21 @@
         flex-grow: 1
         flex-shrink: 1
 
+        h2
+            font-size: 1.2rem
+
         .individual-link
             &:hover
                 text-decoration: underline
+
+@media screen and(min-width: $xl)
+    .news-item
+        flex-direction: row
+        padding: 25px
+
+        .left
+            flex-direction: column
+
+        .right
+            h2
+                font-size: 2rem
