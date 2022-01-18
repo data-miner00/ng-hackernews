@@ -1,6 +1,7 @@
 
 @import "../../../../assets/sass/_colors"
 @import "../../../../assets/sass/_breakpoints"
+@import "../../../../assets/sass/_fonts"
 
 .overlay
     position: fixed
@@ -15,8 +16,30 @@
         left: -100%
 
     .top
-        height: 100px
         width: 100%
+
+        .logo
+            height: 100px
+            font-family: $playfair-display
+            font-size: 1.5rem
+            font-weight: 500
+            text-transform: uppercase
+            display: flex
+            align-items: center
+            justify-content: center
+            
+            span
+                display: block
+                position: relative
+                button
+                    cursor: pointer
+                    position: absolute
+                    display: block
+                    padding: 10px
+                    background: none
+                    border: none
+                    top: 0
+                    left: -40px
 
     nav
         width: 250px
