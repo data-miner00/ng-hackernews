@@ -19,6 +19,8 @@ import { CommentsComponent } from './components/comments/comments.component';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { DurationElapsedPipe } from './pipes/duration-elapsed.pipe';
 import { FavouritesComponent } from './views/favourites/favourites.component';
+import { LoginComponent } from './views/auth/login/login.component';
+import { AboutComponent } from './views/about/about.component';
 
 @NgModule({
     declarations: [
@@ -38,6 +40,8 @@ import { FavouritesComponent } from './views/favourites/favourites.component';
         SafeHtmlPipe,
         DurationElapsedPipe,
         FavouritesComponent,
+        LoginComponent,
+        AboutComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, HttpClientModule],
     providers: [],
