@@ -21,6 +21,7 @@ import { DurationElapsedPipe } from './pipes/duration-elapsed.pipe';
 import { FavouritesComponent } from './views/favourites/favourites.component';
 import { LoginComponent } from './views/auth/login/login.component';
 import { AboutComponent } from './views/about/about.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -43,7 +44,7 @@ import { AboutComponent } from './views/about/about.component';
         LoginComponent,
         AboutComponent,
     ],
-    imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+    imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
     providers: [],
     bootstrap: [AppComponent],
 })

@@ -1,13 +1,13 @@
 <div class="login-page">
-  <form>
+  <form #loginForm="ngForm" (ngSubmit)="login()">
     <div class="username-wrapper">
       <label for="username">Username</label>
-      <input type="text" id="username" />
+      <input type="text" name="username" [(ngModel)]="formInput.username" />
     </div>
     <div class="password-wrapper">
       <label for="password">Password</label>
-      <input type="text" id="password" />
+      <input type="password" name="password" [(ngModel)]="formInput.password" />
     </div>
-    <button>Login</button>
+    <button type="submit" [disabled]="!loginForm.valid">Login</button>
   </form>
 </div>
