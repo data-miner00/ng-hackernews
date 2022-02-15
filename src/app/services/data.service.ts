@@ -5,9 +5,9 @@ import { Subject } from 'rxjs';
     providedIn: 'root',
 })
 export class DataService {
-    private messageSource = new Subject<undefined>();
+    public messageSource = new Subject<undefined>();
 
-    channel = this.messageSource.asObservable();
+    public channel = this.messageSource.asObservable();
 
     constructor() {}
 
