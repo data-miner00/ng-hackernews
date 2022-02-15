@@ -11,12 +11,12 @@ import { Subscription } from 'rxjs';
 })
 export class HomeComponent implements OnInit, OnDestroy {
     private readonly STORY_AMOUNT: number = 5;
-    stories: Array<Story> = [];
+    public stories: Array<Story> = [];
     private subscriptionQueue: Array<Subscription> = [];
 
-    constructor(private hnService: FakernewsService) {}
+    public constructor(private hnService: FakernewsService) {}
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.hnService.topstories().subscribe((storiesId: Array<number>) => {
             for (let i = 0; i < this.STORY_AMOUNT; i++) {
                 const storyId = storiesId[i];
@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         });
     }
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         this.subscriptionQueue.forEach((subscription) => {
             subscription.unsubscribe();
         });

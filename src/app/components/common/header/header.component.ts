@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -6,12 +6,10 @@ import { DataService } from 'src/app/services/data.service';
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.sass'],
 })
-export class HeaderComponent implements OnInit {
-    constructor(private dataService: DataService) {}
+export class HeaderComponent {
+    public constructor(private dataService: DataService) {}
 
-    ngOnInit(): void {}
-
-    toggleSidebar(): void {
+    public toggleSidebar(): void {
         this.dataService.triggerEvent();
     }
 }

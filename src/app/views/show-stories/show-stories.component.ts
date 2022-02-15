@@ -10,13 +10,13 @@ import { FakernewsService } from 'src/app/services/fakernews.service';
     styleUrls: ['./show-stories.component.sass'],
 })
 export class ShowStoriesComponent implements IStoriesPage {
-    storiesAmount: number = 20;
-    stories: Array<Story> = [];
-    subscriptionQueue: Array<Subscription> = [];
+    public storiesAmount: number = 20;
+    public stories: Array<Story> = [];
+    public subscriptionQueue: Array<Subscription> = [];
 
-    constructor(public hnService: FakernewsService) {}
+    public constructor(public hnService: FakernewsService) {}
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.hnService.showstories().subscribe((storiesId: Array<number>) => {
             for (let i = 0; i < this.storiesAmount; i++) {
                 const storyId = storiesId[i];
@@ -30,7 +30,7 @@ export class ShowStoriesComponent implements IStoriesPage {
         });
     }
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         this.subscriptionQueue.forEach((subscription) => {
             subscription.unsubscribe();
         });

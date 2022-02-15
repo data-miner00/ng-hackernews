@@ -6,9 +6,9 @@ import { Component } from '@angular/core';
     styleUrls: ['./app.component.sass'],
 })
 export class AppComponent {
-    title = 'ng-hackernews';
+    public title = 'ng-hackernews';
 
-    onActivate(event: Event) {
+    public onActivate(event: Event) {
         window.scroll(0, 0);
     }
 }

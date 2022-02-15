@@ -14,12 +14,11 @@ export class NewsItemComponent implements OnInit {
     @Input() title?: string;
     @Input() type?: string;
     @Input() url?: string;
-    domain: string;
-    posted: Date;
 
-    constructor() {}
+    public domain: string;
+    public posted: Date;
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
         if (this.time) {
             this.posted = new Date(this.time * 1000);
         }

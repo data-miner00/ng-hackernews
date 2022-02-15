@@ -6,12 +6,9 @@ import { Subject } from 'rxjs';
 })
 export class DataService {
     public messageSource = new Subject<undefined>();
-
     public channel = this.messageSource.asObservable();
 
-    constructor() {}
-
-    triggerEvent(): void {
+    public triggerEvent(): void {
         this.messageSource.next(undefined);
     }
 }

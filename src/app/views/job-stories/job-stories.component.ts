@@ -11,13 +11,13 @@ import { HackernewsService } from 'src/app/services/hackernews.service';
     styleUrls: ['./job-stories.component.sass'],
 })
 export class JobStoriesComponent implements IStoriesPage {
-    storiesAmount: number = 20;
-    subscriptionQueue: Array<Subscription> = [];
-    stories: Array<Story> = [];
+    public storiesAmount: number = 20;
+    public subscriptionQueue: Array<Subscription> = [];
+    public stories: Array<Story> = [];
 
-    constructor(public hnService: FakernewsService) {}
+    public constructor(public hnService: FakernewsService) {}
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.hnService.jobstories().subscribe((storiesId: Array<number>) => {
             for (let i = 0; i < this.storiesAmount; i++) {
                 const storyId = storiesId[i];
@@ -31,7 +31,7 @@ export class JobStoriesComponent implements IStoriesPage {
         });
     }
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         this.subscriptionQueue.forEach((subscription) => {
             subscription.unsubscribe();
         });

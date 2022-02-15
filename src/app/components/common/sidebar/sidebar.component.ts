@@ -1,7 +1,6 @@
 import {
     Component,
     ElementRef,
-    Input,
     OnInit,
     ViewChild,
     Renderer2,
@@ -17,18 +16,19 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class SidebarComponent implements OnInit, OnDestroy {
     @ViewChild('overlay') overlay: ElementRef<HTMLDivElement>;
+
     private subscription: Subscription;
 
-    constructor(
+    public constructor(
         private renderer: Renderer2,
         private dataService: DataService
     ) {}
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         this.subscription.unsubscribe();
     }
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.subscription = this.dataService.channel.subscribe((_) => {
             this.toggleSidebar();
         });

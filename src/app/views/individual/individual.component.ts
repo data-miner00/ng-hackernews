@@ -10,23 +10,23 @@ import { FakernewsService } from 'src/app/services/fakernews.service';
     styleUrls: ['./individual.component.sass'],
 })
 export class IndividualComponent implements OnInit, OnDestroy {
-    story: Story;
-    posted: Date;
-    routeSubscription: Subscription;
-    storySubscription: Subscription;
+    public story: Story;
+    public posted: Date;
+    public routeSubscription: Subscription;
+    public storySubscription: Subscription;
 
-    constructor(
+    public constructor(
         private route: ActivatedRoute,
         private hnService: FakernewsService
     ) {}
 
-    get isNew(): boolean {
+    public get isNew(): boolean {
         if (!this.posted) return false;
 
         return (Date.now() - this.posted.getTime()) / (3600 * 24 * 1000) < 2;
     }
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.routeSubscription = this.route.params.subscribe((params) => {
             this.storySubscription = this.hnService
                 .item<Story>(params.id)
@@ -37,7 +37,7 @@ export class IndividualComponent implements OnInit, OnDestroy {
         });
     }
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         if (this.storySubscription) this.storySubscription.unsubscribe();
         if (this.routeSubscription) this.routeSubscription.unsubscribe();
     }

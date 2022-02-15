@@ -5,7 +5,7 @@ import { elapsed as _elapsed, Time } from '../utils/date';
     name: 'durationElapsed',
 })
 export class DurationElapsedPipe implements PipeTransform {
-    transform(value: Date): string {
+    public transform(value: Date): string {
         let durationElapsed: string;
 
         const unixInSeconds: number = value.getTime() / 1000;

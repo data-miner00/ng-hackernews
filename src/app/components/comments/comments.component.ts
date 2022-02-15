@@ -12,14 +12,13 @@ import { HackernewsService } from 'src/app/services/hackernews.service';
 export class CommentsComponent implements OnInit, OnDestroy {
     @Input() commentId: number;
 
-    comment: Comment;
-    commentSubscription: Subscription;
+    public comment: Comment;
+    public commentSubscription: Subscription;
+    public posted: Date = new Date();
 
-    posted: Date = new Date();
+    public constructor(private hnService: HackernewsService) {}
 
-    constructor(private hnService: HackernewsService) {}
-
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.commentSubscription = this.hnService
             .item<Comment>(this.commentId)
             .subscribe((comment) => {
@@ -28,7 +27,7 @@ export class CommentsComponent implements OnInit, OnDestroy {
             });
     }
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         if (this.commentSubscription !== null) {
             this.commentSubscription.unsubscribe();
         }
