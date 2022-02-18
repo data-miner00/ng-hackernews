@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "hackernews-4ea93": {
+      "hosting": {
+        "ng-hackernews": [
+          "hackernews-4ea93"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "hackernews-4ea93"
+  }
+}

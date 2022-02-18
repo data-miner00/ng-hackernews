@@ -22,6 +22,11 @@ import { FavouritesComponent } from './views/favourites/favourites.component';
 import { LoginComponent } from './views/auth/login/login.component';
 import { AboutComponent } from './views/about/about.component';
 import { FormsModule } from '@angular/forms';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 
 @NgModule({
     declarations: [
@@ -44,8 +49,10 @@ import { FormsModule } from '@angular/forms';
         LoginComponent,
         AboutComponent,
     ],
-    imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
-    providers: [],
+    imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, provideFirebaseApp(() => initializeApp(environment.firebase)), provideAnalytics(() => getAnalytics()), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())],
+    providers: [
+    ScreenTrackingService,UserTrackingService
+  ],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
