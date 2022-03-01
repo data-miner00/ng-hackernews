@@ -1,42 +1,49 @@
-import { SecurityContext } from '@angular/core';
-import {
-  DomSanitizer,
-  SafeHtml,
-  SafeResourceUrl,
-  SafeScript,
-  SafeStyle,
-  SafeUrl,
-  SafeValue,
-} from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 import { SafeHtmlPipe } from './safe-html.pipe';
 
-class DomSanitizerMock extends DomSanitizer {
-  sanitize(
-    context: SecurityContext,
-    value: string | SafeValue | null
-  ): string | null {
-    throw new Error('Method not implemented.');
+class MockDomSanitizer extends DomSanitizer {
+  public constructor(private mockValue: string) {
+    super();
   }
-  bypassSecurityTrustHtml(value: string): SafeHtml {
-    throw new Error('Method not implemented.');
+
+  sanitize(): string {
+    return this.mockValue;
   }
-  bypassSecurityTrustStyle(value: string): SafeStyle {
-    throw new Error('Method not implemented.');
+  bypassSecurityTrustHtml(): string {
+    return this.mockValue;
   }
-  bypassSecurityTrustScript(value: string): SafeScript {
-    throw new Error('Method not implemented.');
+  bypassSecurityTrustStyle(): string {
+    return this.mockValue;
   }
-  bypassSecurityTrustUrl(value: string): SafeUrl {
-    throw new Error('Method not implemented.');
+  bypassSecurityTrustScript(): string {
+    return this.mockValue;
   }
-  bypassSecurityTrustResourceUrl(value: string): SafeResourceUrl {
-    throw new Error('Method not implemented.');
+  bypassSecurityTrustUrl(): string {
+    return this.mockValue;
+  }
+  bypassSecurityTrustResourceUrl(): string {
+    return this.mockValue;
   }
 }
 
 describe('SafeHtmlPipe', () => {
+  let safePipe: SafeHtmlPipe;
+  let mockValue = 'ANY';
+
+  beforeEach(() => {
+    safePipe = new SafeHtmlPipe(new MockDomSanitizer(mockValue));
+  });
+
   it('create an instance', () => {
-    const pipe = new SafeHtmlPipe(new DomSanitizerMock());
-    expect(pipe).toBeTruthy();
+    expect(safePipe).toBeTruthy();
+  });
+
+  it('should return HTML string', () => {
+    expect(safePipe.transform('html')).toBeTruthy();
+    expect(safePipe.transform('style')).toBeTruthy();
+    expect(safePipe.transform('script')).toBeTruthy();
+    expect(safePipe.transform('url')).toBeTruthy();
+    expect(safePipe.transform('resourceUrl')).toBeTruthy();
+    expect(safePipe.transform('anything')).toContain('ANY');
   });
 });
