@@ -9,7 +9,7 @@ export class LoginComponent implements OnInit {
     constructor() {}
 
     formInput = {
-        username: '',
+        email: '',
         password: '',
     };
 
@@ -17,6 +17,6 @@ export class LoginComponent implements OnInit {
 
     login(): void {
         console.log(this.formInput.password);
-        console.log(this.formInput.username);
+        console.log(this.formInput.email);
     }
 }
