@@ -1,0 +1,25 @@
+<div class="signup-page">
+  <form #signupForm="ngForm" (ngSubmit)="signup()">
+    <div class="username">
+      <label for="username">Username</label>
+      <input type="text" name="username" [(ngModel)]="formInput.displayName" />
+    </div>
+    <div class="email-wrapper">
+      <label for="email">Email</label>
+      <input type="text" name="email" [(ngModel)]="formInput.email" />
+    </div>
+    <div class="password-wrapper">
+      <label for="password">Password</label>
+      <input type="password" name="password" [(ngModel)]="formInput.password" />
+    </div>
+    <div class="confirm-password-wrapper">
+      <label for="confirm-password">Confirm password</label>
+      <input
+        type="confirm-password"
+        name="confirm-password"
+        [(ngModel)]="formInput.confirmPassword"
+      />
+    </div>
+    <button type="submit" [disabled]="!signupForm.valid">Sign up</button>
+  </form>
+</div>

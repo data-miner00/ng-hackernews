@@ -27,6 +27,7 @@ import { environment } from '../environments/environment';
 import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { SignupComponent } from './views/auth/signup/signup.component';
 
 @NgModule({
     declarations: [
@@ -48,6 +49,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
         FavouritesComponent,
         LoginComponent,
         AboutComponent,
+        SignupComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, provideFirebaseApp(() => initializeApp(environment.firebase)), provideAnalytics(() => getAnalytics()), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())],
     providers: [
