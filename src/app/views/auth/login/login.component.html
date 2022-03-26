@@ -8,9 +8,9 @@
       <label for="password">Password</label>
       <input type="password" name="password" [(ngModel)]="formInput.password" />
     </div>
-    <a routerLink href="">Forgot password?</a>
+    <a routerLink="forgot-password">Forgot password?</a>
     <button type="submit" [disabled]="!loginForm.valid">Login</button>
   </form>
 
-  <a routerLink href="register">Don't have an account? Register here</a>
+  <a routerLink="/signup">Don't have an account? Register here</a>
 </div>
