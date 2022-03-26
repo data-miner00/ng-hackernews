@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
     selector: 'app-login',
@@ -6,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./login.component.sass'],
 })
 export class LoginComponent implements OnInit {
-    constructor() {}
+    constructor(private auth: AuthService, private router: Router) {}
 
     formInput = {
         email: '',
@@ -15,8 +17,12 @@ export class LoginComponent implements OnInit {
 
     ngOnInit(): void {}
 
-    login(): void {
-        console.log(this.formInput.password);
-        console.log(this.formInput.email);
+    async login(): Promise<void> {
+        await this.auth.emailLogin(
+            this.formInput.email,
+            this.formInput.password
+        );
+
+        this.router.navigate(['/']);
     }
 }
