@@ -17,6 +17,13 @@
     <a routerLink="/" class="logo">
       <span>Hackernews</span>
     </a>
-    <a routerLink="/login" class="login">Login</a>
+
+    <ng-template [ngIf]="user" [ngIfElse]="loginLink">
+      <div>{{ user.email }}</div>
+    </ng-template>
+
+    <ng-template #loginLink>
+      <a #loginLink routerLink="/login" class="login">Login</a>
+    </ng-template>
   </header>
 </div>
