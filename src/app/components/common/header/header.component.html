@@ -14,16 +14,21 @@
       </svg>
       <span>Menu</span>
     </div>
-    <a routerLink="/" class="logo">
-      <span>Hackernews</span>
-    </a>
 
-    <ng-template [ngIf]="user" [ngIfElse]="loginLink">
-      <div>{{ user.email }}</div>
-    </ng-template>
+    <div class="middle">
+      <a routerLink="/" class="logo">
+        <span>The Hacker Times</span>
+      </a>
+    </div>
 
-    <ng-template #loginLink>
-      <a #loginLink routerLink="/login" class="login">Login</a>
-    </ng-template>
+    <div class="right">
+      <ng-template [ngIf]="user" [ngIfElse]="loginLink">
+        <div>{{ user.email }}</div>
+      </ng-template>
+
+      <ng-template #loginLink>
+        <a routerLink="/login" class="login">Login</a>
+      </ng-template>
+    </div>
   </header>
 </div>
