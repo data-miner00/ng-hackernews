@@ -74,7 +74,7 @@ export class FirestoreService {
         );
 
         updateDoc(docRef, {
-            [fieldToAdd]: arrayUnion(itemsToAdd),
+            [fieldToAdd]: arrayUnion(...itemsToAdd),
         });
     }
 
@@ -91,7 +91,7 @@ export class FirestoreService {
         );
 
         updateDoc(docRef, {
-            [fieldToRemove]: arrayRemove(itemsToRemove),
+            [fieldToRemove]: arrayRemove(...itemsToRemove),
         });
     }
 
