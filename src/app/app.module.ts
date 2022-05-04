@@ -28,6 +28,7 @@ import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { SignupComponent } from './views/auth/signup/signup.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
 
 @NgModule({
     declarations: [
@@ -50,6 +51,7 @@ import { SignupComponent } from './views/auth/signup/signup.component';
         LoginComponent,
         AboutComponent,
         SignupComponent,
+        CarouselComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, provideFirebaseApp(() => initializeApp(environment.firebase)), provideAnalytics(() => getAnalytics()), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())],
     providers: [
