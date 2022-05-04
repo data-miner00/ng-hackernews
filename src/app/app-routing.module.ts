@@ -18,19 +18,19 @@ const routes: Routes = [
         component: HomeComponent,
     },
     {
-        path: 'top-stories',
+        path: 'top',
         component: TopStoriesComponent,
     },
     {
-        path: 'ask-stories',
+        path: 'ask',
         component: AskStoriesComponent,
     },
     {
-        path: 'show-stories',
+        path: 'show',
         component: ShowStoriesComponent,
     },
     {
-        path: 'job-stories',
+        path: 'job',
         component: JobStoriesComponent,
     },
     {
