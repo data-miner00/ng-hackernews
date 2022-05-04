@@ -1,18 +1,44 @@
 <div class="header-wrapper">
+  <div class="actions">
+    <div class="left">
+      <button class="menu">
+        <svg class="css-1fe7a5q" width="16" height="16" viewBox="0 0 16 16">
+          <rect x="1" y="3" fill="#333" width="14" height="2"></rect>
+          <rect x="1" y="7" fill="#333" width="14" height="2"></rect>
+          <rect x="1" y="11" fill="#333" width="14" height="2"></rect>
+        </svg>
+      </button>
+      <button class="bookmark">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-bookmarks"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4zm2-1a1 1 0 0 0-1 1v10.566l3.723-2.482a.5.5 0 0 1 .554 0L11 14.566V4a1 1 0 0 0-1-1H4z"
+          />
+          <path
+            d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1z"
+          />
+        </svg>
+      </button>
+    </div>
+    <div class="right">
+      <button class="subscribe">Subscribe for $0.00/Week</button>
+      <button class="login">Login</button>
+    </div>
+  </div>
   <header>
     <div class="left" title="Menu" (click)="toggleSidebar()">
-      <svg
-        width="17"
-        height="15"
-        viewBox="0 0 17 15"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <rect x="1" y="1" width="15" height="3" rx="1" fill="#1E1E1E" />
-        <rect x="1" y="6" width="15" height="3" rx="1" fill="#1E1E1E" />
-        <rect x="1" y="11" width="15" height="3" rx="1" fill="#1E1E1E" />
-      </svg>
-      <span>Menu</span>
+      <div class="date">
+        <span>Tuesday, May 3, 2022</span>
+      </div>
+      <div>
+        <span>A minimal placeholder</span>
+      </div>
     </div>
 
     <div class="middle">
@@ -22,13 +48,38 @@
     </div>
 
     <div class="right">
-      <ng-template [ngIf]="user" [ngIfElse]="loginLink">
+      <div>
+        <span>Morning 12:32 am</span>
+      </div>
+      <div>
+        <span>{{ user?.email }}</span>
+      </div>
+      <!-- <ng-template [ngIf]="user" [ngIfElse]="loginLink">
         <div>{{ user.email }}</div>
       </ng-template>
 
       <ng-template #loginLink>
         <a routerLink="/login" class="login">Login</a>
-      </ng-template>
+      </ng-template> -->
     </div>
   </header>
+  <nav>
+    <ul>
+      <li>
+        <a routerLink="/top">Top</a>
+      </li>
+      <li>
+        <a routerLink="/ask">Ask</a>
+      </li>
+      <li>
+        <a routerLink="/show">Show</a>
+      </li>
+      <li>
+        <a routerLink="/job">Job</a>
+      </li>
+      <li>
+        <a routerLink="/random">Random</a>
+      </li>
+    </ul>
+  </nav>
 </div>

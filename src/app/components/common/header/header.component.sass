@@ -6,24 +6,58 @@
     border-bottom: $font 1px solid
     background: $white
     z-index: 10
+
+    .actions
+        max-width: 1200px
+        margin: 0 auto
+        display: flex
+        justify-content: space-between
+        align-items: center
+        padding: 5px 0 0
+        .left
+            button
+                cursor: pointer
+                background: transparent
+                border: none
+                padding: 8px
+                border-radius: 5px
+                &:hover
+                    background: #f7f7f7
+                svg
+                    display: block
+
+            .menu
+                margin-right: 5px
+        .right
+            button
+                font-size: 10px
+                color: white
+                font-weight: 600
+                text-transform: uppercase
+                border-radius: 3px
+                background: $gray-800
+                border: none
+                padding: 8px
+                cursor: pointer
+                transition: background .2s
+                &:hover
+                    background-color: $gray-700
+            .subscribe
+                margin-right: 5px
     
     header
-        height: 80px
-        padding: 0 5%
+        height: 60px
+        max-width: 1200px
+        margin: 0 auto
         display: flex
         align-items: center
         justify-content: space-between
+        font-size: 12px
         .left
-            display: flex
-            align-items: center
-            padding: 5px
             cursor: pointer
             flex-basis: 300px
-            svg
-                display: inline-block
-            span
-                display: none
-                margin-left: 20px
+            .date
+                font-weight: 600
 
         .logo
             display: block
@@ -32,22 +66,29 @@
             font-weight: 500
 
         .right
+            text-align: right
             flex-basis: 300px
 
+    nav
+        margin: 0 auto
+        padding: 5px 0
+        ul
+            list-style-type: none
+            display: flex
+            gap: 30px
+            justify-content: center
+            font-size: 12px
+
+            li
+                a
+                    display: block
+                    border-radius: 3px
+                    padding: 3px 4px
+                    &:hover
+                        background: #f7f7f7
 
 @media screen and(min-width: $xl)
     .header-wrapper
         header
-            padding: 0 20%
-        
-            .left
-                span
-                    display: inline-block
-            
             .logo
-                font-size: 2.5rem
-
-            .login
-                width: 89px
-                text-align: center
-                padding: 10px 0
+                font-size: 3.3rem
