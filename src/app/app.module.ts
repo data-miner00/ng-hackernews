@@ -30,6 +30,9 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { SignupComponent } from './views/auth/signup/signup.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { HeadlineComponent } from './components/headline/headline.component';
+import { NewsItemVariantIComponent } from './components/news-item-variant-i/news-item-variant-i.component';
+import { NewsItemVariantIiComponent } from './components/news-item-variant-ii/news-item-variant-ii.component';
+import { NewsItemVariantIiiComponent } from './components/news-item-variant-iii/news-item-variant-iii.component';
 
 @NgModule({
     declarations: [
@@ -54,6 +57,9 @@ import { HeadlineComponent } from './components/headline/headline.component';
         SignupComponent,
         CarouselComponent,
         HeadlineComponent,
+        NewsItemVariantIComponent,
+        NewsItemVariantIiComponent,
+        NewsItemVariantIiiComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, provideFirebaseApp(() => initializeApp(environment.firebase)), provideAnalytics(() => getAnalytics()), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())],
     providers: [
