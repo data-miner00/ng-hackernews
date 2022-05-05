@@ -35,6 +35,7 @@ import { NewsItemVariantIiComponent } from './components/news-item-variant-ii/ne
 import { NewsItemVariantIiiComponent } from './components/news-item-variant-iii/news-item-variant-iii.component';
 import { NewsItemVariantIvComponent } from './components/news-item-variant-iv/news-item-variant-iv.component';
 import { FullWidthAdsComponent } from './components/full-width-ads/full-width-ads.component';
+import { NewsItemVariantVComponent } from './components/news-item-variant-v/news-item-variant-v.component';
 
 @NgModule({
     declarations: [
@@ -64,6 +65,7 @@ import { FullWidthAdsComponent } from './components/full-width-ads/full-width-ad
         NewsItemVariantIiiComponent,
         NewsItemVariantIvComponent,
         FullWidthAdsComponent,
+        NewsItemVariantVComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, provideFirebaseApp(() => initializeApp(environment.firebase)), provideAnalytics(() => getAnalytics()), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())],
     providers: [

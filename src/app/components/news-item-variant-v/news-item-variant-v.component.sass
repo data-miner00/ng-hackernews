@@ -1,0 +1,33 @@
+@import "../../../assets/sass/_colors"
+
+h3
+    font-size: 1rem
+    line-height: 1.2em
+    margin-bottom: 10px
+
+p
+    color: $gray-600
+    font-size: .875rem
+
+.variant-v
+    display: grid
+    grid-template-columns: repeat(9, 1fr)
+    grid-column-gap: calc(1rem * 2 + 1px)
+
+    .left
+        grid-column: span 5
+
+    .lefty
+        grid-column: span 9
+
+
+    .right
+        grid-column: span 4
+
+        figure 
+            picture img
+                max-width: 100%
+            caption
+                width: 100%
+                font-size: 12px
+                color: $gray-400
