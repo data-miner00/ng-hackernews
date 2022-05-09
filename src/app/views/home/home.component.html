@@ -1,80 +1,195 @@
 <div class="home">
-  <section class="top-stories">
-    <div class="heading">
-      <h1>Top Stories</h1>
-      <p>Heated topics from around the internet</p>
+  <section class="carousel">
+    <app-headline></app-headline>
+    <div class="middle">
+      <div class="middle-left">
+        <div class="middle-left-inner">
+          <div class="news">
+            <app-news-item-variant-i></app-news-item-variant-i>
+            <app-news-item-variant-ii></app-news-item-variant-ii>
+          </div>
+          <app-carousel></app-carousel>
+        </div>
+      </div>
+      <div class="middle-right">
+        <div class="story-wrapper">
+          <figure>
+            <picture class="css-cov0u6"
+              ><source
+                class="css-hdqqnp"
+                media="screen and (max-width: 600px)"
+                srcset="
+                  https://static01.nyt.com/images/2022/05/03/us/abortion-bans-restrictons-roe-v-wade-promo-1651599223293/abortion-bans-restrictons-roe-v-wade-promo-1651599223293-threeByTwoSmallAt2X-v6.png?format=pjpg&amp;quality=75&amp;auto=webp&amp;disable=upscale
+                " />
+              <img class="css-o9w048" src="/assets/images/display2.png" alt=""
+            /></picture>
+          </figure>
+          <div class="dummy"></div>
+          <h3>
+            See where abortion could be banned in the U.S. without Roe v. Wade.
+          </h3>
+        </div>
+        <div class="story-wrapper">
+          <h3>Leaked Threat to Roe v. Wade Stuns, Then Energizes Americans</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora,
+            deserunt laboriosam corrupti..
+          </p>
+        </div>
+      </div>
     </div>
-    <app-news-item
-      *ngFor="let story of stories"
-      [id]="story.id"
-      [title]="story.title"
-      [by]="story.by"
-      [descendants]="story.descendants"
-      [score]="story.score"
-      [type]="story.type"
-      [url]="story.url"
-      [time]="story.time"
-    ></app-news-item>
-    <a class="see-more" routerLink="top-stories">See more</a>
+    <div class="bottom">
+      <div class="bottom-inner">
+        <app-news-item-variant-ii
+          *ngFor="let i of range(5)"
+          headline="The draft opinion, by Justice Samuel Alito, set out familiar critiques of the Roe decision."
+        ></app-news-item-variant-ii>
+      </div>
+    </div>
   </section>
 
-  <section class="ask-stories">
-    <div class="heading">
-      <h1>Ask Stories</h1>
-      <p>Stories submitted by user to ask HN</p>
-    </div>
-    <app-news-item
-      *ngFor="let story of stories"
-      [id]="story.id"
-      [title]="story.title"
-      [by]="story.by"
-      [descendants]="story.descendants"
-      [score]="story.score"
-      [type]="story.type"
-      [url]="story.url"
-      [time]="story.time"
-    ></app-news-item>
-    <a class="see-more" routerLink="ask-stories">See more</a>
-  </section>
+  <main>
+    <div class="main-inner">
+      <div class="left">
+        <section class="top-stories">
+          <div class="section-label">Top stories</div>
+          <app-headline
+            headline="J.D. Vance Wins Republican Senate Primary in Ohio"
+          ></app-headline>
+          <div class="top-stories-inner">
+            <div class="left1">
+              <app-news-item-variant-iii></app-news-item-variant-iii>
+              <app-news-item-variant-iii
+                avatar="ffsfa"
+              ></app-news-item-variant-iii>
+              <app-news-item-variant-iii
+                avatar="ffsfa"
+              ></app-news-item-variant-iii>
+            </div>
+            <div class="right1">
+              <div class="big-story-wrapper">
+                <h3>Ohio U.S. Senate Results</h3>
+                <figure>
+                  <picture class="css-cov0u6"
+                    ><source
+                      media="screen and (max-width: 600px)"
+                      srcset="
+                        https://static01.nyt.com/images/2022/05/03/us/abortion-bans-restrictons-roe-v-wade-promo-1651599223293/abortion-bans-restrictons-roe-v-wade-promo-1651599223293-threeByTwoSmallAt2X-v6.png?format=pjpg&amp;quality=75&amp;auto=webp&amp;disable=upscale
+                      " />
+                    <img src="/assets/images/display3.webp" alt=""
+                  /></picture>
+                  <caption>
+                    A minuscule caption tries to be inconspicuous
+                  </caption>
+                </figure>
+                <p>
+                  Fstesf, author of Lisp in Space, have sparkled a thread over
+                  1311 comments and 290 upvotes as of now.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-  <section class="show-stories">
-    <div class="heading">
-      <h1>Show Stories</h1>
-      <p>Latest repositories shared by community</p>
-    </div>
-    <app-news-item
-      *ngFor="let story of stories"
-      [id]="story.id"
-      [title]="story.title"
-      [by]="story.by"
-      [descendants]="story.descendants"
-      [score]="story.score"
-      [type]="story.type"
-      [url]="story.url"
-      [time]="story.time"
-    ></app-news-item>
-    <a class="see-more" routerLink="show-stories">See more</a>
-  </section>
+        <section class="ask-stories">
+          <div class="section-label">Ask stories</div>
+          <div class="square"></div>
+          <div class="better-stories">
+            <app-news-item-variant-v mode="dfsf"></app-news-item-variant-v>
+            <div class="usual-story">
+              <app-news-item-variant-v></app-news-item-variant-v>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div class="ask-stories-inner">
+            <app-news-item-variant-ii
+              *ngFor="let i of range(3)"
+              headline="The draft opinion, by Justice Samuel Alito, set out familiar critiques of the Roe decision."
+            ></app-news-item-variant-ii>
+          </div>
+        </section>
+      </div>
 
-  <section class="show-stories">
-    <div class="heading">
-      <h1>Job Stories</h1>
-      <p>
-        Available positions at
-        <a href="https://www.ycombinator.com/jobs">YC startup</a>
-      </p>
+      <aside class="right">
+        <div class="divider"></div>
+        <section class="job-stories">
+          <div class="section-label">Job stories</div>
+          <app-news-item-variant-iv></app-news-item-variant-iv>
+          <app-news-item-variant-iv avatar="dfsdfd"></app-news-item-variant-iv>
+          <div class="ads">
+            <div>
+              <img src="/assets/images/aws-ad.png" alt="AWS Ads" />
+            </div>
+          </div>
+          <app-news-item-variant-iv></app-news-item-variant-iv>
+          <app-news-item-variant-iv illus="fdsf"></app-news-item-variant-iv>
+          <div class="doubly">
+            <app-news-item-variant-iv></app-news-item-variant-iv>
+            <app-news-item-variant-iv></app-news-item-variant-iv>
+          </div>
+        </section>
+      </aside>
     </div>
-    <app-news-item
-      *ngFor="let story of stories"
-      [id]="story.id"
-      [title]="story.title"
-      [by]="story.by"
-      [descendants]="story.descendants"
-      [score]="story.score"
-      [type]="story.type"
-      [url]="story.url"
-      [time]="story.time"
-    ></app-news-item>
-    <a class="see-more" routerLink="job-stories">See more</a>
-  </section>
+
+    <!-- Ads -->
+    <app-full-width-ads></app-full-width-ads>
+
+    <!-- Four column posts -->
+    <section class="four-cols">
+      <div class="four-cols-inner">
+        <app-news-item-variant-vi></app-news-item-variant-vi>
+        <app-news-item-variant-vi></app-news-item-variant-vi>
+        <app-news-item-variant-vi></app-news-item-variant-vi>
+        <app-news-item-variant-vi></app-news-item-variant-vi>
+      </div>
+    </section>
+
+    <section class="show-stories">
+      <div class="section-label">Show stories</div>
+      <div class="square"></div>
+      <div class="show-stories-inner">
+        <div class="left-part">
+          <div class="wrapper">
+            <div class="kafka">
+              <div class="upper">
+                <div class="posts">
+                  <app-news-item-variant-iii></app-news-item-variant-iii>
+                  <app-news-item-variant-iii></app-news-item-variant-iii>
+                </div>
+                <div class="imgs">
+                  <figure>
+                    <picture class="css-cov0u6"
+                      ><source
+                        media="screen and (max-width: 600px)"
+                        srcset="
+                          https://static01.nyt.com/images/2022/05/03/us/abortion-bans-restrictons-roe-v-wade-promo-1651599223293/abortion-bans-restrictons-roe-v-wade-promo-1651599223293-threeByTwoSmallAt2X-v6.png?format=pjpg&amp;quality=75&amp;auto=webp&amp;disable=upscale
+                        " />
+                      <img src="/assets/images/display3.webp" alt=""
+                    /></picture>
+                    <caption>
+                      A minuscule caption tries to be inconspicuous
+                    </caption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+            <div class="bower">
+              <app-news-item-variant-iii></app-news-item-variant-iii>
+              <app-news-item-variant-iii></app-news-item-variant-iii>
+            </div>
+          </div>
+        </div>
+        <div class="right-part">
+          <div class="wrapper">
+            <app-news-item-variant-vii
+              *ngFor="let i of range(7)"
+            ></app-news-item-variant-vii>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Paid post -->
+    <app-paid-post></app-paid-post>
+  </main>
 </div>

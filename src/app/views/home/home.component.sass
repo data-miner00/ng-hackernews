@@ -1,39 +1,355 @@
 @import "../../../assets/sass/_breakpoints"
 @import "../../../assets/sass/_colors"
+@import "../../../assets/sass/_fonts"
+
+h3
+    font-size: 1rem
+    line-height: 1.2em
+
+.section-label
+    font-family: $readex-pro
+    text-transform: uppercase
+    font-size: 12px
+    font-weight: 600
+
+.square
+    width: 1rem
+    height: 1rem
 
 .home
-    min-height: 200vh
-    display: flex
-    flex-direction: column
-    gap: 50px
-    
-    section
-        .heading
-            margin-bottom: 20px
-            text-align: center
+    font-family: $playfair-display
+    section.carousel
+        padding-bottom: 1.5rem
+       
+        .middle
+            display: grid
+            grid-column-gap: calc(1rem * 2 + 1px)
+            grid-template-columns: repeat(20,1fr)
+            .middle-left
+                grid-column: span 15
+                &-inner
+                    display: grid
+                    grid-column-gap: calc(1rem * 2 + 1px)
+                    grid-template-columns: repeat(15,1fr)
 
-            h1
-                font-size: 2rem
+                    .news
+                        grid-column: span 5
 
-        a.see-more
-            display: block
-            text-align: center
-            padding: 20px 0
-            background: $font
-            color: white
+                        app-news-item-variant-i
+                            &::after
+                                content: ''
+                                display: block
+                                border-bottom: 1px solid #dfdfdf
+                                margin: 1rem 0
+                                clear: both
 
-@media screen and(min-width: $xl)
-    .home
+                    app-carousel
+                        grid-column: span 10
+                        
+            .middle-right
+                position: relative
+                grid-column: span 5
 
-        section
+                
+                &::before
+                    content: ''
+                    height: 100%
+                    left: calc(-1rem - 1px)
+                    position: absolute
+                    border-left: 1px solid #dfdfdf
 
-            h1
-                font-size: 2.5rem
+                .story-wrapper
+                    h3
+                        margin-bottom: 10px
+                    p
+                        color: $gray-600
 
-            a.see-more
-                display: inline
-                text-align: left
-                padding: 0
-                background: $white
-                color: $font
-                text-decoration: underline
+                    figure picture img
+                        max-width: 100%
+
+                    .dummy
+                        width: 8px
+                        height: 8px
+
+                    &:first-of-type::after
+                        content: ''
+                        display: block
+                        border-bottom: 1px solid #dfdfdf
+                        margin: 1rem 0
+                        clear: both
+
+        .bottom
+            &::before
+                content: ''
+                display: block
+                border-top: 1px solid #dfdfdf
+                margin: 1rem 0
+                clear: both
+
+            &-inner
+                display: grid
+                grid-column-gap: calc(1rem * 2 + 1px)
+                grid-auto-columns: 1fr
+                grid-auto-flow: column
+
+                app-news-item-variant-ii
+                    position: relative
+                    grid-column: span 1
+
+                    &:not(:first-of-type)
+                        &::before
+                            content: ''
+                            height: 100%
+                            left: calc(-1rem - 1px)
+                            position: absolute
+                            border-left: 1px solid #dfdfdf
+
+    main
+        .main-inner
+            display: grid
+            grid-column-gap: calc(1rem * 2 + 1px)
+            grid-template-columns: repeat(20, 1fr)
+            padding-bottom: 2.5rem
+
+            .left
+                grid-column: span 14
+
+                .top-stories
+                    &-inner
+                        display: grid
+                        grid-column-gap: calc(1rem * 2 + 1px)
+                        grid-template-columns: repeat(14, 1fr)
+                        .left1
+                            grid-column: span 5
+
+                            app-news-item-variant-iii
+                                &:not(:last-of-type)::after
+                                    content: ''
+                                    display: block
+                                    border-bottom: 1px solid #dfdfdf
+                                    margin: 1rem 0
+                                    clear: both
+                        .right1
+                            grid-column: span 9
+
+                            .big-story-wrapper
+                                h3,
+                                figure
+                                    margin-bottom: 1rem
+
+                                figure
+                                    picture
+                                        img
+                                            max-width: 100%
+                                    caption
+                                        width: 100%
+                                        font-size: 12px
+                                        color: $gray-400
+                
+                .ask-stories
+                    .better-stories
+                        display: grid
+                        grid-template-columns: repeat(14, 1fr)
+                        grid-column-gap: calc(1rem * 2 + 1px)
+                        app-news-item-variant-v
+                            grid-column: span 9
+                        .usual-story
+                            grid-column: span 5
+
+                    .divider
+                        display: block
+                        border-top: 1px solid #dfdfdf
+                        margin: 1rem 0
+
+                    &-inner
+                        margin-top: 1rem
+                        display: grid
+                        grid-column-gap: calc(1rem * 2 + 1px)
+                        grid-auto-columns: 1fr
+                        grid-auto-flow: column
+
+                        app-news-item-variant-ii
+                            position: relative
+                            grid-column: span 1
+                            &:not(:first-of-type)
+                                &::before
+                                    content: ''
+                                    height: 100%
+                                    left: calc(-1rem - 1px)
+                                    position: absolute
+                                    border-left: 1px solid #dfdfdf
+
+                & > section
+                    &::after
+                        content: ''
+                        display: block
+                        border-bottom: 1px solid black
+                        margin: 1rem 0
+                        clear: both
+            .right
+                position: relative
+                grid-column: span 6
+                .divider
+                    border-top: 1px solid black
+                    margin-bottom: 1rem
+                   
+
+                &::before
+                    content: ''
+                    height: 100%
+                    left: calc(-1rem - 1px)
+                    position: absolute
+                    border-left: 1px solid #c7c7c7
+
+                .job-stories
+                    .section-label
+                        margin-bottom: 1rem
+                    app-news-item-variant-iv
+                        &::after
+                            content: ''
+                            display: block
+                            border-bottom: 1px solid #dfdfdf
+                            margin: 1rem 0
+                            clear: both
+
+                    .ads
+                        padding: 1rem 0
+
+                        &::after
+                            content: ''
+                            display: block
+                            border-bottom: 1px solid #dfdfdf
+                            margin-top: 1rem
+                            clear: both
+                    
+                    .doubly
+                        display: flex
+                        app-news-item-variant-iv
+                            &:last-of-type
+                                margin-left: 16px
+                                padding-left: 16px
+                                border-left: 1px solid #dfdfdf
+                                
+
+
+            .left
+                &::before
+                    content: ''
+                    display: block
+                    border-top: 1px solid black
+                    margin-bottom: 1rem
+                    clear: both
+
+        .four-cols
+            padding-bottom: 1.5rem
+            &::before
+                content: ''
+                display: block
+                border-top: 1px solid black
+                margin: 1rem 0
+                clear: both
+
+            &-inner
+                display: grid
+                grid-column-gap: calc(1rem * 2 + 1px)
+                grid-auto-columns: 1fr
+                grid-auto-flow: column
+                
+
+
+                app-news-item-variant-vi
+                    position: relative
+                    grid-column: span 1
+                    &:not(:first-of-type)
+                        &::before
+                            content: ''
+                            height: 100%
+                            left: calc(-1rem - 1px)
+                            position: absolute
+                            border-left: 1px solid #dfdfdf
+
+        .show-stories
+            padding-bottom: 1.5rem
+            &::before
+                content: ''
+                display: block
+                border-bottom: 1px solid black
+                margin-bottom: 1rem
+                clear: both
+
+            &-inner
+                display: grid
+                grid-template-columns: repeat(20, 1fr)
+                grid-column-gap: calc(1rem * 2 + 1px)
+
+                .left-part
+                    grid-column: span 14
+                    .wrapper
+                        .upper,
+                        .bower
+                            display: grid
+                            grid-template-columns: repeat(14, 1fr)
+                            grid-column-gap: calc(1rem * 2 + 1px)
+
+                        .kafka
+                            &::after
+                                content: ''
+                                display: block
+                                border-top: 1px solid #dfdfdf
+                                margin: 1rem 0
+                                clear: both
+                        .upper
+                            
+                            .posts
+                                grid-column: span 5
+                                app-news-item-variant-iii
+                                    &:not(:last-of-type)::after
+                                        content: ''
+                                        display: block
+                                        border-bottom: 1px solid #dfdfdf
+                                        margin: 1rem 0
+                                        clear: both
+                                    
+                            .imgs
+                                grid-column: span 9
+
+                                figure
+                                    picture img
+                                        max-width: 100%
+                                    caption
+                                        width: 100%
+                                        font-size: 10px
+                                        color: $gray-500
+                                        text-align: right
+
+                        .bower
+                            app-news-item-variant-iii
+                                grid-column: span 7
+                                position: relative
+                                &:not(:first-of-type)
+                                    &::before
+                                        content: ''
+                                        height: 100%
+                                        left: calc(-1rem - 1px)
+                                        position: absolute
+                                        border-left: 1px solid #dfdfdf
+                .right-part
+                    grid-column: span 6
+                    position: relative
+                    height: 100%
+
+                    &::before
+                        content: ''
+                        height: 100%
+                        left: calc(-1rem - 1px)
+                        position: absolute
+                        border-left: 1px solid #dfdfdf
+
+                    .wrapper
+                        app-news-item-variant-vii
+                            &:not(:last-of-type)::after
+                                content: ''
+                                display: block
+                                border-bottom: 1px solid #dfdfdf
+                                margin: 1rem 0
+                                clear: both

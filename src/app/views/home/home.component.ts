@@ -35,4 +35,8 @@ export class HomeComponent implements OnInit, OnDestroy {
             subscription.unsubscribe();
         });
     }
+
+    public range(i: number) {
+        return new Array(i);
+    }
 }
