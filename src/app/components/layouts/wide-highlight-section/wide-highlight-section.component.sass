@@ -1,0 +1,93 @@
+@import "../../../../assets/sass/_breakpoints"
+@import "../../../../assets/sass/_colors"
+@import "../../../../assets/sass/_fonts"
+
+h3
+    font-size: 1rem
+    line-height: 1.2em
+
+section.carousel
+    padding-bottom: 1.5rem
+    
+    .middle
+        display: grid
+        grid-column-gap: calc(1rem * 2 + 1px)
+        grid-template-columns: repeat(20,1fr)
+        .middle-left
+            grid-column: span 15
+            &-inner
+                display: grid
+                grid-column-gap: calc(1rem * 2 + 1px)
+                grid-template-columns: repeat(15,1fr)
+
+                .news
+                    grid-column: span 5
+
+                    app-news-item-variant-i
+                        &::after
+                            content: ''
+                            display: block
+                            border-bottom: 1px solid #dfdfdf
+                            margin: 1rem 0
+                            clear: both
+
+                app-carousel
+                    grid-column: span 10
+                    
+        .middle-right
+            position: relative
+            grid-column: span 5
+
+            
+            &::before
+                content: ''
+                height: 100%
+                left: calc(-1rem - 1px)
+                position: absolute
+                border-left: 1px solid #dfdfdf
+
+            .story-wrapper
+                h3
+                    margin-bottom: 10px
+                p
+                    color: $gray-600
+
+                figure picture img
+                    max-width: 100%
+
+                .dummy
+                    width: 8px
+                    height: 8px
+
+                &:first-of-type::after
+                    content: ''
+                    display: block
+                    border-bottom: 1px solid #dfdfdf
+                    margin: 1rem 0
+                    clear: both
+
+    .bottom
+        &::before
+            content: ''
+            display: block
+            border-top: 1px solid #dfdfdf
+            margin: 1rem 0
+            clear: both
+
+        &-inner
+            display: grid
+            grid-column-gap: calc(1rem * 2 + 1px)
+            grid-auto-columns: 1fr
+            grid-auto-flow: column
+
+            app-news-item-variant-ii
+                position: relative
+                grid-column: span 1
+
+                &:not(:first-of-type)
+                    &::before
+                        content: ''
+                        height: 100%
+                        left: calc(-1rem - 1px)
+                        position: absolute
+                        border-left: 1px solid #dfdfdf

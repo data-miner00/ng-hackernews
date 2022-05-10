@@ -1,52 +1,5 @@
 <div class="home">
-  <section class="carousel">
-    <app-headline></app-headline>
-    <div class="middle">
-      <div class="middle-left">
-        <div class="middle-left-inner">
-          <div class="news">
-            <app-news-item-variant-i></app-news-item-variant-i>
-            <app-news-item-variant-ii></app-news-item-variant-ii>
-          </div>
-          <app-carousel></app-carousel>
-        </div>
-      </div>
-      <div class="middle-right">
-        <div class="story-wrapper">
-          <figure>
-            <picture class="css-cov0u6"
-              ><source
-                class="css-hdqqnp"
-                media="screen and (max-width: 600px)"
-                srcset="
-                  https://static01.nyt.com/images/2022/05/03/us/abortion-bans-restrictons-roe-v-wade-promo-1651599223293/abortion-bans-restrictons-roe-v-wade-promo-1651599223293-threeByTwoSmallAt2X-v6.png?format=pjpg&amp;quality=75&amp;auto=webp&amp;disable=upscale
-                " />
-              <img class="css-o9w048" src="/assets/images/display2.png" alt=""
-            /></picture>
-          </figure>
-          <div class="dummy"></div>
-          <h3>
-            See where abortion could be banned in the U.S. without Roe v. Wade.
-          </h3>
-        </div>
-        <div class="story-wrapper">
-          <h3>Leaked Threat to Roe v. Wade Stuns, Then Energizes Americans</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora,
-            deserunt laboriosam corrupti..
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="bottom">
-      <div class="bottom-inner">
-        <app-news-item-variant-ii
-          *ngFor="let i of range(5)"
-          headline="The draft opinion, by Justice Samuel Alito, set out familiar critiques of the Roe decision."
-        ></app-news-item-variant-ii>
-      </div>
-    </div>
-  </section>
+  <app-wide-highlight-section></app-wide-highlight-section>
 
   <main>
     <div class="main-inner">

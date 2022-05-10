@@ -39,6 +39,7 @@ import { NewsItemVariantVComponent } from './components/news-item-variant-v/news
 import { NewsItemVariantViComponent } from './components/news-item-variant-vi/news-item-variant-vi.component';
 import { PaidPostComponent } from './components/paid-post/paid-post.component';
 import { NewsItemVariantViiComponent } from './components/news-item-variant-vii/news-item-variant-vii.component';
+import { WideHighlightSectionComponent } from './components/layouts/wide-highlight-section/wide-highlight-section.component';
 
 @NgModule({
     declarations: [
@@ -72,6 +73,7 @@ import { NewsItemVariantViiComponent } from './components/news-item-variant-vii/
         NewsItemVariantViComponent,
         PaidPostComponent,
         NewsItemVariantViiComponent,
+        WideHighlightSectionComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, provideFirebaseApp(() => initializeApp(environment.firebase)), provideAnalytics(() => getAnalytics()), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())],
     providers: [
