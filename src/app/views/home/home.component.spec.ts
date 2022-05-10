@@ -25,11 +25,4 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('should render section title accordingly', () => {
-    expect(compiled.textContent).toContain('Top Stories');
-    expect(compiled.textContent).toContain('Ask Stories');
-    expect(compiled.textContent).toContain('Show Stories');
-    expect(compiled.textContent).toContain('Job Stories');
-  });
 });
