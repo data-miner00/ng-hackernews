@@ -29,39 +29,14 @@ h3
             .left
                 grid-column: span 14
 
-                .top-stories
-                    &-inner
-                        display: grid
-                        grid-column-gap: calc(1rem * 2 + 1px)
-                        grid-template-columns: repeat(14, 1fr)
-                        .left1
-                            grid-column: span 5
-
-                            app-news-item-variant-iii
-                                &:not(:last-of-type)::after
-                                    content: ''
-                                    display: block
-                                    border-bottom: 1px solid #dfdfdf
-                                    margin: 1rem 0
-                                    clear: both
-                        .right1
-                            grid-column: span 9
-
-                            .big-story-wrapper
-                                h3,
-                                figure
-                                    margin-bottom: 1rem
-
-                                figure
-                                    picture
-                                        img
-                                            max-width: 100%
-                                    caption
-                                        width: 100%
-                                        font-size: 12px
-                                        color: $gray-400
-                
                 .ask-stories
+                    &::after
+                        content: ''
+                        display: block
+                        border-bottom: 1px solid black
+                        margin: 1rem 0
+                        clear: both
+                    
                     .better-stories
                         display: grid
                         grid-template-columns: repeat(14, 1fr)
@@ -93,14 +68,7 @@ h3
                                     left: calc(-1rem - 1px)
                                     position: absolute
                                     border-left: 1px solid #dfdfdf
-
-                & > section
-                    &::after
-                        content: ''
-                        display: block
-                        border-bottom: 1px solid black
-                        margin: 1rem 0
-                        clear: both
+                    
             .right
                 position: relative
                 grid-column: span 6
