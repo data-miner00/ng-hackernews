@@ -1,0 +1,9 @@
+<figure>
+  <picture>
+    <source media="screen and (max-width: 600px)" [srcset]="src" />
+    <img [src]="src" [alt]="description" />
+  </picture>
+  <figcaption *ngIf="description" [ngClass]="captionClass">
+    <span>{{ description }}</span>
+  </figcaption>
+</figure>
