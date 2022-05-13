@@ -28,46 +28,6 @@ h3
 
             .left
                 grid-column: span 14
-
-                .ask-stories
-                    &::after
-                        content: ''
-                        display: block
-                        border-bottom: 1px solid black
-                        margin: 1rem 0
-                        clear: both
-                    
-                    .better-stories
-                        display: grid
-                        grid-template-columns: repeat(14, 1fr)
-                        grid-column-gap: calc(1rem * 2 + 1px)
-                        app-news-item-variant-v
-                            grid-column: span 9
-                        .usual-story
-                            grid-column: span 5
-
-                    .divider
-                        display: block
-                        border-top: 1px solid #dfdfdf
-                        margin: 1rem 0
-
-                    &-inner
-                        margin-top: 1rem
-                        display: grid
-                        grid-column-gap: calc(1rem * 2 + 1px)
-                        grid-auto-columns: 1fr
-                        grid-auto-flow: column
-
-                        app-news-item-variant-ii
-                            position: relative
-                            grid-column: span 1
-                            &:not(:first-of-type)
-                                &::before
-                                    content: ''
-                                    height: 100%
-                                    left: calc(-1rem - 1px)
-                                    position: absolute
-                                    border-left: 1px solid #dfdfdf
                     
             .right
                 position: relative
