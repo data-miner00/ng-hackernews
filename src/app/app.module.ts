@@ -44,6 +44,7 @@ import { WideColumnsSectionComponent } from './components/layouts/wide-columns-s
 import { MacroNewsLayoutIComponent } from './components/layouts/macro-news-layout-i/macro-news-layout-i.component';
 import { ImageComponent } from './components/image/image.component';
 import { MacroNewsLayoutIiComponent } from './components/layouts/macro-news-layout-ii/macro-news-layout-ii.component';
+import { AsideNewsLayoutComponent } from './components/layouts/aside-news-layout/aside-news-layout.component';
 
 @NgModule({
     declarations: [
@@ -82,6 +83,7 @@ import { MacroNewsLayoutIiComponent } from './components/layouts/macro-news-layo
         MacroNewsLayoutIComponent,
         ImageComponent,
         MacroNewsLayoutIiComponent,
+        AsideNewsLayoutComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, provideFirebaseApp(() => initializeApp(environment.firebase)), provideAnalytics(() => getAnalytics()), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())],
     providers: [

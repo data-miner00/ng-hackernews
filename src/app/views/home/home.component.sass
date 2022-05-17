@@ -18,7 +18,7 @@ h3
 
 .home
     font-family: $playfair-display
-    
+
     main
         .main-inner
             display: grid
@@ -28,54 +28,7 @@ h3
 
             .left
                 grid-column: span 14
-                    
-            .right
-                position: relative
-                grid-column: span 6
-                .divider
-                    border-top: 1px solid black
-                    margin-bottom: 1rem
-                   
 
-                &::before
-                    content: ''
-                    height: 100%
-                    left: calc(-1rem - 1px)
-                    position: absolute
-                    border-left: 1px solid #c7c7c7
-
-                .job-stories
-                    .section-label
-                        margin-bottom: 1rem
-                    app-news-item-variant-iv
-                        &::after
-                            content: ''
-                            display: block
-                            border-bottom: 1px solid #dfdfdf
-                            margin: 1rem 0
-                            clear: both
-
-                    .ads
-                        padding: 1rem 0
-
-                        &::after
-                            content: ''
-                            display: block
-                            border-bottom: 1px solid #dfdfdf
-                            margin-top: 1rem
-                            clear: both
-                    
-                    .doubly
-                        display: flex
-                        app-news-item-variant-iv
-                            &:last-of-type
-                                margin-left: 16px
-                                padding-left: 16px
-                                border-left: 1px solid #dfdfdf
-                                
-
-
-            .left
                 &::before
                     content: ''
                     display: block
@@ -83,6 +36,8 @@ h3
                     margin-bottom: 1rem
                     clear: both
 
+            .right
+                grid-column: span 6
 
         .show-stories
             padding-bottom: 1.5rem

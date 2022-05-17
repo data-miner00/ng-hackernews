@@ -1,0 +1,51 @@
+@import "../../../../assets/sass/_colors"
+@import "../../../../assets/sass/_fonts"
+
+.section-label
+    font-family: $readex-pro
+    text-transform: uppercase
+    font-size: 12px
+    font-weight: 600
+
+aside
+    position: relative
+    
+    &::before
+        content: ''
+        height: 100%
+        left: calc(-1rem - 1px)
+        position: absolute
+        border-left: 1px solid #c7c7c7
+
+    .divider
+        border-top: 1px solid black
+        margin-bottom: 1rem
+
+    .job-stories
+        .section-label
+            margin-bottom: 1rem
+        app-news-item-variant-iv
+            &::after
+                content: ''
+                display: block
+                border-bottom: 1px solid #dfdfdf
+                margin: 1rem 0
+                clear: both
+
+        .ads
+            padding: 1rem 0
+
+            &::after
+                content: ''
+                display: block
+                border-bottom: 1px solid #dfdfdf
+                margin-top: 1rem
+                clear: both
+        
+        .doubly
+            display: flex
+            app-news-item-variant-iv
+                &:last-of-type
+                    margin-left: 16px
+                    padding-left: 16px
+                    border-left: 1px solid #dfdfdf
