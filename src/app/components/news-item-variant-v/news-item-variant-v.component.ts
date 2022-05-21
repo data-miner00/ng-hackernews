@@ -7,6 +7,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class NewsItemVariantVComponent implements OnInit {
     @Input() mode: string;
+    @Input() src: string;
+    @Input() description: string;
 
     constructor() {}
 

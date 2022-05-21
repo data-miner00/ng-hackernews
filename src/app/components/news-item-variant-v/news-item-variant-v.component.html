@@ -10,19 +10,7 @@
   </div>
   <div class="right" *ngIf="mode">
     <div>
-      <figure>
-        <picture class="css-cov0u6"
-          ><source
-            media="screen and (max-width: 600px)"
-            srcset="
-              https://static01.nyt.com/images/2022/05/03/us/abortion-bans-restrictons-roe-v-wade-promo-1651599223293/abortion-bans-restrictons-roe-v-wade-promo-1651599223293-threeByTwoSmallAt2X-v6.png?format=pjpg&amp;quality=75&amp;auto=webp&amp;disable=upscale
-            " />
-          <img src="/assets/images/display3.webp" alt=""
-        /></picture>
-        <caption>
-          A minuscule caption tries to be inconspicuous
-        </caption>
-      </figure>
+      <app-image [src]="src" [description]="description"></app-image>
     </div>
   </div>
 </div>
