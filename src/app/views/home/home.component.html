@@ -20,40 +20,8 @@
     <!-- Four column posts -->
     <app-wide-columns-section></app-wide-columns-section>
 
-    <section class="show-stories">
-      <div class="section-label">Show stories</div>
-      <div class="square"></div>
-      <div class="show-stories-inner">
-        <div class="left-part">
-          <div class="wrapper">
-            <div class="kafka">
-              <div class="upper">
-                <div class="posts">
-                  <app-news-item-variant-iii></app-news-item-variant-iii>
-                  <app-news-item-variant-iii></app-news-item-variant-iii>
-                </div>
-                <app-image
-                  src="https://static01.nyt.com/images/2022/05/27/arts/27Summer-Books/27Summer-Books-threeByTwoMediumAt2X.jpg?format=pjpg&quality=75&auto=webp&disable=upscale"
-                  description="Vacation reading, unpacked."
-                  captionClass="right-small"
-                ></app-image>
-              </div>
-            </div>
-            <div class="bower">
-              <app-news-item-variant-iii></app-news-item-variant-iii>
-              <app-news-item-variant-iii></app-news-item-variant-iii>
-            </div>
-          </div>
-        </div>
-        <div class="right-part">
-          <div class="wrapper">
-            <app-news-item-variant-vii
-              *ngFor="let i of range(7)"
-            ></app-news-item-variant-vii>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Wide news layout section -->
+    <app-wide-news-section-i></app-wide-news-section-i>
 
     <!-- Paid post -->
     <app-paid-post></app-paid-post>
