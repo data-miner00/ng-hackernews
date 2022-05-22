@@ -6,8 +6,11 @@ import { Component, Input, OnInit } from '@angular/core';
     styleUrls: ['./news-item-variant-iv.component.sass'],
 })
 export class NewsItemVariantIvComponent implements OnInit {
-    @Input() avatar: string;
-    @Input() illus: string;
+    @Input() avatarImgSrc: string;
+    @Input() contentImgSrc: string;
+    @Input() author: string = 'Stephen Grapham';
+    @Input() title: string =
+        'Overturning Roe Would Discredit the Court and Conservatism';
 
     constructor() {}
 

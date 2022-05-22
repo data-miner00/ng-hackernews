@@ -1,18 +1,16 @@
 <div class="variant-iv">
   <div class="left">
-    <div class="author">Stephen Grapham</div>
-    <h3>Overturning Roe Would Discredit the Court and Conservatism</h3>
+    <div class="author">{{ author }}</div>
+    <h3>{{ title }}</h3>
   </div>
+
   <div class="right">
-    <div *ngIf="avatar" class="avatar">
-      <img src="https://thispersondoesnotexist.com/image" alt="Fake avatar" />
+    <div *ngIf="avatarImgSrc" class="avatar">
+      <img [src]="avatarImgSrc" [alt]="author" />
     </div>
 
-    <div *ngIf="illus" class="illus">
-      <img
-        src="https://static01.nyt.com/images/2022/05/04/opinion/04longwell-1/04longwell-1-square320.jpg?format=pjpg&quality=75&auto=webp&disable=upscale"
-        alt="Trump"
-      />
+    <div *ngIf="contentImgSrc" class="content-img">
+      <img [src]="contentImgSrc" [alt]="title" />
     </div>
   </div>
 </div>
