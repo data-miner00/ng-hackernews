@@ -8,6 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ImageComponent implements OnInit {
     @Input() src: string = '/assets/images/display3.webp';
 
+    @Input() inset: string = 'false';
+
     // Caption
 
     @Input() description: string =

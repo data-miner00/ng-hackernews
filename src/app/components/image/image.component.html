@@ -1,4 +1,4 @@
-<figure>
+<figure [ngClass]="{ inset: inset == 'true' }">
   <picture>
     <source media="screen and (max-width: 600px)" [srcset]="src" />
     <img [src]="src" [alt]="description" />
