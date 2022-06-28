@@ -51,7 +51,7 @@
   <header>
     <div class="left">
       <div class="date">
-        <span>Tuesday, May 3, 2022</span>
+        <span>{{ now | date: 'fullDate' }}</span>
       </div>
       <div>
         <span>Official Hackernews</span>
@@ -66,7 +66,7 @@
 
     <div class="right">
       <div>
-        <span>Morning 12:32 am</span>
+        <span>{{ timeInDay }} {{ now | date: 'shortTime' | lowercase }}</span>
       </div>
       <div>
         <span>{{ user?.email }}</span>

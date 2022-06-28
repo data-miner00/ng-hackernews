@@ -10,6 +10,7 @@ import { User } from '@angular/fire/auth';
 })
 export class HeaderComponent implements OnInit {
     user: User | null;
+    now: Date = new Date();
 
     public constructor(
         private dataService: DataService,
@@ -24,5 +25,20 @@ export class HeaderComponent implements OnInit {
 
     public toggleSidebar(): void {
         this.dataService.triggerEvent();
+    }
+
+    public get timeInDay() {
+        const currentHour = this.now.getHours();
+
+        switch (true) {
+            case currentHour < 12:
+                return 'Morning';
+            case currentHour < 16:
+                return 'Afternoon';
+            case currentHour < 20:
+                return 'Evening';
+            default:
+                return 'Night';
+        }
     }
 }
