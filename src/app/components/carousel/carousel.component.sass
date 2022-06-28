@@ -1,3 +1,26 @@
 picture
     img
         max-width: 100%
+
+.carousel-container
+    position: relative
+    margin: 0 auto
+    width: 100%
+    padding-bottom: 66.66%
+
+.animate-slideshow
+    height: 100%
+    left: 0
+    position: absolute
+    transform: translate3d(0,0,0)
+    top: 0
+    width: 100%
+    opacity: 0
+    transition: opacity 0.35s ease-in-out
+
+    img
+        max-width: 100%
+
+.active
+    z-index: 1
+    opacity: 1
