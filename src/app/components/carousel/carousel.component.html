@@ -1,48 +1,38 @@
-<!-- <picture>
-  <source
-    srcset="
-      https://static01.nyt.com/images/2022/05/03/lens/03scotus-fader-HP7pm-03/merlin_206347395_1d92a735-eb8b-4a98-84c7-be02dd1f4221-threeByTwoMediumAt2X.jpg
-    "
-    media="(max-width: 600px)"
-  />
-  <img src="/assets/images/display1.jpg" alt="Voting" />
-</picture> -->
-
 <div class="carousel-container" #container>
   <div class="animate-slideshow">
     <app-image
-      inset="true"
+      [inset]="true"
       src="/assets/images/belhold.webp"
       description="Hello World"
     ></app-image>
   </div>
   <div class="animate-slideshow">
     <app-image
-      inset="true"
+      [inset]="true"
       src="/assets/images/derail.jpg"
       description="Trello World"
     ></app-image>
   </div>
   <div class="animate-slideshow">
     <app-image
-      inset="true"
+      [inset]="true"
       src="/assets/images/fader.webp"
       description="DeJones/Hulu"
     ></app-image>
   </div>
   <div class="animate-slideshow">
     <app-image
-      inset="true"
+      [inset]="true"
       src="/assets/images/gates.webp"
       description="A Maverick Silver Gates"
     ></app-image>
   </div>
   <div class="animate-slideshow">
-    <app-image inset="true" src="/assets/images/merlin.webp"></app-image>
+    <app-image [inset]="true" src="/assets/images/merlin.webp"></app-image>
   </div>
   <div class="animate-slideshow active">
     <app-image
-      inset="true"
+      [inset]="true"
       src="/assets/images/display1.jpg"
       description="Gender Equality Showdown"
     ></app-image>
