@@ -45,7 +45,10 @@
     </div>
     <div class="right">
       <button class="subscribe">Subscribe for $0.00/Week</button>
-      <button class="login">Login</button>
+      <button class="login" *ngIf="!user; else logout_button">Login</button>
+      <ng-template #logout_button>
+        <button class="logout">Logout</button>
+      </ng-template>
     </div>
   </div>
   <header>
