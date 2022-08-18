@@ -1,3 +1,15 @@
-<h3>
-  {{ headline }}
-</h3>
+<a [routerLink]="['/stories', id]">
+  <article class="story-preview">
+    <div *ngIf="avatarUrl" class="avatar-container">
+      <div class="avatar">
+        <img [src]="avatarUrl" alt="my avatar" />
+      </div>
+    </div>
+    <div class="story-content">
+      <p *ngIf="author" class="author">{{ author }}</p>
+      <app-image *ngIf="imageUrl" [src]="imageUrl" description=""></app-image>
+      <h3>{{ title }}</h3>
+      <p *ngIf="description">{{ description }}</p>
+    </div>
+  </article>
+</a>

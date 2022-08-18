@@ -15,7 +15,8 @@
   <div class="ask-stories-inner">
     <app-news-item-variant-ii
       *ngFor="let i of range(3)"
-      headline="The draft opinion, by Justice Samuel Alito, set out familiar critiques of the Roe decision."
+      [id]="i"
+      title="The draft opinion, by Justice Samuel Alito, set out familiar critiques of the Roe decision."
     ></app-news-item-variant-ii>
   </div>
 </section>
