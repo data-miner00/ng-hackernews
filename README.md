@@ -16,7 +16,13 @@ The feature are pretty straightforward, its just a website that reads data from 
 
 ## Checklist
 
+-   [x] Implement carousel
+-   [ ] Add Pexels API for image
+-   [ ] Implement individual page
 -   [ ] Implement the favourite page
 -   [ ] Implement the watch later page
 -   [ ] Change black to #121212
 -   [ ] Use mixin for repetead css
+-   [ ] Implement better footer
+-   [ ] Implement 404 page
+-   [ ] Enhance Login page and Register page
