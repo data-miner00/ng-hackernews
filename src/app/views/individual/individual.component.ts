@@ -38,6 +38,11 @@ export class IndividualComponent implements OnInit, OnDestroy {
         return '';
     }
 
+    public get identiconUrl(): string {
+        const strId = String(this.story.id);
+        return `https://github.com/identicons/${strId.slice(0, 4)}.png`;
+    }
+
     public ngOnInit(): void {
         this.routeSubscription = this.route.params.subscribe((params) => {
             this.storySubscription = this.hnService
