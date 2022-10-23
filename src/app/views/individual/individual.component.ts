@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import type Story from 'src/app/models/hackernews/Item/Story';
 import { FakernewsService } from 'src/app/services/fakernews.service';
@@ -26,6 +26,18 @@ export class IndividualComponent implements OnInit, OnDestroy {
         return (Date.now() - this.posted.getTime()) / (3600 * 24 * 1000) < 2;
     }
 
+    public get upvoteUrl(): string {
+        return `https://news.ycombinator.com/vote?id=${this.story.id}&how=up&goto=item?id=${this.story.id}`;
+    }
+
+    public get facebookShareUrl(): string {
+        return '';
+    }
+
+    public get twitterShareUrl(): string {
+        return '';
+    }
+
     public ngOnInit(): void {
         this.routeSubscription = this.route.params.subscribe((params) => {
             this.storySubscription = this.hnService
@@ -41,4 +53,6 @@ export class IndividualComponent implements OnInit, OnDestroy {
         if (this.storySubscription) this.storySubscription.unsubscribe();
         if (this.routeSubscription) this.routeSubscription.unsubscribe();
     }
+
+    public saveAsWatchLater(): void {}
 }
