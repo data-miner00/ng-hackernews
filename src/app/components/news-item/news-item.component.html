@@ -1,36 +1,60 @@
-<a class="news-item" [href]="url" target="_blank">
-  <div class="left">
-    <div class="upvote-icon">
-      <svg
-        width="15"
-        height="13"
-        viewBox="0 0 15 13"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g clip-path="url(#clip0_15_25)">
-          <path d="M7.5 1L13.9952 12.25H1.00481L7.5 1Z" fill="#1E1E1E" />
-        </g>
-        <defs>
-          <clipPath id="clip0_15_25">
-            <rect width="15" height="13" fill="white" />
-          </clipPath>
-        </defs>
-      </svg>
+<div class="news-item">
+  <div class="prelude">
+    <div class="author">
+      <div class="avatar" [ngClass]="id % 2 == 0 ? 'circle' : 'square1'">
+        <img [src]="identiconUrl" alt="identicon" />
+      </div>
+      <div class="username">
+        {{ by }}
+      </div>
     </div>
-    <div class="upvotes">
-      <span>{{ score }}</span>
+    <div class="actions">
+      <button title="Save to watch later">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="14"
+          height="14"
+          fill="currentColor"
+          class="bi bi-clock"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"
+          />
+          <path
+            d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"
+          />
+        </svg>
+      </button>
+      <a [href]="url" title="View original" target="_blank">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="14"
+          height="14"
+          fill="currentColor"
+          class="bi bi-box-arrow-up-right"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"
+          />
+          <path
+            fill-rule="evenodd"
+            d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"
+          />
+        </svg>
+      </a>
     </div>
   </div>
-  <div class="right">
+
+  <a href="">
     <h2>{{ title }}</h2>
-    <p>
-      By <i>{{ by }}</i> {{ posted | durationElapsed }} |
-      <a class="individual-link" [routerLink]="'stories/' + id"
-        >{{ descendants ?? 0 }} comments</a
+    <div class="info">
+      <span
+        >{{ domain }} | {{ descendants }} comments | {{ score }} upvotes |
+        {{ posted | date: 'MMMM d, yyyy' }}</span
       >
-      |
-      {{ domain }}
-    </p>
-  </div>
-</a>
+    </div>
+  </a>
+</div>
