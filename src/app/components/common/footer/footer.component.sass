@@ -1,53 +1,34 @@
 @import "../../../../assets/sass/_colors"
+@import "../../../../assets/sass/_fonts"
 @import "../../../../assets/sass/_breakpoints"
 
 .footer-wrapper
-    background: $font
+    background: white
     padding-top: 2px
+
     .decorator
         height: 2px
-        background: white
+        background: $font
         width: 100%
+        position: relative
+        &::after
+            content: ''
+            position: absolute
+            width: 100%
+            bottom: -3px
+            left: 0
+            height: 1px
+            background: $font
     footer
-        padding: 50px 0
-        display: flex
-        flex-direction: column
-        justify-content: center
-        align-items: center
-        background: #1E1E1E
-        color: white
+        max-width: 1200px
+        margin: 0 auto
+        padding: 100px 0
 
-        ul
-            
-            list-style-type: none
-            display: flex
-            flex-direction: column
-            justify-content: space-between
-            align-items: center
+        .logo
+            font-family: $cloister-black
+            font-size: 36px
 
-            li
-                display: inline-block
-                position: relative
-                margin: 20px 0
 
-                &::after
-                    content: ''
-                    position: absolute
-                    left: 0
-                    bottom: -8px
-                    height: 3px
-                    background: white
-                    border-radius: 50px
 
-                &:hover::after
-                    width: 100%
-
-@media screen and ( min-width: $xl )
-    .footer-wrapper
-        footer
-            height: 80px
-            padding: 0 20%
-            ul
-                width: 400px
-                flex-direction: row
+// @media screen and ( min-width: $xl )
     
