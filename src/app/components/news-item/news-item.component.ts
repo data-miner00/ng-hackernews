@@ -19,6 +19,7 @@ export class NewsItemComponent implements OnInit {
 
     public domain: string;
     public posted: Date;
+    public addedToReadLater: boolean;
 
     private userId: string;
 
@@ -51,6 +52,10 @@ export class NewsItemComponent implements OnInit {
         }
 
         this.userId = (await this.auth.getUser())!.uid;
+    }
+
+    public onClickAddToWatchLater() {
+        this.addedToReadLater = !this.addedToReadLater;
     }
 
     public addToFavourites() {

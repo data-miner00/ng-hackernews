@@ -42,7 +42,7 @@ const routes: Routes = [
         component: IndividualComponent,
     },
     {
-        path: 'favourites',
+        path: 'bookmarks',
         component: FavouritesComponent,
     },
     {

@@ -8,7 +8,7 @@
           <rect x="1" y="11" fill="#333" width="14" height="2"></rect>
         </svg>
       </button>
-      <button class="bookmark">
+      <a routerLink="/bookmarks" class="bookmark">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -24,8 +24,8 @@
             d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1z"
           />
         </svg>
-      </button>
-      <button class="read-later">
+      </a>
+      <a routerLink="/watch-later" class="read-later">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -41,7 +41,7 @@
             d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"
           />
         </svg>
-      </button>
+      </a>
     </div>
     <div class="right">
       <button class="subscribe">Subscribe for $0.00/Week</button>
@@ -54,7 +54,7 @@
   <header>
     <div class="left">
       <div class="date">
-        <span>{{ now | date: 'fullDate' }}</span>
+        <span>{{ now | date : 'fullDate' }}</span>
       </div>
       <div>
         <a href="https://news.ycombinator.com/" target="_blank"
@@ -71,7 +71,7 @@
 
     <div class="right">
       <div>
-        <span>{{ timeInDay }} {{ now | date: 'shortTime' | lowercase }}</span>
+        <span>{{ timeInDay }} {{ now | date : 'shortTime' | lowercase }}</span>
       </div>
       <div>
         <span>{{ user?.email }}</span>
