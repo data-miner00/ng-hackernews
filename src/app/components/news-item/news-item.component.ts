@@ -51,19 +51,27 @@ export class NewsItemComponent implements OnInit {
             this.domain = 'unknown.com';
         }
 
-        this.userId = (await this.auth.getUser())!.uid;
+        this.userId = (await this.auth.getUser())?.uid ?? '';
     }
 
-    public onClickAddToWatchLater() {
+    public async onClickAddToWatchLater() {
+        if (this.userId === '') return;
+
+        if (!this.addedToReadLater) {
+            await this.firestore.addToArrayAsync(
+                'users',
+                this.userId,
+                'readLater',
+                this.id
+            );
+        } else {
+            await this.firestore.removeFromArrayAsync(
+                'users',
+                this.userId,
+                'readLater',
+                this.id
+            );
+        }
         this.addedToReadLater = !this.addedToReadLater;
-    }
-
-    public addToFavourites() {
-        this.firestore.addToArrayAsync(
-            'users',
-            this.userId,
-            'favourites',
-            this.id
-        );
     }
 }
