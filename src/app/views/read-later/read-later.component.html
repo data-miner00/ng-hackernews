@@ -1,1 +1,22 @@
-<p>read-later works!</p>
+<div class="read-later-page">
+  <h1 class="story-page-heading">Read Later</h1>
+  <div class="read-later-inner" *ngIf="stories.length > 0; else nothing">
+    <app-news-item
+      *ngFor="let story of stories"
+      [id]="story.id"
+      [title]="story.title"
+      [by]="story.by"
+      [descendants]="story.descendants"
+      [score]="story.score"
+      [type]="story.type"
+      [url]="story.url"
+      [time]="story.time"
+      [alreadyAdded]="true"
+    ></app-news-item>
+  </div>
+  <ng-template #nothing>
+    <div class="nothing">
+      <p>Looks like there is nothing in your list yet. Go add one!</p>
+    </div>
+  </ng-template>
+</div>

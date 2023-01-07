@@ -16,6 +16,7 @@ export class NewsItemComponent implements OnInit {
     @Input() title?: string;
     @Input() type?: string;
     @Input() url?: string;
+    @Input() alreadyAdded?: boolean;
 
     public domain: string;
     public posted: Date;
@@ -34,6 +35,10 @@ export class NewsItemComponent implements OnInit {
     }
 
     public async ngOnInit(): Promise<void> {
+        if (this.alreadyAdded) {
+            this.addedToReadLater = true;
+        }
+
         if (this.time) {
             this.posted = new Date(this.time * 1000);
         }
