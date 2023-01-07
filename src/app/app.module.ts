@@ -46,6 +46,7 @@ import { ImageComponent } from './components/image/image.component';
 import { MacroNewsLayoutIiComponent } from './components/layouts/macro-news-layout-ii/macro-news-layout-ii.component';
 import { AsideNewsLayoutComponent } from './components/layouts/aside-news-layout/aside-news-layout.component';
 import { WideNewsSectionIComponent } from './components/layouts/wide-news-section-i/wide-news-section-i.component';
+import { ReadLaterComponent } from './views/read-later/read-later.component';
 
 @NgModule({
     declarations: [
@@ -86,6 +87,7 @@ import { WideNewsSectionIComponent } from './components/layouts/wide-news-sectio
         MacroNewsLayoutIiComponent,
         AsideNewsLayoutComponent,
         WideNewsSectionIComponent,
+        ReadLaterComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, provideFirebaseApp(() => initializeApp(environment.firebase)), provideAnalytics(() => getAnalytics()), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())],
     providers: [

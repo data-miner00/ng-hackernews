@@ -11,6 +11,7 @@ import { IndividualComponent } from './views/individual/individual.component';
 import { JobStoriesComponent } from './views/job-stories/job-stories.component';
 import { ShowStoriesComponent } from './views/show-stories/show-stories.component';
 import { TopStoriesComponent } from './views/top-stories/top-stories.component';
+import { ReadLaterComponent } from './views/read-later/read-later.component';
 
 const routes: Routes = [
     {
@@ -56,6 +57,10 @@ const routes: Routes = [
     {
         path: 'signup',
         component: SignupComponent,
+    },
+    {
+        path: 'read-later',
+        component: ReadLaterComponent,
     },
 ];
 
