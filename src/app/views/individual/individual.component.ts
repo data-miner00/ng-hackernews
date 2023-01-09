@@ -66,4 +66,17 @@ export class IndividualComponent implements OnInit, OnDestroy {
     }
 
     public saveAsWatchLater(): void {}
+
+    public getLinkToClipboard(): void {
+        if (!navigator.clipboard) {
+            const el = document.createElement('input');
+            el.value = this.currentFullUrl;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+        } else {
+            navigator.clipboard.writeText(this.currentFullUrl);
+        }
+    }
 }
