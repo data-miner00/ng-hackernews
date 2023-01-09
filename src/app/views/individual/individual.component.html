@@ -1,5 +1,5 @@
 <div class="individual">
-  <p *ngIf="isNew" class="mark">NEW</p>
+  <!-- <p *ngIf="isNew" class="mark">NEW</p> -->
   <h1>{{ story.title }}</h1>
 
   <section class="metadata">
@@ -10,14 +10,19 @@
       <div class="details">
         <div class="name">{{ story.by }}</div>
         <div class="date">
-          {{ posted | date: 'MMM d' }} · {{ posted | durationElapsed }} ·
+          {{ posted | date : 'MMM d' }} · {{ posted | durationElapsed }} ·
           {{ story.score }} upvotes
         </div>
       </div>
     </div>
     <div class="buttons">
       <div class="socials">
-        <a class="action" [href]="twitterShareUrl" target="_blank">
+        <a
+          title="Share to Twitter"
+          class="action"
+          [href]="twitterShareUrl"
+          target="_blank"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="18"
@@ -31,7 +36,12 @@
             />
           </svg>
         </a>
-        <a class="action" [href]="facebookShareUrl" target="_blank">
+        <a
+          title="Share to Facebook"
+          class="action"
+          [href]="facebookShareUrl"
+          target="_blank"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="18"
@@ -133,7 +143,9 @@
     </div>
   </section>
 
-  <div class="fakeimg"></div>
+  <div class="fakeimg">
+    <img src="https://picsum.photos/640/400" alt="" />
+  </div>
 
   <section class="comments">
     <h4>Discussions ({{ story.descendants }})</h4>

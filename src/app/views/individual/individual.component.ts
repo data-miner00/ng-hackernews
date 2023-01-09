@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import type Story from 'src/app/models/hackernews/Item/Story';
 import { FakernewsService } from 'src/app/services/fakernews.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-individual',
@@ -17,7 +18,8 @@ export class IndividualComponent implements OnInit, OnDestroy {
 
     public constructor(
         private route: ActivatedRoute,
-        private hnService: FakernewsService
+        private hnService: FakernewsService,
+        private router: Router
     ) {}
 
     public get isNew(): boolean {
@@ -30,12 +32,16 @@ export class IndividualComponent implements OnInit, OnDestroy {
         return `https://news.ycombinator.com/vote?id=${this.story.id}&how=up&goto=item?id=${this.story.id}`;
     }
 
+    public get currentFullUrl(): string {
+        return `https://${window.location.host}${this.router.url}`;
+    }
+
     public get facebookShareUrl(): string {
-        return '';
+        return `https://www.facebook.com/sharer/sharer.php?u=${this.currentFullUrl}`;
     }
 
     public get twitterShareUrl(): string {
-        return '';
+        return `https://twitter.com/intent/tweet?url=${this.currentFullUrl}&text=${this.story.title}`;
     }
 
     public get identiconUrl(): string {
