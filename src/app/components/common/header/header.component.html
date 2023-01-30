@@ -48,6 +48,7 @@
       <button class="login" *ngIf="!user; else logout_button">Login</button>
       <ng-template #logout_button>
         <button class="logout">Logout</button>
+        <!-- <a routerLink="/login" class="login">Login</a> -->
       </ng-template>
     </div>
   </div>
@@ -57,7 +58,10 @@
         <span>{{ now | date : 'fullDate' }}</span>
       </div>
       <div>
-        <a href="https://news.ycombinator.com/" target="_blank"
+        <a
+          href="https://news.ycombinator.com/"
+          target="_blank"
+          rel="noreferrer noopener"
           >Official Hackernews</a
         >
       </div>
@@ -73,16 +77,15 @@
       <div>
         <span>{{ timeInDay }} {{ now | date : 'shortTime' | lowercase }}</span>
       </div>
-      <div>
-        <span>{{ user?.email }}</span>
-      </div>
-      <!-- <ng-template [ngIf]="user" [ngIfElse]="loginLink">
-        <div>{{ user.email }}</div>
+      <ng-template [ngIf]="user" [ngIfElse]="loginLink">
+        <div>
+          <span>{{ user.email }}</span>
+        </div>
       </ng-template>
 
       <ng-template #loginLink>
-        <a routerLink="/login" class="login">Login</a>
-      </ng-template> -->
+        <div>Hi user</div>
+      </ng-template>
     </div>
   </header>
   <nav>
