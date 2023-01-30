@@ -4,6 +4,9 @@ import { Subscription } from 'rxjs';
 import type Story from 'src/app/models/hackernews/Item/Story';
 import { FakernewsService } from 'src/app/services/fakernews.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+import { FirestoreService } from 'src/app/services/firestore.service';
+import { HackernewsService } from 'src/app/services/hackernews.service';
 
 @Component({
     selector: 'app-individual',
@@ -16,10 +19,15 @@ export class IndividualComponent implements OnInit, OnDestroy {
     public routeSubscription: Subscription;
     public storySubscription: Subscription;
 
+    public addedToReadLater: boolean;
+    private userId: string;
+
     public constructor(
         private route: ActivatedRoute,
         private hnService: FakernewsService,
-        private router: Router
+        private router: Router,
+        public firestore: FirestoreService,
+        public auth: AuthService
     ) {}
 
     public get isNew(): boolean {
@@ -49,7 +57,9 @@ export class IndividualComponent implements OnInit, OnDestroy {
         return `https://github.com/identicons/${strId.slice(0, 4)}.png`;
     }
 
-    public ngOnInit(): void {
+    public async ngOnInit(): Promise<void> {
+        this.userId = (await this.auth.getUser())?.uid ?? '';
+
         this.routeSubscription = this.route.params.subscribe((params) => {
             this.storySubscription = this.hnService
                 .item<Story>(params.id)
@@ -65,7 +75,26 @@ export class IndividualComponent implements OnInit, OnDestroy {
         if (this.routeSubscription) this.routeSubscription.unsubscribe();
     }
 
-    public saveAsWatchLater(): void {}
+    public async onClickAddToWatchLater(): Promise<void> {
+        if (this.userId === '') return;
+
+        if (!this.addedToReadLater) {
+            await this.firestore.addToArrayAsync(
+                'users',
+                this.userId,
+                'readLater',
+                this.story.id
+            );
+        } else {
+            await this.firestore.removeFromArrayAsync(
+                'users',
+                this.userId,
+                'readLater',
+                this.story.id
+            );
+        }
+        this.addedToReadLater = !this.addedToReadLater;
+    }
 
     public getLinkToClipboard(): void {
         if (!navigator.clipboard) {
