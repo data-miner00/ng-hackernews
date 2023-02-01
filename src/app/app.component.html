@@ -1,8 +1,4 @@
-<div class="layout">
-  <app-header></app-header>
-  <app-sidebar></app-sidebar>
-  <div class="container">
-    <router-outlet (activate)="onActivate($event)"></router-outlet>
-  </div>
-  <app-footer></app-footer>
-</div>
+<ng-container [ngSwitch]="layout$ | async">
+  <app-default *ngSwitchCase="AppLayoutType.Default"> </app-default>
+  <app-blank *ngSwitchCase="AppLayoutType.Blank"> </app-blank>
+</ng-container>
