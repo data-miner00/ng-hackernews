@@ -29,6 +29,7 @@ export class HeaderComponent implements OnInit {
 
     public logout(): void {
         this.auth.signOut();
+        window.location.replace('/');
     }
 
     public get timeInDay() {
