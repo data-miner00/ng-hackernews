@@ -1,5 +1,5 @@
 <div class="signup-page">
-  <div class="logo">The Hacker Times</div>
+  <a class="logo" routerLink="/">The Hacker Times</a>
   <form #signupForm="ngForm" (ngSubmit)="signup()">
     <div class="username">
       <label for="username">Username</label>
@@ -24,5 +24,5 @@
     <button type="submit" [disabled]="!signupForm.valid">Sign up</button>
   </form>
 
-  <a routerLink="/login">Already have an account? Login</a>
+  <a class="link" routerLink="/login">Already have an account? Login</a>
 </div>

@@ -1,5 +1,5 @@
 <div class="login-page">
-  <div class="logo">The Hacker Times</div>
+  <a class="logo" routerLink="/">The Hacker Times</a>
   <form #loginForm="ngForm" (ngSubmit)="login()">
     <div class="email-wrapper">
       <label for="email">Email</label>
@@ -13,5 +13,6 @@
     <button type="submit" [disabled]="!loginForm.valid">Login</button>
   </form>
 
-  <a routerLink="/signup">Don't have an account? Register here</a>
+  <a class="link" routerLink="/signup">Don't have an account? Register here</a>
+  •
 </div>
