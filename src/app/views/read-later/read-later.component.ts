@@ -16,6 +16,7 @@ export class ReadLaterComponent implements IStoriesPage {
     public storiesAmount: number = 20;
     public stories: Array<Story> = [];
     public subscriptionQueue: Array<Subscription> = [];
+    public uid: string = '';
 
     public constructor(
         public hnService: HackernewsService,
@@ -24,11 +25,11 @@ export class ReadLaterComponent implements IStoriesPage {
     ) {}
 
     public async ngOnInit(): Promise<void> {
-        const uid = (await this.auth.getUser())?.uid ?? '';
+        this.uid = (await this.auth.getUser())?.uid ?? '';
 
-        if (uid === '') return;
+        if (this.uid === '') return;
 
-        const docRef = await this.firestore.getByIdAsync('users', uid);
+        const docRef = await this.firestore.getByIdAsync('users', this.uid);
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
             const userData = docSnap.data();
