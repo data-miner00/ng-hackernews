@@ -8,6 +8,9 @@ import { AuthService } from 'src/app/services/auth.service';
     styleUrls: ['./signup.component.sass'],
 })
 export class SignupComponent implements OnInit {
+    errorMessage = '';
+    loading = false;
+
     constructor(private auth: AuthService, private router: Router) {}
 
     formInput = {
@@ -20,12 +23,19 @@ export class SignupComponent implements OnInit {
     ngOnInit(): void {}
 
     public async signup() {
-        await this.auth.emailSignup(
-            this.formInput.email,
-            this.formInput.password,
-            this.formInput.displayName
-        );
-
-        this.router.navigate(['/']);
+        try {
+            this.loading = true;
+            await this.auth.emailSignup(
+                this.formInput.email,
+                this.formInput.password,
+                this.formInput.displayName
+            );
+            this.loading = false;
+            this.router.navigate(['/']);
+        } catch (exception) {
+            this.loading = false;
+            this.errorMessage = exception as string;
+            console.error(exception);
+        }
     }
 }

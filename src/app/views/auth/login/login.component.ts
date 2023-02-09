@@ -8,6 +8,9 @@ import { AuthService } from 'src/app/services/auth.service';
     styleUrls: ['./login.component.sass'],
 })
 export class LoginComponent implements OnInit {
+    errorMessage = '';
+    loading = false;
+
     constructor(private auth: AuthService, private router: Router) {}
 
     formInput = {
@@ -18,11 +21,18 @@ export class LoginComponent implements OnInit {
     ngOnInit(): void {}
 
     async login(): Promise<void> {
-        await this.auth.emailLogin(
-            this.formInput.email,
-            this.formInput.password
-        );
-
-        this.router.navigate(['/']);
+        try {
+            this.loading = true;
+            await this.auth.emailLogin(
+                this.formInput.email,
+                this.formInput.password
+            );
+            this.loading = false;
+            this.router.navigate(['/']);
+        } catch (exception) {
+            this.errorMessage = exception as string;
+            this.loading = false;
+            console.error(exception);
+        }
     }
 }

@@ -21,7 +21,16 @@
         [(ngModel)]="formInput.confirmPassword"
       />
     </div>
-    <button type="submit" [disabled]="!signupForm.valid">Sign up</button>
+    <button
+      type="submit"
+      [disabled]="!signupForm.valid"
+      [ngClass]="{ loading }"
+    >
+      Sign up
+    </button>
+    <p *ngIf="errorMessage" class="error">
+      {{ errorMessage }}
+    </p>
   </form>
 
   <a class="link" routerLink="/login">Already have an account? Login</a>
