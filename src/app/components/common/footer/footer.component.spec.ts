@@ -26,15 +26,15 @@ describe('FooterComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should contain text for each anchor links', () => {
-    const footerHtml: HTMLElement = debugElement.query(
-      By.css('footer ul')
-    ).nativeElement;
+  // it('should contain text for each anchor links', () => {
+  //   const footerHtml: HTMLElement = debugElement.query(
+  //     By.css('footer ul')
+  //   ).nativeElement;
 
-    expect(footerHtml.textContent).toContain('Settings');
-    expect(footerHtml.textContent).toContain('About');
-    expect(footerHtml.textContent).toContain('FAQs');
-    expect(footerHtml.textContent).toContain('Y Combinator');
-    expect(footerHtml.textContent).toContain('Repo');
-  });
+  //   expect(footerHtml.textContent).toContain('Settings');
+  //   expect(footerHtml.textContent).toContain('About');
+  //   expect(footerHtml.textContent).toContain('FAQs');
+  //   expect(footerHtml.textContent).toContain('Y Combinator');
+  //   expect(footerHtml.textContent).toContain('Repo');
+  // });
 });

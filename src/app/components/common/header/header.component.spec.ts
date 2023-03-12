@@ -37,7 +37,7 @@ describe('HeaderComponent', () => {
   it('should render the text correctly', () => {
     const compiled = fixture.nativeElement as HTMLElement;
 
-    expect(compiled.textContent).toContain('Menu');
+    expect(compiled.textContent).toContain('Subscribe for $0.00/Week');
     expect(compiled.textContent).toContain('Hackernews');
     expect(compiled.textContent).toContain('Login');
   });

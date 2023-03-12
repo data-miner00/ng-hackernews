@@ -1,7 +1,9 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, getTestBed, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import type Story from 'src/app/models/hackernews/Item/Story';
 import { FakernewsService } from 'src/app/services/fakernews.service';
+import { HackernewsService } from 'src/app/services/hackernews.service';
 
 import { TopStoriesComponent } from './top-stories.component';
 
@@ -9,21 +11,22 @@ describe('TopStoriesComponent', () => {
   let component: TopStoriesComponent;
   let fixture: ComponentFixture<TopStoriesComponent>;
   let injector: TestBed;
-  let hnService: FakernewsService;
+  let hnService: HackernewsService;
   let topStoriesSpy: jasmine.Spy;
   let itemSpy: jasmine.Spy;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
       declarations: [TopStoriesComponent],
-      providers: [FakernewsService],
+      providers: [HackernewsService],
     }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TopStoriesComponent);
     injector = getTestBed();
-    hnService = injector.inject(FakernewsService);
+    hnService = injector.inject(HackernewsService);
     component = fixture.componentInstance;
 
     const mockIdArray = [1, 2, 3, 4, 5, 6, 7];
