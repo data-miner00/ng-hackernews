@@ -24,7 +24,7 @@ export class IndividualComponent implements OnInit, OnDestroy {
 
     public constructor(
         private route: ActivatedRoute,
-        private hnService: FakernewsService,
+        private hnService: HackernewsService,
         private router: Router,
         public firestore: FirestoreService,
         public auth: AuthService
