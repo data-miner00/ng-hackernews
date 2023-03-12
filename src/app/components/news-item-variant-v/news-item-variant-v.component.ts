@@ -7,8 +7,12 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class NewsItemVariantVComponent implements OnInit {
     @Input() mode: string;
-    @Input() src: string;
-    @Input() description: string;
+    @Input() imgSrc: string;
+    @Input() imgDescription: string;
+    @Input() title: string =
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, aspernatur!';
+    @Input() description: string =
+        'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo ducimus quae totam illum sed quasi, doloremque a mollitia. Atque, delectus.';
 
     constructor() {}
 
