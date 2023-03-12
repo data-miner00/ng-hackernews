@@ -1,7 +1,11 @@
+import { DatePipe } from '@angular/common';
 import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import User from 'src/app/models/hackernews/User';
 import { DurationElapsedPipe } from 'src/app/pipes/duration-elapsed.pipe';
+import { AuthService } from 'src/app/services/auth.service';
+import { FirestoreService } from 'src/app/services/firestore.service';
 
 import { NewsItemComponent } from './news-item.component';
 
@@ -9,10 +13,26 @@ describe('NewsItemComponent', () => {
   let component: NewsItemComponent;
   let fixture: ComponentFixture<NewsItemComponent>;
   let debugElement: DebugElement;
+  let mockFirestoreService: jasmine.SpyObj<FirestoreService>;
+  let mockAuthService: jasmine.SpyObj<AuthService>;
 
   beforeEach(async () => {
+    mockFirestoreService = jasmine.createSpyObj([
+      'addToArrayAsync',
+      'removeFromArrayAsync',
+    ]);
+
+    const user: User = { id: 'user-id', created: 123, karma: 123 };
+
+    mockAuthService = jasmine.createSpyObj(['getUser']);
+    mockAuthService.getUser.and.returnValue(Promise.resolve(user as any));
+
     await TestBed.configureTestingModule({
       declarations: [NewsItemComponent, DurationElapsedPipe],
+      providers: [
+        { provide: FirestoreService, useValue: mockFirestoreService },
+        { provide: AuthService, useValue: mockAuthService },
+      ],
     }).compileComponents();
   });
 
@@ -36,37 +56,19 @@ describe('NewsItemComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render author, score, descendants and title to html', () => {
+  it('should render domain, comment counts, upvotes and date correctly', () => {
+    const datePipe = new DatePipe('en-US');
+
     fixture.detectChanges();
 
-    const upvotes = debugElement.query(By.css('.upvotes'))
-      .nativeElement as HTMLElement;
-    const title = debugElement.query(By.css('.right h2'))
-      .nativeElement as HTMLElement;
-    const author = debugElement.query(By.css('.right p i'))
-      .nativeElement as HTMLElement;
-    const descendants = debugElement.query(By.css('.right p a'))
+    const info = debugElement.query(By.css('.info'))
       .nativeElement as HTMLElement;
 
-    expect(upvotes.textContent).toBe(component.score!.toString());
-    expect(title.textContent).toBe(component.title!);
-    expect(author.textContent).toBe(component.by!);
-    expect(descendants.textContent).toBe(component.descendants! + ' comments');
-  });
+    const domain = 'www.example.com';
+    const posted = datePipe.transform(component.posted, 'MMMM d, yyyy');
 
-  it('should render the time correctly with transformation', () => {
-    const durationElapsedPipe = new DurationElapsedPipe();
-
-    expect(component.posted).toBeUndefined();
-    fixture.detectChanges();
-
-    const rightSection: HTMLElement = debugElement.query(
-      By.css('.right p')
-    ).nativeElement;
-
-    expect(component.posted).not.toBeUndefined();
-    expect(rightSection.textContent).toContain(
-      durationElapsedPipe.transform(component.posted)
+    expect(info.textContent).toBe(
+      `${domain} | ${component.descendants} comments | ${component.score} upvotes | ${posted}`
     );
   });
 
@@ -102,7 +104,7 @@ describe('NewsItemComponent', () => {
     urlTestScenario.forEach((scenario) => {
       it(`should render correct domain given ${scenario.condition}`, () => {
         const rightSection: HTMLElement = debugElement.query(
-          By.css('.right p')
+          By.css('.info')
         ).nativeElement;
 
         expect(component.domain).toBeUndefined();
