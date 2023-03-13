@@ -1,25 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { CarouselComponent } from './carousel.component';
+import { CarouselSteps } from './carousel.component.steps';
 
 describe('CarouselComponent', () => {
-  let component: CarouselComponent;
-  let fixture: ComponentFixture<CarouselComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ CarouselComponent ]
-    })
-    .compileComponents();
-  });
+  let steps: CarouselSteps;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CarouselComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    steps = new CarouselSteps();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should create', async () => {
+    await steps.whenISetup();
+
+    steps.thenIExpectComponentToBeConstructed();
+  });
+
+  it('should have 6 images', async () => {
+    await steps.whenISetup();
+
+    steps.whenIQueryAll('.animate-slideshow').thenIExpectQueryToHaveHits(6);
   });
 });
