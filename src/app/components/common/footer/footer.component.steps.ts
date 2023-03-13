@@ -12,7 +12,5 @@ export class FooterSteps extends BaseSteps<FooterSteps, FooterComponent> {
         }).compileComponents();
 
         this.fixture = TestBed.createComponent(FooterComponent);
-        this.component = this.fixture.componentInstance;
-        this.baseEl = this.fixture.debugElement;
     }
 }

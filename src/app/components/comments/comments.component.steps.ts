@@ -29,8 +29,6 @@ export class CommentsSteps extends BaseSteps<CommentsSteps, CommentsComponent> {
         }).compileComponents();
 
         this.fixture = TestBed.createComponent(CommentsComponent);
-        this.component = this.fixture.componentInstance;
-        this.baseEl = this.fixture.debugElement;
         this.component.commentId = 323456;
 
         this.fixture.debugElement.injector.get<HttpTestingController>(

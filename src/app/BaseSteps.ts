@@ -3,13 +3,22 @@ import { ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 export abstract class BaseSteps<TSteps, TComponent> {
-    component: TComponent;
     fixture: ComponentFixture<TComponent>;
-
-    baseEl: DebugElement;
 
     elUnderTest: DebugElement;
     elsUnderTest: DebugElement[];
+
+    get component(): TComponent {
+        return this.fixture.componentInstance;
+    }
+
+    get baseEl(): DebugElement {
+        return this.fixture.debugElement;
+    }
+
+    get compiled(): HTMLElement {
+        return this.baseEl.nativeElement;
+    }
 
     /*
      * Getter to retrieve the base class itself.

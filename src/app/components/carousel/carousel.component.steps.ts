@@ -9,8 +9,6 @@ export class CarouselSteps extends BaseSteps<CarouselSteps, CarouselComponent> {
         }).compileComponents();
 
         this.fixture = TestBed.createComponent(CarouselComponent);
-        this.component = this.fixture.componentInstance;
-        this.baseEl = this.fixture.debugElement;
     }
 
     get getClass(): CarouselSteps {
