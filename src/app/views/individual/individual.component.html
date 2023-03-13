@@ -1,6 +1,6 @@
 <div class="individual">
   <!-- <p *ngIf="isNew" class="mark">NEW</p> -->
-  <h1>{{ story.title }}</h1>
+  <h1>{{ story?.title }}</h1>
 
   <section class="metadata">
     <div class="author">
@@ -8,10 +8,10 @@
         <img [src]="identiconUrl" alt="Profile pic" />
       </div>
       <div class="details">
-        <div class="name">{{ story.by }}</div>
+        <div class="name">{{ story?.by }}</div>
         <div class="date">
           {{ posted | date : 'MMM d' }} · {{ posted | durationElapsed }} ·
-          {{ story.score }} upvotes
+          {{ story?.score }} upvotes
         </div>
       </div>
     </div>
@@ -140,7 +140,7 @@
             />
           </svg>
         </a>
-        <a [href]="story.url" target="_blank" class="action">
+        <a [href]="story?.url" target="_blank" class="action">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -168,9 +168,9 @@
   </div>
 
   <section class="comments">
-    <h4>Discussions ({{ story.descendants }})</h4>
+    <h4>Discussions ({{ story?.descendants }})</h4>
     <app-comments
-      *ngFor="let cmt of story.kids"
+      *ngFor="let cmt of story?.kids"
       [commentId]="cmt"
     ></app-comments>
   </section>

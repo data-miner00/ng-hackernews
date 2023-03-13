@@ -15,7 +15,7 @@ import { HackernewsService } from 'src/app/services/hackernews.service';
 })
 export class IndividualComponent implements OnInit, OnDestroy {
     public story: Story;
-    public posted: Date;
+    public posted: Date = new Date();
     public routeSubscription: Subscription;
     public storySubscription: Subscription;
 
@@ -37,7 +37,7 @@ export class IndividualComponent implements OnInit, OnDestroy {
     }
 
     public get upvoteUrl(): string {
-        return `https://news.ycombinator.com/vote?id=${this.story.id}&how=up&goto=item?id=${this.story.id}`;
+        return `https://news.ycombinator.com/vote?id=${this.story?.id}&how=up&goto=item?id=${this.story?.id}`;
     }
 
     public get currentFullUrl(): string {
@@ -49,11 +49,11 @@ export class IndividualComponent implements OnInit, OnDestroy {
     }
 
     public get twitterShareUrl(): string {
-        return `https://twitter.com/intent/tweet?url=${this.currentFullUrl}&text=${this.story.title}`;
+        return `https://twitter.com/intent/tweet?url=${this.currentFullUrl}&text=${this.story?.title}`;
     }
 
     public get identiconUrl(): string {
-        const strId = String(this.story.id);
+        const strId = String(this.story?.id);
         return `https://github.com/identicons/${strId.slice(0, 4)}.png`;
     }
 
@@ -65,6 +65,7 @@ export class IndividualComponent implements OnInit, OnDestroy {
                 .item<Story>(params.id)
                 .subscribe((story) => {
                     this.story = story;
+                    console.log(this.story);
                     this.posted = new Date(story.time! * 1000);
                 });
         });
@@ -83,14 +84,14 @@ export class IndividualComponent implements OnInit, OnDestroy {
                 'users',
                 this.userId,
                 'readLater',
-                this.story.id
+                this.story?.id
             );
         } else {
             await this.firestore.removeFromArrayAsync(
                 'users',
                 this.userId,
                 'readLater',
-                this.story.id
+                this.story?.id
             );
         }
         this.addedToReadLater = !this.addedToReadLater;
