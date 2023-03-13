@@ -46,6 +46,11 @@ export abstract class BaseSteps<TSteps, TComponent> {
         return this.getClass;
     }
 
+    thenIExpectElementTextToBeEmpty() {
+        expect(this.elUnderTest.nativeElement.textContent).toBeFalsy();
+        return this.getClass;
+    }
+
     thenIExpectQueryToHaveHits(count: number) {
         expect(this.elsUnderTest).toHaveSize(count);
         return this.getClass;
