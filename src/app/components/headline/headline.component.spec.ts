@@ -1,25 +1,26 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { HeadlineComponent } from './headline.component';
+import { HeadlineSteps } from './headline.component.steps';
 
 describe('HeadlineComponent', () => {
-  let component: HeadlineComponent;
-  let fixture: ComponentFixture<HeadlineComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ HeadlineComponent ]
-    })
-    .compileComponents();
-  });
+  let steps: HeadlineSteps;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeadlineComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    steps = new HeadlineSteps();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should create', async () => {
+    await steps.whenISetup();
+    steps.thenIExpectComponentToBeConstructed();
+  });
+
+  it('should update headline', async () => {
+    const headline = 'This is a headline';
+
+    await steps.whenISetup();
+
+    steps
+      .givenIHaveTheFollowingHeadline(headline)
+      .whenIDetectChanges()
+      .whenIQuery('h1')
+      .thenIExpectElementToHaveTextContent(headline);
   });
 });

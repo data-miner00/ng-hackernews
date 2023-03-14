@@ -1,25 +1,14 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { FullWidthAdsComponent } from './full-width-ads.component';
+import { FullWidthAdsSteps } from './full-width-ads.component.steps';
 
 describe('FullWidthAdsComponent', () => {
-  let component: FullWidthAdsComponent;
-  let fixture: ComponentFixture<FullWidthAdsComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ FullWidthAdsComponent ]
-    })
-    .compileComponents();
-  });
+  let steps: FullWidthAdsSteps;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FullWidthAdsComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    steps = new FullWidthAdsSteps();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should create', async () => {
+    await steps.whenISetup();
+    steps.thenIExpectComponentToBeConstructed();
   });
 });
