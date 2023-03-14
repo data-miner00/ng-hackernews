@@ -50,6 +50,11 @@ export abstract class BaseSteps<TSteps, TComponent> {
         return this.getClass;
     }
 
+    thenIExpectElementToNotExist() {
+        expect(this.elUnderTest).toBeFalsy();
+        return this.getClass;
+    }
+
     thenIExpectElementToHaveTextContent(text: string) {
         expect(this.elUnderTest.nativeElement.textContent).toContain(text);
         return this.getClass;
@@ -57,6 +62,23 @@ export abstract class BaseSteps<TSteps, TComponent> {
 
     thenIExpectElementTextToBeEmpty() {
         expect(this.elUnderTest.nativeElement.textContent).toBeFalsy();
+        return this.getClass;
+    }
+
+    thenIExpectElementToHaveClass(className: string) {
+        expect(this.elUnderTest.nativeElement.classList).toContain(className);
+        return this.getClass;
+    }
+
+    thenIExpectElementNotToHaveClass(className: string) {
+        expect(this.elUnderTest.nativeElement.classList).not.toContain(
+            className
+        );
+        return this.getClass;
+    }
+
+    thenIExpectElementToHaveAttribute(attribute: string, value: string) {
+        expect(this.elUnderTest.attributes[attribute]).toBe(value);
         return this.getClass;
     }
 
