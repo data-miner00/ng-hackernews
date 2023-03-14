@@ -1,25 +1,42 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { JobStoriesComponent } from './job-stories.component';
+import Story from 'src/app/models/hackernews/Item/Story';
+import { JobStoriesSteps } from './job-stories.component.steps';
 
 describe('JobStoriesComponent', () => {
-  let component: JobStoriesComponent;
-  let fixture: ComponentFixture<JobStoriesComponent>;
+  let steps: JobStoriesSteps;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ JobStoriesComponent ]
-    })
-    .compileComponents();
-  });
+    steps = new JobStoriesSteps();
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(JobStoriesComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    await steps.whenISetup();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    steps.thenIExpectComponentToBeConstructed();
+  });
+
+  it('should fetch stories according to storiesAmount', () => {
+    const amount = 5;
+    const array = [1, 2, 3, 4, 5, 6, 7];
+    const story = <Story>{
+      id: 1,
+      type: 'story',
+      descendants: 355,
+      score: 606,
+      title: 'A pffocoal story title',
+      url: 'https://www.youtube.com/video/absc.html',
+      time: 1639118165,
+      kids: [],
+      by: 'samira566',
+    };
+
+    steps
+      .givenMaxStoriesAmountIs(amount)
+      .whenISpyOnHnServiceJobStoriesToReturn(array)
+      .whenISpyOnHnServiceItemToReturn(story)
+      .whenIDetectChanges()
+      .thenIExpectHnJobStoriesToHaveBeenCalled()
+      .thenIExpectHnItemToHaveBeenCalledTimes(amount)
+      .thenIExpectStoriesArrayToHaveLength(amount)
+      .thenIExpectSubscriptionQueueToHaveLength(amount);
   });
 });
