@@ -1,8 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 import type Story from 'src/app/models/hackernews/Item/Story';
 import { IStoriesPage } from 'src/app/models/IStoriesPage';
 import { FakernewsService } from 'src/app/services/fakernews.service';
+import { HackernewsService } from 'src/app/services/hackernews.service';
 
 @Component({
     selector: 'app-ask-stories',
@@ -14,7 +15,7 @@ export class AskStoriesComponent implements IStoriesPage {
     public stories: Array<Story> = [];
     public subscriptionQueue: Array<Subscription> = [];
 
-    public constructor(public hnService: FakernewsService) {}
+    public constructor(public hnService: HackernewsService) {}
 
     public ngOnInit(): void {
         this.hnService.askstories().subscribe((storiesId: Array<number>) => {
