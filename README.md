@@ -63,7 +63,7 @@
 
 A simple implementation of the Hackernews interface in Angular using the official [Hackernews API](https://github.com/HackerNews/API). Project started out on 2021 and still haven't completed in 2023. The feature includes authentication via Firebase Auth and save any of the post to "read later" list.
 
-![Stories List](/images/stories-list.png)
+![Stories List](/images/story-list.png)
 
 The listing page for **Top Stories**, **Ask Stories**, **Show Stories** and **Job Stories**.
 
@@ -160,6 +160,7 @@ Installation is fairly straightforward. Just clone the repo and `npm i && npm st
 - [ ] Hydrate landing page
 - [ ] Add linter
 - [ ] Achieve 85% code coverage
+- [ ] 404 Page
 
 See the [open issues](https://github.com/data-miner00/ng-hackernews/issues) for a full list of proposed features (and known issues).
 
@@ -168,6 +169,8 @@ See the [open issues](https://github.com/data-miner00/ng-hackernews/issues) for 
 <!-- CONTRIBUTING -->
 
 ## Contributing
+
+> I am bad at design, please help if you can design it better!
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
