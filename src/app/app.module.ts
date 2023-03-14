@@ -49,6 +49,7 @@ import { WideNewsSectionIComponent } from './components/layouts/wide-news-sectio
 import { ReadLaterComponent } from './views/read-later/read-later.component';
 import { DefaultComponent } from './layouts/default/default.component';
 import { BlankComponent } from './layouts/blank/blank.component';
+import { RandomStoriesComponent } from './views/random-stories/random-stories.component';
 
 @NgModule({
     declarations: [
@@ -92,6 +93,7 @@ import { BlankComponent } from './layouts/blank/blank.component';
         ReadLaterComponent,
         DefaultComponent,
         BlankComponent,
+        RandomStoriesComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, provideFirebaseApp(() => initializeApp(environment.firebase)), provideAnalytics(() => getAnalytics()), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())],
     providers: [

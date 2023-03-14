@@ -13,6 +13,7 @@ import { ShowStoriesComponent } from './views/show-stories/show-stories.componen
 import { TopStoriesComponent } from './views/top-stories/top-stories.component';
 import { ReadLaterComponent } from './views/read-later/read-later.component';
 import { AppLayoutType } from './models/AppLayoutType';
+import { RandomStoriesComponent } from './views/random-stories/random-stories.component';
 
 const routes: Routes = [
     {
@@ -49,6 +50,13 @@ const routes: Routes = [
             layout: AppLayoutType.Default,
         },
         component: JobStoriesComponent,
+    },
+    {
+        path: 'random',
+        data: {
+            layout: AppLayoutType.Default,
+        },
+        component: RandomStoriesComponent,
     },
     {
         path: 'faqs',
