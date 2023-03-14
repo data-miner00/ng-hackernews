@@ -36,7 +36,7 @@ export class MacroNewsLayoutISteps extends BaseSteps<
     }
 
     thenIExpectImagePathToBe(imagePath: string) {
-        expect(this.component.story5.imagePath).toBe(imagePath);
+        expect(this.component.story5ImgPath).toBe(imagePath);
         return this;
     }
 }
