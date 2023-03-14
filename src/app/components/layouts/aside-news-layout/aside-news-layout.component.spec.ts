@@ -1,25 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { AsideNewsLayoutComponent } from './aside-news-layout.component';
+import { AsideNewsLayoutSteps } from './aside-news-layout.component.steps';
 
 describe('AsideNewsLayoutComponent', () => {
-  let component: AsideNewsLayoutComponent;
-  let fixture: ComponentFixture<AsideNewsLayoutComponent>;
+  let steps: AsideNewsLayoutSteps;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ AsideNewsLayoutComponent ]
-    })
-    .compileComponents();
-  });
+    steps = new AsideNewsLayoutSteps();
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(AsideNewsLayoutComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    await steps.whenISetup();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    steps.thenIExpectComponentToBeConstructed();
   });
 });

@@ -1,25 +1,22 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { MacroNewsLayoutIComponent } from './macro-news-layout-i.component';
+import { MacroNewsLayoutISteps } from './macro-news-layout-i.component.steps';
 
 describe('MacroNewsLayoutIComponent', () => {
-  let component: MacroNewsLayoutIComponent;
-  let fixture: ComponentFixture<MacroNewsLayoutIComponent>;
+  let steps: MacroNewsLayoutISteps;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ MacroNewsLayoutIComponent ]
-    })
-    .compileComponents();
-  });
+    steps = new MacroNewsLayoutISteps();
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(MacroNewsLayoutIComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    steps.givenIHaveImageFileName('fake-img.png');
+    await steps.whenISetup();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    steps.thenIExpectComponentToBeConstructed();
+  });
+
+  it('should have correct image path', () => {
+    steps
+      .whenIDetectChanges()
+      .thenIExpectImagePathToBe('/assets/images/fake-img.png');
   });
 });

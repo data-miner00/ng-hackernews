@@ -9,9 +9,21 @@ import { FakerimgService } from 'src/app/services/fakerimg.service';
 export class MacroNewsLayoutIComponent implements OnInit {
     constructor(private fakerimgService: FakerimgService) {}
 
-    public imagePath: string;
+    public headline: string =
+        'J.D. Vance Wins Republican Senate Primary in Ohio';
+
+    // Big story
+    public story5 = {
+        title: 'Ohio U.S. Senate Results',
+        imagePath: '',
+        caption:
+            'Thousands inundated New York City for gender equality protest',
+        description:
+            'Fstesf, author of Lisp in Space, have sparkled a thread over 1311 comments and 290 upvotes as of now.',
+    };
 
     ngOnInit(): void {
-        this.imagePath = '/assets/images/' + this.fakerimgService.getImg();
+        this.story5.imagePath =
+            '/assets/images/' + this.fakerimgService.getImg();
     }
 }

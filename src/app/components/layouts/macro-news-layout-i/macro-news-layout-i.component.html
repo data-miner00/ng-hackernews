@@ -1,24 +1,26 @@
 <section class="top-stories">
   <div class="section-label">Top stories</div>
-  <app-headline
-    headline="J.D. Vance Wins Republican Senate Primary in Ohio"
-  ></app-headline>
+
+  <!-- Story 1 -->
+  <app-headline [headline]="headline"></app-headline>
   <div class="top-stories-inner">
+    <!-- Story 2,3,4 -->
     <div class="left1">
       <app-news-item-variant-iii></app-news-item-variant-iii>
       <app-news-item-variant-iii></app-news-item-variant-iii>
       <app-news-item-variant-iii></app-news-item-variant-iii>
     </div>
+
+    <!-- Story 5 -->
     <div class="right1">
       <div class="big-story-wrapper">
-        <h3>Ohio U.S. Senate Results</h3>
+        <h3>{{ story5?.title }}</h3>
         <app-image
-          [src]="imagePath"
-          description="Thousands inundated New York City for gender equality protest"
+          [src]="story5?.imagePath"
+          [description]="story5?.caption"
         ></app-image>
         <p>
-          Fstesf, author of Lisp in Space, have sparkled a thread over 1311
-          comments and 290 upvotes as of now.
+          {{ story5?.description }}
         </p>
       </div>
     </div>
