@@ -168,10 +168,19 @@
   </div>
 
   <section class="comments">
-    <h4>Discussions ({{ story?.descendants }})</h4>
-    <app-comments
-      *ngFor="let cmt of story?.kids"
-      [commentId]="cmt"
-    ></app-comments>
+    <h4>Discussions ({{ story?.descendants ?? 0 }})</h4>
+    <div *ngIf="story?.descendants; else no_comment">
+      <app-comments
+        *ngFor="let cmt of story?.kids"
+        [commentId]="cmt"
+      ></app-comments>
+    </div>
+
+    <ng-template #no_comment>
+      <div class="comments__empty">
+        <p class="comments__empty__large">No comments yet.</p>
+        <p>It seems to be a bit quiet over here</p>
+      </div>
+    </ng-template>
   </section>
 </div>
