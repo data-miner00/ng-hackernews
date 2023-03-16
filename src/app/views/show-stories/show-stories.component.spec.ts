@@ -1,26 +1,42 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { ShowStoriesComponent } from './show-stories.component';
+import Story from 'src/app/models/hackernews/Item/Story';
+import { ShowStoriesSteps } from './show-stories.component.steps';
 
 describe('ShowStoriesComponent', () => {
-  let component: ShowStoriesComponent;
-  let fixture: ComponentFixture<ShowStoriesComponent>;
+  let steps: ShowStoriesSteps;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      declarations: [ShowStoriesComponent],
-    }).compileComponents();
-  });
+    steps = new ShowStoriesSteps();
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ShowStoriesComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    await steps.whenISetup();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    steps.thenIExpectComponentToBeConstructed();
+  });
+
+  it('should fetch stories according to storiesAmount', () => {
+    const amount = 5;
+    const array = [1, 2, 3, 4, 5, 6, 7];
+    const story = <Story>{
+      id: 1,
+      type: 'story',
+      descendants: 355,
+      score: 606,
+      title: 'A show story title',
+      url: 'https://www.youtube.com/video/abcd.html',
+      time: 1639118165,
+      kids: [],
+      by: 'ariana99',
+    };
+
+    steps
+      .givenMaxStoriesAmountIs(amount)
+      .whenHnServiceShowStoriesReturns(array)
+      .whenHnServiceItemReturn(story)
+      .whenIDetectChanges()
+      .thenIExpectHnShowStoriesToHaveBeenCalled()
+      .thenIExpectHnItemToHaveBeenCalledTimes(amount)
+      .thenIExpectStoriesArrayToHaveLength(amount)
+      .thenIExpectSubscriptionQueueToHaveLength(amount);
   });
 });
