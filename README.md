@@ -14,7 +14,7 @@
   <h3 align="center">The Hacker Times</h3>
 
   <p align="center">
-    An Angular implementation of Hackernews with [NY Times](https://www.nytimes.com/) vibes.
+    An Angular implementation of Hackernews with <a href="https://www.nytimes.com/">NY Times</a> vibe.
     <br />
     <a href="https://github.com/data-miner00/ng-hackernews"><strong>Explore the docs »</strong></a>
     <br />
@@ -90,7 +90,7 @@ The technologies and tools used within this template.
 
 ### Design
 
-There are much design considerations when it comes to this project. The portal itself consumes the data from Hackernews API and persistence via Firebase.
+There are not much design considerations when it comes to this project and hence very straightforward and simple. The portal itself consumes the data from Hackernews API and persistence via Firebase.
 
 ```mermaid
 graph LR
@@ -161,6 +161,7 @@ Installation is fairly straightforward. Just clone the repo and `npm i && npm st
 - [ ] Add linter
 - [ ] Achieve 85% code coverage
 - [ ] 404 Page
+- [ ] Improve responsiveness
 
 See the [open issues](https://github.com/data-miner00/ng-hackernews/issues) for a full list of proposed features (and known issues).
 
