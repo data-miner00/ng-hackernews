@@ -2,43 +2,60 @@
 @import "../../../assets/sass/_breakpoints"
 
 .news-item
-    display: flex
-    flex-direction: column
-    border: 1px solid $font
-    padding: 10px
-    margin-bottom: 5px
-    transition: color .4s ease
-
-    &:hover h2
-        color: $blue-500
-
-    .left
-        margin: 0 15px 0 10px
+    margin: 40px 0
+    .prelude
         display: flex
-        flex-direction: row
-        justify-content: center
         align-items: center
-        min-width: 28px
+        justify-content: space-between
 
-    .right
-        flex-grow: 1
-        flex-shrink: 1
+        .author
+            display: flex
+            align-items: center
+            .avatar
+                background: $gray-200
+                overflow: hidden
+                height: 20px
+                width: 20px
+
+                img
+                    height: 20px
+                    width: 20px
+
+                &.square1
+                    border-radius: 5px
+                &.circle
+                    border: 1px solid $gray-200
+                    border-radius: 50%
+            .username
+                margin-left: 10px
+                font-size: 13px
+                font-weight: 600
+
+        .actions
+            display: flex
+            align-items: center
+
+            & > *
+                color: $gray-600
+                display: flex
+                justify-content: center
+                align-items: center
+                padding: 7px
+                margin-left: 5px
+                border-radius: 50%
+                cursor: pointer
+
+                &:hover
+                    background: $gray-100
+
+                svg
+                    display: block
+    a
+        display: block
 
         h2
-            font-size: 1.2rem
+            font-size: 22px
 
-        .individual-link
-            &:hover
-                text-decoration: underline
-
-@media screen and(min-width: $xl)
-    .news-item
-        flex-direction: row
-        padding: 25px
-
-        .left
-            flex-direction: column
-
-        .right
-            h2
-                font-size: 1.25rem
+        .info
+            font-size: 13px
+            color: $gray-600

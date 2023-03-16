@@ -8,7 +8,7 @@
           <rect x="1" y="11" fill="#333" width="14" height="2"></rect>
         </svg>
       </button>
-      <button class="bookmark">
+      <a routerLink="/bookmarks" class="bookmark">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -24,8 +24,8 @@
             d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1z"
           />
         </svg>
-      </button>
-      <button class="read-later">
+      </a>
+      <a routerLink="/read-later" class="read-later">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -41,23 +41,28 @@
             d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"
           />
         </svg>
-      </button>
+      </a>
     </div>
     <div class="right">
       <button class="subscribe">Subscribe for $0.00/Week</button>
-      <button class="login" *ngIf="!user; else logout_button">Login</button>
+      <a class="login" routerLink="/login" *ngIf="!user; else logout_button"
+        >Login</a
+      >
       <ng-template #logout_button>
-        <button class="logout">Logout</button>
+        <button (click)="logout()" class="logout">Logout</button>
       </ng-template>
     </div>
   </div>
   <header>
     <div class="left">
       <div class="date">
-        <span>{{ now | date: 'fullDate' }}</span>
+        <span>{{ now | date : 'fullDate' }}</span>
       </div>
       <div>
-        <a href="https://news.ycombinator.com/" target="_blank"
+        <a
+          href="https://news.ycombinator.com/"
+          target="_blank"
+          rel="noreferrer noopener"
           >Official Hackernews</a
         >
       </div>
@@ -71,36 +76,35 @@
 
     <div class="right">
       <div>
-        <span>{{ timeInDay }} {{ now | date: 'shortTime' | lowercase }}</span>
+        <span>{{ timeInDay }} {{ now | date : 'shortTime' | lowercase }}</span>
       </div>
-      <div>
-        <span>{{ user?.email }}</span>
-      </div>
-      <!-- <ng-template [ngIf]="user" [ngIfElse]="loginLink">
-        <div>{{ user.email }}</div>
+      <ng-template [ngIf]="user" [ngIfElse]="loginLink">
+        <div>
+          <span>{{ user.email }}</span>
+        </div>
       </ng-template>
 
       <ng-template #loginLink>
-        <a routerLink="/login" class="login">Login</a>
-      </ng-template> -->
+        <div>Not logged in</div>
+      </ng-template>
     </div>
   </header>
   <nav>
     <ul>
       <li>
-        <a routerLink="/top">Top</a>
+        <a routerLink="/top" routerLinkActive="active">Top</a>
       </li>
       <li>
-        <a routerLink="/ask">Ask</a>
+        <a routerLink="/ask" routerLinkActive="active">Ask</a>
       </li>
       <li>
-        <a routerLink="/show">Show</a>
+        <a routerLink="/show" routerLinkActive="active">Show</a>
       </li>
       <li>
-        <a routerLink="/job">Job</a>
+        <a routerLink="/job" routerLinkActive="active">Job</a>
       </li>
       <li>
-        <a routerLink="/random">Random</a>
+        <a routerLink="/random" routerLinkActive="active">Random</a>
       </li>
     </ul>
   </nav>

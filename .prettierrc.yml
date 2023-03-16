@@ -9,5 +9,6 @@ overrides:
       - '*.json'
       - karma.conf.js
       - '*.spec.ts'
+      - '*.md'
     options:
       tabWidth: 2

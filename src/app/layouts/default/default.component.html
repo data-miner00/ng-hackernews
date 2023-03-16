@@ -1,0 +1,8 @@
+<div class="layout">
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+  <div class="container">
+    <router-outlet (activate)="onActivate($event)"></router-outlet>
+  </div>
+  <app-footer></app-footer>
+</div>

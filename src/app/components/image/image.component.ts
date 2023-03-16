@@ -18,6 +18,5 @@ export class ImageComponent {
         'A minuscule caption tries to be inconspicuous';
 
     // Optional class that will be applied by the caption.
-    // Available values: 'left', 'right', 'right-small'
-    @Input() captionClass: string;
+    @Input() captionClass: 'left' | 'right' | 'right-small';
 }

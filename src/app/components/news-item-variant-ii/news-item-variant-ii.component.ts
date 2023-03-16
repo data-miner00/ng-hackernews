@@ -6,10 +6,23 @@ import { Component, Input, OnInit } from '@angular/core';
     styleUrls: ['./news-item-variant-ii.component.sass'],
 })
 export class NewsItemVariantIiComponent implements OnInit {
-    @Input() headline: string =
-        'Analysis: The leak of the draft opinion suggests an internal disarray at the Supreme Court, a blow to its legitimacy.';
+    // Main props
+    @Input() id: number;
+    @Input() title: string;
+    @Input() avatarUrl?: string;
+    @Input() author?: string;
+    @Input() imageUrl?: string;
+    @Input() description?: string;
+
+    // Style props
+    @Input() titleFontSize?: 'text-md' | 'text-lg';
+    @Input() titleMarginBottom?: 'mb-md' | 'mb-lg';
 
     constructor() {}
 
     ngOnInit(): void {}
+
+    get titleClass(): string {
+        return this.titleFontSize + ' ' + this.titleMarginBottom;
+    }
 }

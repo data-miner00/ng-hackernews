@@ -27,6 +27,11 @@ export class HeaderComponent implements OnInit {
         this.dataService.triggerEvent();
     }
 
+    public logout(): void {
+        this.auth.signOut();
+        window.location.replace('/');
+    }
+
     public get timeInDay() {
         const currentHour = this.now.getHours();
 

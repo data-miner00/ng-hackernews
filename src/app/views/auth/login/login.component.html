@@ -1,4 +1,5 @@
 <div class="login-page">
+  <a class="logo" routerLink="/">The Hacker Times</a>
   <form #loginForm="ngForm" (ngSubmit)="login()">
     <div class="email-wrapper">
       <label for="email">Email</label>
@@ -9,8 +10,17 @@
       <input type="password" name="password" [(ngModel)]="formInput.password" />
     </div>
     <a routerLink="forgot-password">Forgot password?</a>
-    <button type="submit" [disabled]="!loginForm.valid">Login</button>
+    <button
+      type="submit"
+      [disabled]="!loginForm.valid"
+      [ngClass]="{ loading: loading }"
+    >
+      Login
+    </button>
+    <p *ngIf="errorMessage" class="error">
+      {{ errorMessage }}
+    </p>
   </form>
 
-  <a routerLink="/signup">Don't have an account? Register here</a>
+  <a class="link" routerLink="/signup">Don't have an account? Register here</a>
 </div>

@@ -1,15 +1,15 @@
 <div class="variant-iii">
   <div class="flex">
+    <!-- optional avatar -->
     <div *ngIf="avatar" class="left">
       <div class="avatar">
-        <img src="https://thispersondoesnotexist.com/image" alt="Fake avatar" />
+        <img [src]="avatar" alt="Fake avatar" />
       </div>
     </div>
     <div class="right">
-      <h3>Lisp in Space</h3>
+      <h3>{{ title }}</h3>
       <p>
-        Fstesf, author of Lisp in Space, have sparkled a thread over 1311
-        comments and 290 upvotes as of now.
+        {{ description }}
       </p>
     </div>
   </div>

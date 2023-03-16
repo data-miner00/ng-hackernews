@@ -15,7 +15,7 @@ export class JobStoriesComponent implements IStoriesPage {
     public subscriptionQueue: Array<Subscription> = [];
     public stories: Array<Story> = [];
 
-    public constructor(public hnService: FakernewsService) {}
+    public constructor(public hnService: HackernewsService) {}
 
     public ngOnInit(): void {
         this.hnService.jobstories().subscribe((storiesId: Array<number>) => {

@@ -5,6 +5,7 @@
 .header-wrapper
     border-bottom: $font 1px solid
     background: $white
+    font-family: $readex-pro
 
     .actions
         max-width: 1200px
@@ -14,7 +15,11 @@
         align-items: center
         padding: 5px 0 0
         .left
-            button
+            display: flex
+            button,
+            .bookmark,
+            .read-later
+                display: block
                 cursor: pointer
                 background: transparent
                 border: none
@@ -29,7 +34,7 @@
             .bookmark
                 margin-right: 5px
         .right
-            button
+            button, a
                 font-size: 10px
                 color: white
                 font-weight: 600
@@ -42,17 +47,16 @@
                 transition: background .2s
                 &:hover
                     background-color: $gray-700
-
-                &.logout
-                    box-sizing: content-box
-                    background: white
-                    border: $gray-800 1px solid
-                    color: $gray-800
-                    &:hover
-                        background-color: $gray-100
+            .logout, .login
+                box-sizing: content-box
+                background: white
+                border: $gray-800 1px solid
+                color: $gray-800
+                &:hover
+                    background-color: $gray-100
             .subscribe
                 margin-right: 5px
-    
+
     header
         height: 60px
         max-width: 1200px
@@ -62,10 +66,11 @@
         justify-content: space-between
         font-size: 12px
         .left
-            cursor: pointer
             flex-basis: 300px
             .date
                 font-weight: 600
+            a:hover
+                text-decoration: underline
 
         .logo
             display: block
@@ -94,6 +99,10 @@
                     padding: 3px 4px
                     &:hover
                         background: #f7f7f7
+
+                    &.active
+                        color: white
+                        background: $black
 
 @media screen and(min-width: $xl)
     .header-wrapper

@@ -6,7 +6,11 @@ import { Component, Input, OnInit } from '@angular/core';
     styleUrls: ['./news-item-variant-iii.component.sass'],
 })
 export class NewsItemVariantIiiComponent implements OnInit {
-    @Input() avatar: string;
+    @Input() avatar: string =
+        'https://this-person-does-not-exist.com/img/avatar-11222e89096f85d99ec4375fbf3fa15f.jpg';
+    @Input() title: string = 'Lisp in Space';
+    @Input() description: string =
+        'Fstesf, author of Lisp in Space, have sparkled a thread over 1311 comments and 290 upvotes as of now.';
 
     constructor() {}
 

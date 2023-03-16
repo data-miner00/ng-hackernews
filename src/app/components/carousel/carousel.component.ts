@@ -22,7 +22,6 @@ export class CarouselComponent implements AfterViewInit {
     ngAfterViewInit(): void {
         const imgs =
             this.container.nativeElement.querySelectorAll('.animate-slideshow');
-        console.log(imgs);
 
         setInterval(() => {
             imgs[

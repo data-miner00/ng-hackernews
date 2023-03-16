@@ -1,16 +1,15 @@
 <div class="variant-v">
   <div [ngClass]="{ left: !!mode, lefty: !mode }">
     <h3>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, aspernatur!
+      {{ title }}
     </h3>
     <p>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo ducimus
-      quae totam illum sed quasi, doloremque a mollitia. Atque, delectus.
+      {{ description }}
     </p>
   </div>
   <div class="right" *ngIf="mode">
     <div>
-      <app-image [src]="src" [description]="description"></app-image>
+      <app-image [src]="imgSrc" [description]="imgDescription"></app-image>
     </div>
   </div>
 </div>

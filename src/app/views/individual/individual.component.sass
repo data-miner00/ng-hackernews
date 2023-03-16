@@ -5,53 +5,86 @@
     max-width: $sm
     margin: 0 auto
 
-    .row
+    .fakeimg
+        height: 400px
+        width: 100%
+        background: $blue-50
+        overflow: hidden
+
+    .metadata
         display: flex
-        flex-direction: column-reverse
-        margin-top: 10px
-        gap: 10px
+        justify-content: space-between
+        margin: 20px 0
+        align-items: center
 
-    .detail
+        .author
+            display: flex
+            align-items: center
+            
+            .pfp
+                border-radius: 50%
+                overflow: hidden
+                border: 1px solid $gray-300
+                background: $gray-300
+
+                img
+                    display: block
+                    height: 45px
+                    width: 45px
+
+    .details
+        margin-left: 10px
+
+        .name
+            font-weight: 600
+
+        .date
+            color: $gray-600
+            font-size: 14px
+
+    .buttons,
+    .socials,
+    .actions
         display: flex
+        align-items: center
 
-        .color
-            height: 20px
-            width: 20px
-            border-radius: 50%
-            background-color: $purple-300
-            flex-shrink: 0
 
-            &.p
-                background-color: $green-300
+    .buttons
+        .action
+            cursor: pointer
+            display: flex
+            justify-content: center
+            align-items: center
+            height: 30px
+            width: 30px
+            color: $gray-400
+            transition: color .2 ease
 
-            &.p2
-                background-color: $blue-300
+            svg
+                display: block
 
-        .actual
-            flex-grow: 1
-            margin-left: 10px
+            &:hover
+                color: $gray-500
 
-    .original
-        text-decoration: underline
-
-    .posted
-        margin-top: 6px
+        .actions
+            padding-left: 20px
+            margin-left: 20px
+            border-left: 1px solid $gray-400
 
     .comments
-        margin-top: 2rem
-        border: 1px solid transparent
+        margin: 2rem 0
 
-        h3
+        h4
             margin-bottom: 20px
+
+        &__empty
+            text-align: center
+            padding: 20px 0
+            &__large
+                font-size: 2rem
+                font-weight: 600
 
 @media screen and(min-width: $xl)
     .individual
-        .row
-            flex-direction: row
-            margin-top: 20px
-            gap: 30px
-
         .comments
             margin-top: 4rem
-            padding: 50px
-            border: 1px solid $font
