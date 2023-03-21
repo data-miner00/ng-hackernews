@@ -18,7 +18,7 @@ export class SidebarSteps extends BaseSteps<SidebarSteps, SidebarComponent> {
         return this;
     }
 
-    async whenISetup(): Promise<void> {
+    async givenISetupAsync(): Promise<void> {
         await TestBed.configureTestingModule({
             declarations: [SidebarComponent],
         }).compileComponents();

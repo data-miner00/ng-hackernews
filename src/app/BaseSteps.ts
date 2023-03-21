@@ -28,7 +28,7 @@ export abstract class BaseSteps<TSteps, TComponent> {
     /*
      * The codes that includes the testbed to initialize the test.
      */
-    abstract whenISetup(): Promise<void>;
+    abstract givenISetupAsync(): Promise<void>;
 
     whenIDetectChanges() {
         this.fixture.detectChanges();

@@ -22,12 +22,12 @@ describe('CommentsComponent', () => {
   });
 
   it('should create', async () => {
-    await steps.whenISetup();
+    await steps.givenISetupAsync();
     steps.whenIDetectChanges().thenIExpectComponentToBeConstructed();
   });
 
   it('should bind story to property after being fetched', async () => {
-    await steps.whenISetup();
+    await steps.givenISetupAsync();
     steps.whenIDetectChanges();
 
     const component = steps.component;
@@ -40,13 +40,13 @@ describe('CommentsComponent', () => {
   it('should populate `posted` based on calculations', async () => {
     const date = new Date(1639118165 * 1000);
 
-    await steps.whenISetup();
+    await steps.givenISetupAsync();
 
     steps.whenIDetectChanges().thenIExpectPostedDateToBe(date);
   });
 
   it('should render to html accordingly based on data provided', async () => {
-    await steps.whenISetup();
+    await steps.givenISetupAsync();
 
     steps
       .whenIDetectChanges()
@@ -59,7 +59,7 @@ describe('CommentsComponent', () => {
   });
 
   it('should not render any of the subcomments given there is none', async () => {
-    await steps.whenISetup();
+    await steps.givenISetupAsync();
 
     steps
       .whenIDetectChanges()

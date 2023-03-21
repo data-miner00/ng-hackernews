@@ -7,7 +7,7 @@ describe('MacroNewsLayoutIComponent', () => {
     steps = new MacroNewsLayoutISteps();
 
     steps.givenIHaveImageFileName('fake-img.png');
-    await steps.whenISetup();
+    await steps.givenISetupAsync();
   });
 
   it('should create', () => {

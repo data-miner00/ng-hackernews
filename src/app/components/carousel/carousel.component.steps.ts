@@ -3,7 +3,7 @@ import { BaseSteps } from 'src/app/BaseSteps';
 import { CarouselComponent } from './carousel.component';
 
 export class CarouselSteps extends BaseSteps<CarouselSteps, CarouselComponent> {
-    async whenISetup() {
+    async givenISetupAsync() {
         await TestBed.configureTestingModule({
             declarations: [CarouselComponent],
         }).compileComponents();

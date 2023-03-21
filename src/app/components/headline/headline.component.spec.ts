@@ -8,14 +8,14 @@ describe('HeadlineComponent', () => {
   });
 
   it('should create', async () => {
-    await steps.whenISetup();
+    await steps.givenISetupAsync();
     steps.thenIExpectComponentToBeConstructed();
   });
 
   it('should update headline', async () => {
     const headline = 'This is a headline';
 
-    await steps.whenISetup();
+    await steps.givenISetupAsync();
 
     steps
       .givenIHaveTheFollowingHeadline(headline)

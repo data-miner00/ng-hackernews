@@ -8,13 +8,13 @@ describe('CarouselComponent', () => {
   });
 
   it('should create', async () => {
-    await steps.whenISetup();
+    await steps.givenISetupAsync();
 
     steps.thenIExpectComponentToBeConstructed();
   });
 
   it('should have 6 images', async () => {
-    await steps.whenISetup();
+    await steps.givenISetupAsync();
 
     steps.whenIQueryAll('.animate-slideshow').thenIExpectQueryToHaveHits(6);
   });

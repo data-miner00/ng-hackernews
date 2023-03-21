@@ -6,7 +6,7 @@ export class FooterSteps extends BaseSteps<FooterSteps, FooterComponent> {
     get getClass(): FooterSteps {
         return this;
     }
-    async whenISetup(): Promise<void> {
+    async givenISetupAsync(): Promise<void> {
         await TestBed.configureTestingModule({
             declarations: [FooterComponent],
         }).compileComponents();

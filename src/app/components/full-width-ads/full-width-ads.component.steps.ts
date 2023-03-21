@@ -10,7 +10,7 @@ export class FullWidthAdsSteps extends BaseSteps<
         return this;
     }
 
-    async whenISetup(): Promise<void> {
+    async givenISetupAsync(): Promise<void> {
         await TestBed.configureTestingModule({
             declarations: [FullWidthAdsComponent],
         }).compileComponents();

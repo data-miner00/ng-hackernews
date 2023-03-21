@@ -7,7 +7,7 @@ export class ImageSteps extends BaseSteps<ImageSteps, ImageComponent> {
         return this;
     }
 
-    async whenISetup(): Promise<void> {
+    async givenISetupAsync(): Promise<void> {
         await TestBed.configureTestingModule({
             declarations: [ImageComponent],
         }).compileComponents();

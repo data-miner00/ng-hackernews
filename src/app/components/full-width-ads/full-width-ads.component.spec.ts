@@ -8,7 +8,7 @@ describe('FullWidthAdsComponent', () => {
   });
 
   it('should create', async () => {
-    await steps.whenISetup();
+    await steps.givenISetupAsync();
     steps.thenIExpectComponentToBeConstructed();
   });
 });

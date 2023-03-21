@@ -27,7 +27,7 @@ export class AskStoriesSteps extends BaseSteps<
         return this;
     }
 
-    async whenISetup(): Promise<void> {
+    async givenISetupAsync(): Promise<void> {
         await TestBed.configureTestingModule({
             imports: [HttpClientTestingModule],
             declarations: [AskStoriesComponent],

@@ -6,7 +6,7 @@ describe('ImageComponent', () => {
   beforeEach(async () => {
     steps = new ImageSteps();
 
-    await steps.whenISetup();
+    await steps.givenISetupAsync();
   });
 
   it('should create', () => {

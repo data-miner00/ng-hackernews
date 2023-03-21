@@ -19,7 +19,7 @@ export class MacroNewsLayoutISteps extends BaseSteps<
         return this;
     }
 
-    async whenISetup(): Promise<void> {
+    async givenISetupAsync(): Promise<void> {
         const mockFakerImgService: jasmine.SpyObj<FakerimgService> =
             jasmine.createSpyObj('FakerimgService', ['getImg']);
         mockFakerImgService.getImg.and.returnValue(this.imageFileName);

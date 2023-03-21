@@ -17,7 +17,7 @@ export class CommentsSteps extends BaseSteps<CommentsSteps, CommentsComponent> {
         return this;
     }
 
-    async whenISetup(): Promise<void> {
+    async givenISetupAsync(): Promise<void> {
         const serviceStub = {
             item: () => of(this.comment),
         };
