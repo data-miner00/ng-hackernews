@@ -1,5 +1,5 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { getTestBed, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { BaseSteps } from 'src/app/BaseSteps';
 import Story from 'src/app/models/hackernews/Item/Story';
@@ -36,8 +36,7 @@ export class AskStoriesSteps extends BaseSteps<
 
         this.fixture = TestBed.createComponent(AskStoriesComponent);
 
-        const injector = getTestBed();
-        this.hnService = injector.inject(HackernewsService);
+        this.hnService = this.injector.inject(HackernewsService);
     }
 
     whenHnServiceAskStoriesReturns(mockIdArray: number[]) {

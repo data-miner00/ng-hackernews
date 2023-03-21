@@ -31,7 +31,7 @@ export class CommentsSteps extends BaseSteps<CommentsSteps, CommentsComponent> {
         this.fixture = TestBed.createComponent(CommentsComponent);
         this.component.commentId = 323456;
 
-        this.fixture.debugElement.injector.get<HttpTestingController>(
+        this.baseEl.injector.get<HttpTestingController>(
             HttpTestingController as Type<HttpTestingController>
         );
     }

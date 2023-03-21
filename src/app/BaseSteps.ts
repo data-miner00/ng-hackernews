@@ -1,5 +1,5 @@
 import { DebugElement } from '@angular/core';
-import { ComponentFixture } from '@angular/core/testing';
+import { ComponentFixture, getTestBed, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 export abstract class BaseSteps<TSteps, TComponent> {
@@ -7,6 +7,8 @@ export abstract class BaseSteps<TSteps, TComponent> {
 
     elUnderTest: DebugElement;
     elsUnderTest: DebugElement[];
+
+    injector: TestBed = getTestBed();
 
     get component(): TComponent {
         return this.fixture.componentInstance;
@@ -29,6 +31,12 @@ export abstract class BaseSteps<TSteps, TComponent> {
      * The codes that includes the testbed to initialize the test.
      */
     abstract givenISetupAsync(): Promise<void>;
+
+    givenISetupClock(date: Date) {
+        jasmine.clock().install();
+        jasmine.clock().mockDate(date);
+        return this.getClass;
+    }
 
     whenIDetectChanges() {
         this.fixture.detectChanges();
@@ -62,6 +70,11 @@ export abstract class BaseSteps<TSteps, TComponent> {
 
     thenIExpectElementTextToBeEmpty() {
         expect(this.elUnderTest.nativeElement.textContent).toBeFalsy();
+        return this.getClass;
+    }
+
+    thenIExpectElementTextToBeExactly(text: string) {
+        expect(this.elUnderTest.nativeElement.textContent).toBe(text);
         return this.getClass;
     }
 

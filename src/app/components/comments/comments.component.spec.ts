@@ -3,7 +3,7 @@ import { CommentsSteps } from './comments.component.steps';
 describe('CommentsComponent', () => {
   let steps: CommentsSteps;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     steps = new CommentsSteps();
 
     const comment = {
@@ -19,15 +19,14 @@ describe('CommentsComponent', () => {
     };
 
     steps.givenIHaveTheFollowingComment(comment);
+    await steps.givenISetupAsync();
   });
 
-  it('should create', async () => {
-    await steps.givenISetupAsync();
+  it('should create', () => {
     steps.whenIDetectChanges().thenIExpectComponentToBeConstructed();
   });
 
-  it('should bind story to property after being fetched', async () => {
-    await steps.givenISetupAsync();
+  it('should bind story to property after being fetched', () => {
     steps.whenIDetectChanges();
 
     const component = steps.component;
@@ -37,17 +36,13 @@ describe('CommentsComponent', () => {
     expect(component.comment.type).toBe('comment');
   });
 
-  it('should populate `posted` based on calculations', async () => {
+  it('should populate `posted` based on calculations', () => {
     const date = new Date(1639118165 * 1000);
-
-    await steps.givenISetupAsync();
 
     steps.whenIDetectChanges().thenIExpectPostedDateToBe(date);
   });
 
-  it('should render to html accordingly based on data provided', async () => {
-    await steps.givenISetupAsync();
-
+  it('should render to html accordingly based on data provided', () => {
     steps
       .whenIDetectChanges()
       .whenIQuery('.comment .author span')
@@ -58,9 +53,7 @@ describe('CommentsComponent', () => {
       .thenIExpectElementToHaveTextContent("Hello world's");
   });
 
-  it('should not render any of the subcomments given there is none', async () => {
-    await steps.givenISetupAsync();
-
+  it('should not render any of the subcomments given there is none', () => {
     steps
       .whenIDetectChanges()
       .whenIQuery('.subcomments')
