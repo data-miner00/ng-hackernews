@@ -24,11 +24,15 @@ export abstract class BaseSteps<TSteps, TComponent> {
 
     /*
      * Getter to retrieve the base class itself.
+     * Simply return the `this` pointer to the class when implementing.
      */
     abstract get getClass(): TSteps;
 
     /*
      * The codes that includes the testbed to initialize the test.
+     * 1. Setup TestBed
+     * 2. Inject `this.fixture`
+     * 3. Inject any services to be mocked
      */
     abstract givenISetupAsync(): Promise<void>;
 
@@ -54,7 +58,7 @@ export abstract class BaseSteps<TSteps, TComponent> {
     }
 
     thenIExpectElementToExist() {
-        expect(this.elUnderTest).not.toBeNull();
+        expect(this.elUnderTest).toBeTruthy();
         return this.getClass;
     }
 
