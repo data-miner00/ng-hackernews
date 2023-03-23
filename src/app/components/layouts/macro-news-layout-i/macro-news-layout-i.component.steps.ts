@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { BaseSteps } from 'src/app/BaseSteps';
+import { BaseSteps } from 'src/app/test-utils/BaseSteps';
 import { FakerimgService } from 'src/app/services/fakerimg.service';
 import { MacroNewsLayoutIComponent } from './macro-news-layout-i.component';
 

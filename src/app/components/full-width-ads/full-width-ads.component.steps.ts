@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { BaseSteps } from 'src/app/BaseSteps';
+import { BaseSteps } from 'src/app/test-utils/BaseSteps';
 import { FullWidthAdsComponent } from './full-width-ads.component';
 
 export class FullWidthAdsSteps extends BaseSteps<

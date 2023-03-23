@@ -1,7 +1,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
-import { BaseSteps } from 'src/app/BaseSteps';
+import { BaseSteps } from 'src/app/test-utils/BaseSteps';
 import type Story from 'src/app/models/hackernews/Item/Story';
 import { HackernewsService } from 'src/app/services/hackernews.service';
 import { ShowStoriesComponent } from './show-stories.component';
