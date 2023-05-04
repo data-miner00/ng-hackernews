@@ -20,6 +20,7 @@ export class IndividualComponent implements OnInit, OnDestroy {
     public storySubscription: Subscription;
 
     public addedToReadLater: boolean;
+    public addedToFavourites: boolean;
     private userId: string;
 
     public constructor(
@@ -95,6 +96,27 @@ export class IndividualComponent implements OnInit, OnDestroy {
             );
         }
         this.addedToReadLater = !this.addedToReadLater;
+    }
+
+    public async onClickAddToFavourites(): Promise<void> {
+        if (this.userId == '') return;
+
+        if (!this.addedToFavourites) {
+            await this.firestore.addToArrayAsync(
+                'users',
+                this.userId,
+                'favourites',
+                this.story?.id
+            );
+        } else {
+            await this.firestore.removeFromArrayAsync(
+                'users',
+                this.userId,
+                'favourites',
+                this.story?.id
+            );
+        }
+        this.addedToFavourites = !this.addedToFavourites;
     }
 
     public getLinkToClipboard(): void {
