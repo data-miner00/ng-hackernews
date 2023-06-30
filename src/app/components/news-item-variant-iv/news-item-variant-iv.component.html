@@ -1,4 +1,4 @@
-<div class="variant-iv">
+<a class="variant-iv" [routerLink]="['/stories', id]">
   <div class="left">
     <div class="author">{{ author }}</div>
     <h3>{{ title }}</h3>
@@ -13,4 +13,4 @@
       <img [src]="contentImgSrc" [alt]="title" />
     </div>
   </div>
-</div>
+</a>

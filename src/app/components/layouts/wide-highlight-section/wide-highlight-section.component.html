@@ -1,20 +1,25 @@
 <section class="carousel">
+  <!-- headline  -->
   <app-headline></app-headline>
+
+  <!-- middle section -->
   <div class="middle">
     <div class="middle-left">
       <div class="middle-left-inner">
         <div class="news">
           <app-news-item-variant-ii
             class="entry-news"
-            [id]="6"
-            title="Supreme Court Confirms Leak but Says Text Is Not Final"
+            [id]="story?.id ?? 1"
+            [title]="story?.title ?? ''"
             description="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate porro fugit nostrum autem repellendus ipsa dolorem debitis iusto, quo minima est eum tempore consequuntur repellat. Eius quam at esse deleniti."
             titleFontSize="text-lg"
             titleMarginBottom="mb-lg"
           ></app-news-item-variant-ii>
           <app-news-item-variant-ii
-            [id]="4"
-            title="Analysis: The leak of the draft opinion suggests an internal disarray at the Supreme Court, a blow to its legitimacy."
+            [id]="story2?.id ?? 1"
+            [title]="story2?.title ?? ''"
+            titleMarginBottom="mb-md"
+            description="Lorem ipsum dolor, sit amet consectetur adipisicing elit. "
           ></app-news-item-variant-ii>
         </div>
         <app-carousel></app-carousel>
@@ -39,20 +44,39 @@
         </h3>
       </div>
       <div class="story-wrapper">
-        <h3>Leaked Threat to Roe v. Wade Stuns, Then Energizes Americans</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora,
-          deserunt laboriosam corrupti..
-        </p>
+        <a [routerLink]="['/stories', story3?.id ?? 0]">
+          <h3>{{ story3?.title ?? '' }}</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora,
+            deserunt laboriosam corrupti..
+          </p>
+        </a>
       </div>
     </div>
   </div>
+
+  <!-- bottom section -->
   <div class="bottom">
     <div class="bottom-inner">
       <app-news-item-variant-ii
-        *ngFor="let i of range(5)"
-        [id]="i"
-        title="The draft opinion, by Justice Samuel Alito, set out familiar critiques of the Roe decision."
+        [id]="story4?.id ?? 1"
+        [title]="story4?.title ?? ''"
+      ></app-news-item-variant-ii
+      ><app-news-item-variant-ii
+        [id]="story5?.id ?? 1"
+        [title]="story5?.title ?? ''"
+      ></app-news-item-variant-ii
+      ><app-news-item-variant-ii
+        [id]="story6?.id ?? 1"
+        [title]="story6?.title ?? ''"
+      ></app-news-item-variant-ii
+      ><app-news-item-variant-ii
+        [id]="story7?.id ?? 1"
+        [title]="story7?.title ?? ''"
+      ></app-news-item-variant-ii
+      ><app-news-item-variant-ii
+        [id]="story8?.id ?? 1"
+        [title]="story8?.title ?? ''"
       ></app-news-item-variant-ii>
     </div>
   </div>

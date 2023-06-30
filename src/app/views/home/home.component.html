@@ -1,15 +1,43 @@
 <div class="home">
-  <app-wide-highlight-section></app-wide-highlight-section>
+  <!-- Landing/highlight -->
+  <app-wide-highlight-section
+    [story]="topStories[0]"
+    [story2]="topStories[1]"
+    [story3]="topStories[2]"
+    [story4]="topStories[3]"
+    [story5]="topStories[4]"
+    [story6]="topStories[5]"
+    [story7]="topStories[6]"
+    [story8]="topStories[7]"
+  ></app-wide-highlight-section>
 
   <main>
+    <!-- Stories -->
     <div class="main-inner">
       <div class="left">
-        <app-macro-news-layout-i></app-macro-news-layout-i>
-        <app-macro-news-layout-ii></app-macro-news-layout-ii>
+        <app-macro-news-layout-i
+          [story]="topStories[8]"
+          [story2]="topStories[9]"
+          [story3]="topStories[10]"
+        ></app-macro-news-layout-i>
+        <app-macro-news-layout-ii
+          [story]="askStories[0]"
+          [story2]="askStories[1]"
+          [story3]="askStories[2]"
+          [story4]="askStories[3]"
+          [story5]="askStories[4]"
+        ></app-macro-news-layout-ii>
       </div>
 
       <div class="right">
-        <app-aside-news-layout></app-aside-news-layout>
+        <app-aside-news-layout
+          [story]="jobStories[0]"
+          [story2]="jobStories[1]"
+          [story3]="jobStories[2]"
+          [story4]="jobStories[3]"
+          [story5]="jobStories[4]"
+          [story6]="jobStories[5]"
+        ></app-aside-news-layout>
       </div>
     </div>
 

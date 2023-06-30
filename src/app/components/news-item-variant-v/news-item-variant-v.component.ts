@@ -6,6 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
     styleUrls: ['./news-item-variant-v.component.sass'],
 })
 export class NewsItemVariantVComponent implements OnInit {
+    @Input() id: number;
     @Input() mode: string;
     @Input() imgSrc: string;
     @Input() imgDescription: string;

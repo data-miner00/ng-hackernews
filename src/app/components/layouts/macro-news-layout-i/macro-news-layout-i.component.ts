@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import type Story from 'src/app/models/hackernews/Item/Story';
 import { FakerimgService } from 'src/app/services/fakerimg.service';
 
 @Component({
@@ -7,6 +8,10 @@ import { FakerimgService } from 'src/app/services/fakerimg.service';
     styleUrls: ['./macro-news-layout-i.component.sass'],
 })
 export class MacroNewsLayoutIComponent implements OnInit {
+    @Input() story: Story;
+    @Input() story2: Story;
+    @Input() story3: Story;
+
     constructor(private fakerimgService: FakerimgService) {}
 
     public headline: string =

@@ -2,22 +2,44 @@
   <div class="divider"></div>
   <section class="job-stories">
     <div class="section-label">Job stories</div>
-    <app-news-item-variant-iv></app-news-item-variant-iv>
     <app-news-item-variant-iv
-      avatarImgSrc="https://thispersondoesnotexist.com/image"
+      [id]="story?.id ?? 1"
+      [title]="story?.title ?? ''"
+      [author]="story?.by ?? ''"
+    ></app-news-item-variant-iv>
+    <app-news-item-variant-iv
+      avatarImgSrc="https://i.pravatar.cc/400?img=69"
+      [id]="story2?.id ?? 1"
+      [title]="story2?.title ?? ''"
+      [author]="story2?.by ?? ''"
     ></app-news-item-variant-iv>
     <div class="ads">
       <div>
         <img src="/assets/images/aws-ad.png" alt="AWS Ads" />
       </div>
     </div>
-    <app-news-item-variant-iv></app-news-item-variant-iv>
+    <app-news-item-variant-iv
+      [id]="story3?.id ?? 1"
+      [title]="story3?.title ?? ''"
+      [author]="story3?.by ?? ''"
+    ></app-news-item-variant-iv>
     <app-news-item-variant-iv
       contentImgSrc="https://static01.nyt.com/images/2022/05/04/opinion/04longwell-1/04longwell-1-square320.jpg?format=pjpg&quality=75&auto=webp&disable=upscale"
+      [id]="story4?.id ?? 1"
+      [title]="story4?.title ?? ''"
+      [author]="story4?.by ?? ''"
     ></app-news-item-variant-iv>
     <div class="doubly">
-      <app-news-item-variant-iv></app-news-item-variant-iv>
-      <app-news-item-variant-iv></app-news-item-variant-iv>
+      <app-news-item-variant-iv
+        [id]="story5?.id ?? 1"
+        [title]="story5?.title ?? ''"
+        [author]="story5?.by ?? ''"
+      ></app-news-item-variant-iv>
+      <app-news-item-variant-iv
+        [id]="story6?.id ?? 1"
+        [title]="story6?.title ?? ''"
+        [author]="story6?.by ?? ''"
+      ></app-news-item-variant-iv>
     </div>
   </section>
 </aside>
