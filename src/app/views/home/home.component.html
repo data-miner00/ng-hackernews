@@ -45,10 +45,27 @@
     <app-full-width-ads></app-full-width-ads>
 
     <!-- Four column posts -->
-    <app-wide-columns-section></app-wide-columns-section>
+    <app-wide-columns-section
+      [story]="askStories[5]"
+      [story2]="askStories[6]"
+      [story3]="askStories[7]"
+      [story4]="askStories[8]"
+    ></app-wide-columns-section>
 
     <!-- Wide news layout section -->
-    <app-wide-news-section-i></app-wide-news-section-i>
+    <app-wide-news-section-i
+      [story]="showStories[0]"
+      [story2]="showStories[1]"
+      [story3]="showStories[2]"
+      [story4]="showStories[3]"
+      [story5]="showStories[4]"
+      [story6]="showStories[5]"
+      [story7]="showStories[6]"
+      [story8]="showStories[7]"
+      [story9]="showStories[8]"
+      [story10]="showStories[9]"
+      [story11]="showStories[10]"
+    ></app-wide-news-section-i>
 
     <!-- Paid post -->
     <app-paid-post></app-paid-post>

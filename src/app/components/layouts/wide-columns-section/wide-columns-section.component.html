@@ -1,8 +1,20 @@
 <section class="four-cols">
   <div class="four-cols-inner">
-    <app-news-item-variant-vi></app-news-item-variant-vi>
-    <app-news-item-variant-vi></app-news-item-variant-vi>
-    <app-news-item-variant-vi></app-news-item-variant-vi>
-    <app-news-item-variant-vi></app-news-item-variant-vi>
+    <app-news-item-variant-vi
+      [id]="story?.id ?? 0"
+      [title]="story?.title ?? ''"
+    ></app-news-item-variant-vi>
+    <app-news-item-variant-vi
+      [id]="story2?.id ?? 0"
+      [title]="story2?.title ?? ''"
+    ></app-news-item-variant-vi>
+    <app-news-item-variant-vi
+      [id]="story3?.id ?? 0"
+      [title]="story3?.title ?? ''"
+    ></app-news-item-variant-vi>
+    <app-news-item-variant-vi
+      [id]="story4?.id ?? 0"
+      [title]="story4?.title ?? ''"
+    ></app-news-item-variant-vi>
   </div>
 </section>
