@@ -1,6 +1,11 @@
 {
   "name": "ng-hackernews",
-  "version": "0.0.0",
+  "description": "A Hackernews implementation in Angular, with interface inspired by Nytimes.",
+  "version": "2.0.0",
+  "author": {
+    "name": "Shaun"
+  },
+  "license": "MIT",
   "scripts": {
     "ng": "ng",
     "config": "node ./scripts/setenv.js",
