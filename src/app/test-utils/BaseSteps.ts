@@ -57,6 +57,24 @@ export abstract class BaseSteps<TSteps, TComponent> {
         return this.getClass;
     }
 
+    whenIDebug(showComponent = true, showEl = true, showCompiled = true) {
+        console.log('------ Debug Logs ------');
+        if (showComponent) {
+            console.log('component: ', this.component);
+            console.log(''.padEnd(30, '-'));
+        }
+        if (showEl) {
+            console.log('baseEl: ', this.baseEl);
+            console.log(''.padEnd(30, '-'));
+        }
+        if (showCompiled) {
+            console.log('compiled: ', this.compiled);
+            console.log(''.padEnd(30, '-'));
+        }
+
+        return this;
+    }
+
     thenIExpectElementToExist() {
         expect(this.elUnderTest).toBeTruthy();
         return this.getClass;
