@@ -9,7 +9,7 @@
       <p *ngIf="author" class="author">{{ author }}</p>
       <app-image *ngIf="imageUrl" [src]="imageUrl" description=""></app-image>
       <h3 [class]="titleClass">{{ title }}</h3>
-      <p *ngIf="description">{{ description }}</p>
+      <p *ngIf="description" class="description">{{ description }}</p>
     </div>
   </article>
 </a>

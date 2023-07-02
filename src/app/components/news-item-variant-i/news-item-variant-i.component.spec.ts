@@ -1,25 +1,31 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { NewsItemVariantIComponent } from './news-item-variant-i.component';
+import { NewsItemVariantISteps } from './news-item-variant-i.component.steps';
 
 describe('NewsItemVariantIComponent', () => {
-  let component: NewsItemVariantIComponent;
-  let fixture: ComponentFixture<NewsItemVariantIComponent>;
+  let steps: NewsItemVariantISteps;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ NewsItemVariantIComponent ]
-    })
-    .compileComponents();
-  });
+    steps = new NewsItemVariantISteps();
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(NewsItemVariantIComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    await steps.givenISetupAsync();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    steps.thenIExpectComponentToBeConstructed();
+  });
+
+  it('should render the props correctly', () => {
+    const id = 123;
+    const title = 'This is a title';
+    const description = 'This is a description';
+
+    steps
+      .givenIHaveTheProps(id, title, description)
+      .whenIDetectChanges()
+      .whenIQuery('a')
+      .thenIExpectElementToHaveAttribute('href', '/stories/123')
+      .whenIQuery('h1')
+      .thenIExpectElementToHaveTextContent(title)
+      .whenIQuery('p')
+      .thenIExpectElementToHaveTextContent(description);
   });
 });

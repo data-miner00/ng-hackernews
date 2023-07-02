@@ -105,10 +105,29 @@ export abstract class BaseSteps<TSteps, TComponent> {
         return this.getClass;
     }
 
+    thenIExpectElementToHaveClasses(classes: Array<string>) {
+        classes.forEach((className) => {
+            this.thenIExpectElementToHaveClass(className);
+        });
+        return this.getClass;
+    }
+
+    thenIExpectElementClassListToBe(classString: string) {
+        expect(this.elUnderTest.nativeElement.className).toBe(classString);
+        return this.getClass;
+    }
+
     thenIExpectElementNotToHaveClass(className: string) {
         expect(this.elUnderTest.nativeElement.classList).not.toContain(
             className
         );
+        return this.getClass;
+    }
+
+    thenIExpectElementNotToHaveClasses(classes: Array<string>) {
+        classes.forEach((className) => {
+            this.thenIExpectElementNotToHaveClass(className);
+        });
         return this.getClass;
     }
 
