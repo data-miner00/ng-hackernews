@@ -1,25 +1,38 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { NewsItemVariantViComponent } from './news-item-variant-vi.component';
+import { NewsItemVariantViSteps } from './news-item-variant-vi.component.steps';
 
 describe('NewsItemVariantViComponent', () => {
-  let component: NewsItemVariantViComponent;
-  let fixture: ComponentFixture<NewsItemVariantViComponent>;
+  let steps: NewsItemVariantViSteps;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ NewsItemVariantViComponent ]
-    })
-    .compileComponents();
-  });
+    steps = new NewsItemVariantViSteps();
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(NewsItemVariantViComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    await steps.givenISetupAsync();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    steps.thenIExpectComponentToBeConstructed();
+  });
+
+  it('should render the props properly', () => {
+    const id = 123;
+    const title = 'This is a title';
+    const description = 'This is a description';
+    const imgSrc = 'img.jpg';
+    const imgDescription = 'This is a img description';
+
+    steps
+      .givenIHaveRequiredProps(id, title, description, imgSrc, imgDescription)
+      .whenIDetectChanges()
+      .whenIQuery('a')
+      .thenIExpectElementToHaveAttribute('href', '/stories/123')
+      .whenIQuery('picture source')
+      .thenIExpectElementToHaveAttribute('srcset', imgSrc)
+      .whenIQuery('picture img')
+      .thenIExpectElementToHaveAttribute('alt', imgDescription)
+      .thenIExpectElementToHaveAttribute('src', imgSrc)
+      .whenIQuery('h3')
+      .thenIExpectElementToHaveTextContent(title)
+      .whenIQuery('p')
+      .thenIExpectElementToHaveTextContent(description);
   });
 });

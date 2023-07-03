@@ -1,25 +1,27 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { NewsItemVariantViiComponent } from './news-item-variant-vii.component';
+import { NewsItemVariantViiSteps } from './news-item-variant-vii.component.steps';
 
 describe('NewsItemVariantViiComponent', () => {
-  let component: NewsItemVariantViiComponent;
-  let fixture: ComponentFixture<NewsItemVariantViiComponent>;
+  let steps: NewsItemVariantViiSteps;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ NewsItemVariantViiComponent ]
-    })
-    .compileComponents();
-  });
+    steps = new NewsItemVariantViiSteps();
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(NewsItemVariantViiComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    await steps.givenISetupAsync();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    steps.thenIExpectComponentToBeConstructed();
+  });
+
+  it('should render the props correctly', () => {
+    const id = 123;
+    const title = 'This is a title';
+
+    steps
+      .givenIHaveRequiredProps(id, title)
+      .whenIDetectChanges()
+      .whenIQuery('a')
+      .thenIExpectElementToHaveAttribute('href', '/stories/123')
+      .thenIExpectElementToHaveTextContent(title);
   });
 });
