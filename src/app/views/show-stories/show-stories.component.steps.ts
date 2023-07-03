@@ -1,7 +1,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { getTestBed, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
-import { BaseSteps } from 'src/app/BaseSteps';
+import { BaseSteps } from 'src/app/test-utils/BaseSteps';
 import type Story from 'src/app/models/hackernews/Item/Story';
 import { HackernewsService } from 'src/app/services/hackernews.service';
 import { ShowStoriesComponent } from './show-stories.component';
@@ -27,7 +27,7 @@ export class ShowStoriesSteps extends BaseSteps<
         return this;
     }
 
-    async whenISetup(): Promise<void> {
+    async givenISetupAsync(): Promise<void> {
         await TestBed.configureTestingModule({
             imports: [HttpClientTestingModule],
             declarations: [ShowStoriesComponent],
@@ -36,8 +36,7 @@ export class ShowStoriesSteps extends BaseSteps<
 
         this.fixture = TestBed.createComponent(ShowStoriesComponent);
 
-        const injector = getTestBed();
-        this.hnService = injector.inject(HackernewsService);
+        this.hnService = this.injector.inject(HackernewsService);
     }
 
     whenHnServiceShowStoriesReturns(mockIdArray: number[]) {

@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { BaseSteps } from 'src/app/BaseSteps';
+import { BaseSteps } from 'src/app/test-utils/BaseSteps';
 import { HeadlineComponent } from './headline.component';
 
 export class HeadlineSteps extends BaseSteps<HeadlineSteps, HeadlineComponent> {
@@ -7,7 +7,7 @@ export class HeadlineSteps extends BaseSteps<HeadlineSteps, HeadlineComponent> {
         return this;
     }
 
-    async whenISetup(): Promise<void> {
+    async givenISetupAsync(): Promise<void> {
         await TestBed.configureTestingModule({
             declarations: [HeadlineComponent],
         }).compileComponents();

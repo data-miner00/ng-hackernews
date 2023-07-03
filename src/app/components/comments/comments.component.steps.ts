@@ -5,7 +5,7 @@ import {
 import { Type } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
-import { BaseSteps } from 'src/app/BaseSteps';
+import { BaseSteps } from 'src/app/test-utils/BaseSteps';
 import { SafeHtmlPipe } from 'src/app/pipes/safe-html.pipe';
 import { HackernewsService } from 'src/app/services/hackernews.service';
 import { CommentsComponent } from './comments.component';
@@ -17,7 +17,7 @@ export class CommentsSteps extends BaseSteps<CommentsSteps, CommentsComponent> {
         return this;
     }
 
-    async whenISetup(): Promise<void> {
+    async givenISetupAsync(): Promise<void> {
         const serviceStub = {
             item: () => of(this.comment),
         };
@@ -31,7 +31,7 @@ export class CommentsSteps extends BaseSteps<CommentsSteps, CommentsComponent> {
         this.fixture = TestBed.createComponent(CommentsComponent);
         this.component.commentId = 323456;
 
-        this.fixture.debugElement.injector.get<HttpTestingController>(
+        this.baseEl.injector.get<HttpTestingController>(
             HttpTestingController as Type<HttpTestingController>
         );
     }

@@ -7,18 +7,29 @@
       imgSrc="https://static01.nyt.com/images/2022/05/21/multimedia/21election-labor/21election-labor-threeByTwoMediumAt2X.jpg?format=pjpg&quality=75&auto=webp&disable=upscale"
       imgDescription="Labor Party supporters in Sydney, Australia, reacted to election updates."
       description="Labor Party supporters in Sydney, Australia, reacted to election updates."
-      title="Labor Party Fiesta rocking in the Downton"
+      [title]="story?.title ?? ''"
+      [id]="story?.id ?? 0"
     ></app-news-item-variant-v>
     <div class="usual-story">
-      <app-news-item-variant-v></app-news-item-variant-v>
+      <app-news-item-variant-v
+        [title]="story2?.title ?? ''"
+        [id]="story2?.id ?? 0"
+      ></app-news-item-variant-v>
     </div>
   </div>
   <div class="divider"></div>
   <div class="ask-stories-inner">
     <app-news-item-variant-ii
-      *ngFor="let i of range(3)"
-      [id]="i"
-      title="The draft opinion, by Justice Samuel Alito, set out familiar critiques of the Roe decision."
+      [id]="story3?.id ?? 0"
+      [title]="story3?.title ?? ''"
+    ></app-news-item-variant-ii
+    ><app-news-item-variant-ii
+      [id]="story4?.id ?? 0"
+      [title]="story4?.title ?? ''"
+    ></app-news-item-variant-ii
+    ><app-news-item-variant-ii
+      [id]="story5?.id ?? 0"
+      [title]="story5?.title ?? ''"
     ></app-news-item-variant-ii>
   </div>
 </section>

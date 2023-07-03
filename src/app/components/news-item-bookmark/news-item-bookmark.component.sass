@@ -1,0 +1,61 @@
+@import "../../../assets/sass/_colors"
+@import "../../../assets/sass/_breakpoints"
+
+.news-item
+    margin: 40px 0
+    .prelude
+        display: flex
+        align-items: center
+        justify-content: space-between
+
+        .author
+            display: flex
+            align-items: center
+            .avatar
+                background: $gray-200
+                overflow: hidden
+                height: 20px
+                width: 20px
+
+                img
+                    height: 20px
+                    width: 20px
+
+                &.square1
+                    border-radius: 5px
+                &.circle
+                    border: 1px solid $gray-200
+                    border-radius: 50%
+            .username
+                margin-left: 10px
+                font-size: 13px
+                font-weight: 600
+
+        .actions
+            display: flex
+            align-items: center
+
+            & > *
+                color: $gray-600
+                display: flex
+                justify-content: center
+                align-items: center
+                padding: 7px
+                margin-left: 5px
+                border-radius: 50%
+                cursor: pointer
+
+                &:hover
+                    background: $gray-100
+
+                svg
+                    display: block
+    a
+        display: block
+
+        h2
+            font-size: 22px
+
+        .info
+            font-size: 13px
+            color: $gray-600

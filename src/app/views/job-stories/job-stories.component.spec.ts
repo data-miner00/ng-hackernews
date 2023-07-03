@@ -7,7 +7,7 @@ describe('JobStoriesComponent', () => {
   beforeEach(async () => {
     steps = new JobStoriesSteps();
 
-    await steps.whenISetup();
+    await steps.givenISetupAsync();
   });
 
   it('should create', () => {

@@ -7,7 +7,7 @@ describe('TopStoriesComponent', () => {
   beforeEach(async () => {
     steps = new TopStoriesSteps();
 
-    await steps.whenISetup();
+    await steps.givenISetupAsync();
   });
 
   it('should create', () => {

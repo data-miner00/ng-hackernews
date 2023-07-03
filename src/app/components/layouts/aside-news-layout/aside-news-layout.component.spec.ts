@@ -6,7 +6,7 @@ describe('AsideNewsLayoutComponent', () => {
   beforeEach(async () => {
     steps = new AsideNewsLayoutSteps();
 
-    await steps.whenISetup();
+    await steps.givenISetupAsync();
   });
 
   it('should create', () => {

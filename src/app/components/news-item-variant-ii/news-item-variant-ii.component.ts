@@ -23,6 +23,10 @@ export class NewsItemVariantIiComponent implements OnInit {
     ngOnInit(): void {}
 
     get titleClass(): string {
-        return this.titleFontSize + ' ' + this.titleMarginBottom;
+        if (this.titleFontSize && this.titleMarginBottom)
+            return this.titleFontSize + ' ' + this.titleMarginBottom;
+        if (this.titleFontSize) return this.titleFontSize;
+        if (this.titleMarginBottom) return this.titleMarginBottom;
+        return '';
     }
 }

@@ -6,7 +6,7 @@ describe('SidebarComponent', () => {
   beforeEach(async () => {
     steps = new SidebarSteps();
 
-    await steps.whenISetup();
+    await steps.givenISetupAsync();
     steps.whenIDetectChanges();
   });
 

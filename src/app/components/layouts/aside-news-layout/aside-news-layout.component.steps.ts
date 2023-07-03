@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { BaseSteps } from 'src/app/BaseSteps';
+import { BaseSteps } from 'src/app/test-utils/BaseSteps';
 import { AsideNewsLayoutComponent } from './aside-news-layout.component';
 
 export class AsideNewsLayoutSteps extends BaseSteps<
@@ -11,7 +11,7 @@ export class AsideNewsLayoutSteps extends BaseSteps<
         return this;
     }
 
-    async whenISetup(): Promise<void> {
+    async givenISetupAsync(): Promise<void> {
         await TestBed.configureTestingModule({
             declarations: [AsideNewsLayoutComponent],
             schemas: [CUSTOM_ELEMENTS_SCHEMA],

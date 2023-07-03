@@ -50,6 +50,7 @@ import { ReadLaterComponent } from './views/read-later/read-later.component';
 import { DefaultComponent } from './layouts/default/default.component';
 import { BlankComponent } from './layouts/blank/blank.component';
 import { RandomStoriesComponent } from './views/random-stories/random-stories.component';
+import { NewsItemBookmarkComponent } from './components/news-item-bookmark/news-item-bookmark.component';
 
 @NgModule({
     declarations: [
@@ -94,6 +95,7 @@ import { RandomStoriesComponent } from './views/random-stories/random-stories.co
         DefaultComponent,
         BlankComponent,
         RandomStoriesComponent,
+        NewsItemBookmarkComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, provideFirebaseApp(() => initializeApp(environment.firebase)), provideAnalytics(() => getAnalytics()), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())],
     providers: [

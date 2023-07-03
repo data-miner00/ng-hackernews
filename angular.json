@@ -31,7 +31,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.sass"
+              "src/styles.sass",
+              {
+                "input": "src/extra.sass",
+                "bundleName": "extra-compiled.css",
+                "inject": false
+              }
             ],
             "scripts": []
           },

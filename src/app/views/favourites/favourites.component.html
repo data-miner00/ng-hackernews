@@ -1,1 +1,32 @@
-<p>favourites works!</p>
+<div class="favourites-page">
+  <h1 class="story-page-heading">Favourites</h1>
+  <div class="favourites-logged-in" *ngIf="uid !== ''; else nologin">
+    <div class="favourites-inner" *ngIf="stories.length > 0; else nothing">
+      <app-news-item-bookmark
+        *ngFor="let story of stories"
+        [id]="story.id"
+        [title]="story.title"
+        [by]="story.by"
+        [descendants]="story.descendants"
+        [score]="story.score"
+        [type]="story.type"
+        [url]="story.url"
+        [time]="story.time"
+        [alreadyAdded]="true"
+      ></app-news-item-bookmark>
+    </div>
+    <ng-template #nothing>
+      <div class="nothing">
+        <p>Looks like you have not favourited any stories yet. Go add one!</p>
+      </div>
+    </ng-template>
+  </div>
+  <ng-template #nologin>
+    <div class="favourites-not-logged-in">
+      <p>
+        To add items and customize your favourites list, you have to login first
+        to continue.
+      </p>
+    </div>
+  </ng-template>
+</div>

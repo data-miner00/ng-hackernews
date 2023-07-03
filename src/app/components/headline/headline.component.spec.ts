@@ -3,19 +3,17 @@ import { HeadlineSteps } from './headline.component.steps';
 describe('HeadlineComponent', () => {
   let steps: HeadlineSteps;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     steps = new HeadlineSteps();
+    await steps.givenISetupAsync();
   });
 
-  it('should create', async () => {
-    await steps.whenISetup();
+  it('should create', () => {
     steps.thenIExpectComponentToBeConstructed();
   });
 
-  it('should update headline', async () => {
+  it('should update headline', () => {
     const headline = 'This is a headline';
-
-    await steps.whenISetup();
 
     steps
       .givenIHaveTheFollowingHeadline(headline)

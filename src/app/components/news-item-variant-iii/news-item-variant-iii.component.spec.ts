@@ -1,25 +1,43 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { NewsItemVariantIiiComponent } from './news-item-variant-iii.component';
+import { NewsItemVariantIiiSteps } from './news-item-variant-iii.component.steps';
 
 describe('NewsItemVariantIiiComponent', () => {
-  let component: NewsItemVariantIiiComponent;
-  let fixture: ComponentFixture<NewsItemVariantIiiComponent>;
+  let steps: NewsItemVariantIiiSteps;
+
+  const id = 123;
+  const title = 'This is a title';
+  const description = 'This is a description';
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ NewsItemVariantIiiComponent ]
-    })
-    .compileComponents();
-  });
+    steps = new NewsItemVariantIiiSteps();
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(NewsItemVariantIiiComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    await steps.givenISetupAsync();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    steps.thenIExpectComponentToBeConstructed();
+  });
+
+  it('should render required props correctly', () => {
+    steps
+      .givenIHaveRequiredProps(id, title, description)
+      .whenIDetectChanges()
+      .whenIQuery('a')
+      .thenIExpectElementToHaveAttribute('href', '/stories/123')
+      .whenIQuery('.right h3')
+      .thenIExpectElementToHaveTextContent(title)
+      .whenIQuery('.right p')
+      .thenIExpectElementToHaveTextContent(description);
+  });
+
+  it('should render avatar when avatar url is truthy', () => {
+    const avatarUrl = 'http://avatar.url.jpg';
+
+    steps
+      .givenIHaveRequiredProps(id, title, description)
+      .givenIHaveAvatarUrl(avatarUrl)
+      .whenIDetectChanges()
+      .whenIQuery('.avatar img')
+      .thenIExpectElementToExist()
+      .thenIExpectElementToHaveAttribute('src', avatarUrl);
   });
 });

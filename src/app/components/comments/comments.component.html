@@ -2,13 +2,13 @@
   <article [innerHtml]="comment?.text ?? '' | safeHtml"></article>
   <div class="author">
     <span>{{ comment?.by }}</span> |
-    {{ posted | date: 'd MMM, yyyy' }}
+    {{ posted | date : 'd MMM, yyyy' }}
   </div>
 </div>
 
 <div class="subcomments">
   <app-comments
-    *ngFor="let cmt of comment.kids"
+    *ngFor="let cmt of comment?.kids"
     [commentId]="cmt"
   ></app-comments>
 </div>

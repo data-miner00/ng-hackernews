@@ -7,8 +7,14 @@
         <div class="kafka">
           <div class="upper">
             <div class="posts">
-              <app-news-item-variant-iii></app-news-item-variant-iii>
-              <app-news-item-variant-iii></app-news-item-variant-iii>
+              <app-news-item-variant-iii
+                [id]="story?.id ?? 0"
+                [title]="story?.title ?? ''"
+              ></app-news-item-variant-iii>
+              <app-news-item-variant-iii
+                [id]="story2?.id ?? 0"
+                [title]="story2?.title ?? ''"
+              ></app-news-item-variant-iii>
             </div>
             <app-image
               src="https://static01.nyt.com/images/2022/05/27/arts/27Summer-Books/27Summer-Books-threeByTwoMediumAt2X.jpg?format=pjpg&quality=75&auto=webp&disable=upscale"
@@ -18,15 +24,46 @@
           </div>
         </div>
         <div class="bower">
-          <app-news-item-variant-iii></app-news-item-variant-iii>
-          <app-news-item-variant-iii></app-news-item-variant-iii>
+          <app-news-item-variant-iii
+            [id]="story3?.id ?? 0"
+            [title]="story3?.title ?? ''"
+          ></app-news-item-variant-iii>
+          <app-news-item-variant-iii
+            [id]="story4?.id ?? 0"
+            [title]="story4?.title ?? ''"
+          ></app-news-item-variant-iii>
         </div>
       </div>
     </div>
     <div class="right-part">
       <div class="wrapper">
         <app-news-item-variant-vii
-          *ngFor="let i of range(7)"
+          [id]="story5?.id ?? 0"
+          [title]="story5?.title ?? ''"
+        ></app-news-item-variant-vii
+        ><app-news-item-variant-vii
+          [id]="story6?.id ?? 0"
+          [title]="story6?.title ?? ''"
+        ></app-news-item-variant-vii
+        ><app-news-item-variant-vii
+          [id]="story7?.id ?? 0"
+          [title]="story7?.title ?? ''"
+        ></app-news-item-variant-vii
+        ><app-news-item-variant-vii
+          [id]="story8?.id ?? 0"
+          [title]="story8?.title ?? ''"
+        ></app-news-item-variant-vii
+        ><app-news-item-variant-vii
+          [id]="story9?.id ?? 0"
+          [title]="story9?.title ?? ''"
+        ></app-news-item-variant-vii
+        ><app-news-item-variant-vii
+          [id]="story10?.id ?? 0"
+          [title]="story10?.title ?? ''"
+        ></app-news-item-variant-vii
+        ><app-news-item-variant-vii
+          [id]="story11?.id ?? 0"
+          [title]="story11?.title ?? ''"
         ></app-news-item-variant-vii>
       </div>
     </div>

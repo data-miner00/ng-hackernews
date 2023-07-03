@@ -1,4 +1,4 @@
-<div class="variant-v">
+<a class="variant-v" [routerLink]="['/stories', id]">
   <div [ngClass]="{ left: !!mode, lefty: !mode }">
     <h3>
       {{ title }}
@@ -12,4 +12,4 @@
       <app-image [src]="imgSrc" [description]="imgDescription"></app-image>
     </div>
   </div>
-</div>
+</a>

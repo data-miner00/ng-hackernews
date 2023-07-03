@@ -6,9 +6,19 @@
   <div class="top-stories-inner">
     <!-- Story 2,3,4 -->
     <div class="left1">
-      <app-news-item-variant-iii></app-news-item-variant-iii>
-      <app-news-item-variant-iii></app-news-item-variant-iii>
-      <app-news-item-variant-iii></app-news-item-variant-iii>
+      <app-news-item-variant-iii
+        [id]="story?.id ?? 0"
+        [title]="story?.title ?? ''"
+      ></app-news-item-variant-iii>
+      <app-news-item-variant-iii
+        [id]="story2?.id ?? 0"
+        [title]="story2?.title ?? ''"
+      ></app-news-item-variant-iii>
+      <app-news-item-variant-iii
+        [id]="story3?.id ?? 0"
+        [title]="story3?.title ?? ''"
+        description=""
+      ></app-news-item-variant-iii>
     </div>
 
     <!-- Story 5 -->
