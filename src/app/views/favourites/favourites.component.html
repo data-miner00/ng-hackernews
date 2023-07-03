@@ -2,7 +2,7 @@
   <h1 class="story-page-heading">Favourites</h1>
   <div class="favourites-logged-in" *ngIf="uid !== ''; else nologin">
     <div class="favourites-inner" *ngIf="stories.length > 0; else nothing">
-      <app-news-item
+      <app-news-item-bookmark
         *ngFor="let story of stories"
         [id]="story.id"
         [title]="story.title"
@@ -13,7 +13,7 @@
         [url]="story.url"
         [time]="story.time"
         [alreadyAdded]="true"
-      ></app-news-item>
+      ></app-news-item-bookmark>
     </div>
     <ng-template #nothing>
       <div class="nothing">
