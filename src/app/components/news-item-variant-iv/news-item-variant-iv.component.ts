@@ -1,9 +1,15 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    Input,
+    OnInit,
+} from '@angular/core';
 
 @Component({
     selector: 'app-news-item-variant-iv',
     templateUrl: './news-item-variant-iv.component.html',
     styleUrls: ['./news-item-variant-iv.component.sass'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NewsItemVariantIvComponent implements OnInit {
     @Input() id: number;
