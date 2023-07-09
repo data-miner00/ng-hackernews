@@ -13,6 +13,7 @@
     "build": "npm run config -- --environment=prod && ng build",
     "watch": "npm run config -- --environment=dev && ng build --watch --configuration development",
     "test": "npm run config -- --environment=dev && ng test",
+    "coverage": "npm run config -- --environment=dev && ng test --no-watch --code-coverage",
     "format": "prettier . --write",
     "check": "prettier . --check"
   },
