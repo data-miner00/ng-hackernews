@@ -148,7 +148,7 @@ Installation is fairly straightforward. Just clone the repo and `npm i && npm st
 - [x] Implement carousel
 - [ ] Add Pexels API for image
 - [x] Implement individual page
-- [ ] Implement the favourite page
+- [x] Implement the favourite page
 - [x] Implement the watch later page
 - [ ] Use mixin for repetead css
 - [x] Implement better footer
@@ -157,11 +157,12 @@ Installation is fairly straightforward. Just clone the repo and `npm i && npm st
 - [ ] Implement User Page
 - [ ] Add upvote count to comment
 - [ ] Implement random page
-- [ ] Hydrate landing page
+- [x] Hydrate landing page
 - [ ] Add linter
+- [x] Add formatter
 - [ ] Achieve 85% code coverage
-- [ ] 404 Page
 - [ ] Improve responsiveness
+- [ ] Use RxJs ShareReplay to cache results
 
 See the [open issues](https://github.com/data-miner00/ng-hackernews/issues) for a full list of proposed features (and known issues).
 
