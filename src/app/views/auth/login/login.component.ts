@@ -11,7 +11,10 @@ export class LoginComponent implements OnInit {
     errorMessage = '';
     loading = false;
 
-    constructor(private auth: AuthService, private router: Router) {}
+    constructor(
+        private auth: AuthService,
+        private router: Router
+    ) {}
 
     formInput = {
         email: '',

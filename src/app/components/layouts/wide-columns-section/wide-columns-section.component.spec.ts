@@ -8,9 +8,8 @@ describe('WideColumnsSectionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WideColumnsSectionComponent ]
-    })
-    .compileComponents();
+      declarations: [WideColumnsSectionComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

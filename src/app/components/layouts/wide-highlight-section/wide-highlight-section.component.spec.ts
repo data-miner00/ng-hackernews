@@ -8,9 +8,8 @@ describe('WideHighlightSectionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WideHighlightSectionComponent ]
-    })
-    .compileComponents();
+      declarations: [WideHighlightSectionComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

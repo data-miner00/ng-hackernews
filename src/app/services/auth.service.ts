@@ -25,7 +25,10 @@ import { take } from 'rxjs/operators';
 export class AuthService {
     user$: Observable<User | null>;
 
-    constructor(private auth: Auth, private firestore: Firestore) {
+    constructor(
+        private auth: Auth,
+        private firestore: Firestore
+    ) {
         this.user$ = user(auth);
     }
 

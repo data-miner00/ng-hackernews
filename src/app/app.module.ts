@@ -22,11 +22,16 @@ import { FavouritesComponent } from './views/favourites/favourites.component';
 import { LoginComponent } from './views/auth/login/login.component';
 import { AboutComponent } from './views/about/about.component';
 import { FormsModule } from '@angular/forms';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
-import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import {
+    provideAnalytics,
+    getAnalytics,
+    ScreenTrackingService,
+    UserTrackingService,
+} from '@angular/fire/analytics';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { SignupComponent } from './views/auth/signup/signup.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { HeadlineComponent } from './components/headline/headline.component';
@@ -97,10 +102,17 @@ import { NewsItemBookmarkComponent } from './components/news-item-bookmark/news-
         RandomStoriesComponent,
         NewsItemBookmarkComponent,
     ],
-    imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, provideFirebaseApp(() => initializeApp(environment.firebase)), provideAnalytics(() => getAnalytics()), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())],
-    providers: [
-    ScreenTrackingService,UserTrackingService
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        provideFirebaseApp(() => initializeApp(environment.firebase)),
+        provideAnalytics(() => getAnalytics()),
+        provideAuth(() => getAuth()),
+        provideFirestore(() => getFirestore()),
+    ],
+    providers: [ScreenTrackingService, UserTrackingService],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

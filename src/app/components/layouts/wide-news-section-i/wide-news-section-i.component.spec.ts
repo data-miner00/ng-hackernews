@@ -8,9 +8,8 @@ describe('WideNewsSectionIComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WideNewsSectionIComponent ]
-    })
-    .compileComponents();
+      declarations: [WideNewsSectionIComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
