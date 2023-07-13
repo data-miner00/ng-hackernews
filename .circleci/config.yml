@@ -43,6 +43,11 @@ jobs:
       - node/install-packages:
           # If you are using yarn, change the line below from "npm" to "yarn"
           pkg-manager: npm
+
+      - run:
+          name: Check formatting
+          command: npm run check
+
       - run:
           name: Run tests
           command: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessNoSandbox

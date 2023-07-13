@@ -8,9 +8,8 @@ describe('MacroNewsLayoutIiComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MacroNewsLayoutIiComponent ]
-    })
-    .compileComponents();
+      declarations: [MacroNewsLayoutIiComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

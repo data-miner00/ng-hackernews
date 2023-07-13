@@ -1,9 +1,15 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    Input,
+    OnInit,
+} from '@angular/core';
 
 @Component({
     selector: 'app-news-item-variant-ii',
     templateUrl: './news-item-variant-ii.component.html',
     styleUrls: ['./news-item-variant-ii.component.sass'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NewsItemVariantIiComponent implements OnInit {
     // Main props
