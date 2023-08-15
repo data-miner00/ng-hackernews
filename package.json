@@ -15,7 +15,8 @@
     "test": "npm run config -- --environment=dev && ng test",
     "coverage": "npm run config -- --environment=dev && ng test --no-watch --code-coverage",
     "format": "prettier . --write",
-    "check": "prettier . --check"
+    "check": "prettier . --check",
+    "lint:css": "stylelint **/*.sass"
   },
   "private": true,
   "dependencies": {
