@@ -14,12 +14,12 @@
   <h3 align="center">The Hacker Times</h3>
 
   <p align="center">
-    An Angular implementation of Hackernews with <a href="https://www.nytimes.com/">NY Times</a> vibe.
+    An Angular implementation of Hackernews with <a href="https://www.nytimes.com/">NY Times</a> vibes.
     <br />
-    <a href="https://github.com/data-miner00/ng-hackernews"><strong>Explore the docs »</strong></a>
+    <a href="https://hackernews-4ea93.web.app"><strong>View Website »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/data-miner00/ng-hackernews">View Demo</a>
+    <a href="https://github.com/data-miner00/ng-hackernews">Explore the docs</a>
     ·
     <a href="https://github.com/data-miner00/ng-hackernews/issues">Report Bug</a>
     ·
@@ -69,13 +69,13 @@ The listing page for **Top Stories**, **Ask Stories**, **Show Stories** and **Jo
 
 ![Story Page](/images/story-page.png)
 
-The page for an individual story with info and discussions.
+The page for an individual story with details and discussions.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
 
-The technologies and tools used within this template.
+The technologies and tools used in the project.
 
 - Angular
 - Sass
@@ -106,13 +106,17 @@ graph LR
 
 ### Prerequisites
 
-The list of tools that is used when development.
+The list of tools that are used for development.
 
 - npm
   ```sh
   npm install npm@latest -g
   ```
 - [Git](https://git-scm.com/downloads)
+- firebase-tools
+  ```sh
+  npm install -g firebase-tools
+  ```
 
 ### Installation
 
@@ -130,13 +134,21 @@ Installation is fairly straightforward. Just clone the repo and `npm i && npm st
    ```sh
    npm test
    ```
-4. Start local dev server
+4. Lint the Sass files
+   ```sh
+   npm run lint:css
+   ```
+5. Start local dev server
    ```sh
    npm start
    ```
-5. Compile for production
+6. Compile for production
    ```sh
-   npm build
+   npm run build
+   ```
+7. Deployment
+   ```sh
+   firebase deploy
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -152,7 +164,7 @@ Installation is fairly straightforward. Just clone the repo and `npm i && npm st
 - [x] Implement the watch later page
 - [ ] Use mixin for repetead css
 - [x] Implement better footer
-- [ ] Implement 404 page
+- [x] Implement 404 page
 - [x] Enhance Login page and Register page (Phase I)
 - [ ] Implement User Page
 - [ ] Add upvote count to comment
@@ -161,8 +173,8 @@ Installation is fairly straightforward. Just clone the repo and `npm i && npm st
 - [ ] Add linter
 - [x] Add formatter
 - [ ] Achieve 85% code coverage
-- [ ] Improve responsiveness
-- [ ] Use RxJs ShareReplay to cache results
+- [ ] Improve mobile responsiveness
+- [ ] Use RxJs ShareReplay to **cache results**
 
 See the [open issues](https://github.com/data-miner00/ng-hackernews/issues) for a full list of proposed features (and known issues).
 

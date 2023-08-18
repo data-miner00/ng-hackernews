@@ -56,6 +56,8 @@ import { DefaultComponent } from './layouts/default/default.component';
 import { BlankComponent } from './layouts/blank/blank.component';
 import { RandomStoriesComponent } from './views/random-stories/random-stories.component';
 import { NewsItemBookmarkComponent } from './components/news-item-bookmark/news-item-bookmark.component';
+import { NotFoundComponent } from './views/not-found/not-found.component';
+import { DebugDirective } from './directives/debug.directive';
 
 @NgModule({
     declarations: [
@@ -101,6 +103,8 @@ import { NewsItemBookmarkComponent } from './components/news-item-bookmark/news-
         BlankComponent,
         RandomStoriesComponent,
         NewsItemBookmarkComponent,
+        NotFoundComponent,
+        DebugDirective,
     ],
     imports: [
         BrowserModule,

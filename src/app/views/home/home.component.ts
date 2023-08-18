@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     public jobStories: Array<Story> = [];
     private subscriptionQueue: Array<Subscription> = [];
 
-    public constructor(private hnService: FakernewsService) {}
+    public constructor(private hnService: HackernewsService) {}
 
     public ngOnInit(): void {
         this.hnService
