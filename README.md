@@ -136,7 +136,7 @@ Installation is fairly straightforward. Just clone the repo and `npm i && npm st
    ```
 4. Lint the Sass files
    ```sh
-   npm lint:css
+   npm run lint:css
    ```
 5. Start local dev server
    ```sh
@@ -144,7 +144,7 @@ Installation is fairly straightforward. Just clone the repo and `npm i && npm st
    ```
 6. Compile for production
    ```sh
-   npm build
+   npm run build
    ```
 7. Deployment
    ```sh
