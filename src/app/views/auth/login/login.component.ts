@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
                 this.formInput.password
             );
             this.loading = false;
-            this.router.navigate(['/']);
+            this.router.navigateByUrl('/');
         } catch (exception) {
             this.errorMessage = exception as string;
             this.loading = false;
