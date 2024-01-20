@@ -3,27 +3,20 @@ import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { BaseSteps } from 'src/app/test-utils/BaseSteps';
 import type Story from 'src/app/models/hackernews/Item/Story';
-import { HackernewsService } from 'src/app/services/hackernews.service';
 import { ShowStoriesComponent } from './show-stories.component';
+import { CachedHackernewsService } from 'src/app/services/cached-hackernews.service';
 
 export class ShowStoriesSteps extends BaseSteps<
     ShowStoriesSteps,
     ShowStoriesComponent
 > {
-    mockIdArray: number[];
     mockStory: Story;
 
-    hnService: HackernewsService;
+    chnService: CachedHackernewsService;
 
     showStoriesSpy: jasmine.Spy;
-    itemSpy: jasmine.Spy;
 
     get getClass(): ShowStoriesSteps {
-        return this;
-    }
-
-    givenMaxStoriesAmountIs(storiesAmount: number) {
-        this.component.storiesAmount = storiesAmount;
         return this;
     }
 
@@ -31,48 +24,36 @@ export class ShowStoriesSteps extends BaseSteps<
         await TestBed.configureTestingModule({
             imports: [HttpClientTestingModule],
             declarations: [ShowStoriesComponent],
-            providers: [HackernewsService],
+            providers: [CachedHackernewsService],
         }).compileComponents();
 
         this.fixture = TestBed.createComponent(ShowStoriesComponent);
 
-        this.hnService = this.injector.inject(HackernewsService);
+        this.chnService = this.injector.inject(CachedHackernewsService);
     }
 
-    whenHnServiceShowStoriesReturns(mockIdArray: number[]) {
-        this.mockIdArray = mockIdArray;
+    givenHnServiceShowStoriesReturns(mockStories: Story[]): ShowStoriesSteps {
         this.showStoriesSpy = spyOn(
-            this.hnService,
+            this.chnService,
             'showstories'
-        ).and.returnValue(of(mockIdArray));
+        ).and.returnValue(of(mockStories));
         return this;
     }
 
-    whenHnServiceItemReturn(mockStory: Story) {
-        this.mockStory = mockStory;
-        this.itemSpy = spyOn(this.hnService, 'item').and.returnValue(
-            of(mockStory)
-        );
+    thenIExpectHnShowStoriesToHaveBeenCalledTimes(
+        times: number
+    ): ShowStoriesSteps {
+        expect(this.showStoriesSpy).toHaveBeenCalledTimes(times);
         return this;
     }
 
-    thenIExpectHnShowStoriesToHaveBeenCalled() {
-        expect(this.showStoriesSpy).toHaveBeenCalled();
-        return this;
-    }
-
-    thenIExpectHnItemToHaveBeenCalledTimes(times: number) {
-        expect(this.itemSpy).toHaveBeenCalledTimes(times);
-        return this;
-    }
-
-    thenIExpectStoriesArrayToHaveLength(length: number) {
+    thenIExpectStoriesArrayToHaveLength(length: number): ShowStoriesSteps {
         expect(this.component.stories.length).toBe(length);
         return this;
     }
 
-    thenIExpectSubscriptionQueueToHaveLength(length: number) {
-        expect(this.component.subscriptionQueue.length).toBe(length);
+    thenIExpectStoiesToBe(stories: Story[]): ShowStoriesSteps {
+        expect(this.component.stories).toEqual(stories);
         return this;
     }
 }
