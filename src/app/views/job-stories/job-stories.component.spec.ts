@@ -1,5 +1,5 @@
-import Story from 'src/app/models/hackernews/Item/Story';
 import { JobStoriesSteps } from './job-stories.component.steps';
+import { generateStories } from 'src/app/test-utils/story-builder';
 
 describe('JobStoriesComponent', () => {
   let steps: JobStoriesSteps;
@@ -14,29 +14,18 @@ describe('JobStoriesComponent', () => {
     steps.thenIExpectComponentToBeConstructed();
   });
 
-  it('should fetch stories according to storiesAmount', () => {
-    const amount = 5;
-    const array = [1, 2, 3, 4, 5, 6, 7];
-    const story = <Story>{
-      id: 1,
-      type: 'story',
-      descendants: 355,
-      score: 606,
-      title: 'A pffocoal story title',
-      url: 'https://www.youtube.com/video/absc.html',
-      time: 1639118165,
-      kids: [],
-      by: 'samira566',
-    };
+  it('should fetch stories when loaded', () => {
+    const stories = generateStories(14);
 
     steps
-      .givenMaxStoriesAmountIs(amount)
-      .whenISpyOnHnServiceJobStoriesToReturn(array)
-      .whenISpyOnHnServiceItemToReturn(story)
+      .givenHnServiceJobStoriesReturn(stories)
       .whenIDetectChanges()
-      .thenIExpectHnJobStoriesToHaveBeenCalled()
-      .thenIExpectHnItemToHaveBeenCalledTimes(amount)
-      .thenIExpectStoriesArrayToHaveLength(amount)
-      .thenIExpectSubscriptionQueueToHaveLength(amount);
+      .thenIExpectHnJobStoriesToHaveBeenCalledTimes(1)
+      .thenIExpectStoriesArrayToHaveLength(stories.length)
+      .thenIExpectStoriesToBe(stories);
+
+    steps
+      .whenIQueryAll('app-news-item')
+      .thenIExpectQueryToHaveHits(stories.length);
   });
 });

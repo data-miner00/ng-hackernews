@@ -1,4 +1,4 @@
-import Story from '../models/hackernews/Item/Story';
+import { generateStories } from '../test-utils/story-builder';
 import { CachedHackernewsServiceSteps } from './cached-hackernews.service.steps';
 
 describe('CachedHackernewsService', () => {
@@ -150,11 +150,3 @@ describe('CachedHackernewsService', () => {
     });
   });
 });
-
-function generateStories(count: number): Story[] {
-  const stories: Story[] = [];
-  for (var i = 0; i < count; i++) {
-    stories.push({ id: i, title: `Story no. ${i}`, type: 'story' });
-  }
-  return stories;
-}
