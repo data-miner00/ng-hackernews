@@ -16,8 +16,7 @@ import {
     setDoc,
 } from '@angular/fire/firestore';
 import { signInWithEmailAndPassword, UserCredential } from 'firebase/auth';
-import { Observable } from 'rxjs';
-import { take } from 'rxjs/operators';
+import { Observable, firstValueFrom } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
@@ -33,7 +32,7 @@ export class AuthService {
     }
 
     async getUser(): Promise<User | null> {
-        return await this.user$.pipe(take(1)).toPromise();
+        return await firstValueFrom(this.user$);
     }
 
     async emailLogin(email: string, password: string): Promise<UserCredential> {
