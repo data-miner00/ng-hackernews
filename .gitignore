@@ -52,3 +52,6 @@ Thumbs.db
 # Environments
 .env
 /src/environments
+
+# Angular 13
+.angular
