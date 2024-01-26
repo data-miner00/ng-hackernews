@@ -7,14 +7,14 @@ import type Story from 'src/app/models/hackernews/Item/Story';
     styleUrls: ['./wide-highlight-section.component.sass'],
 })
 export class WideHighlightSectionComponent implements OnInit {
-    @Input() story: Story;
-    @Input() story2: Story;
-    @Input() story3: Story;
-    @Input() story4: Story;
-    @Input() story5: Story;
-    @Input() story6: Story;
-    @Input() story7: Story;
-    @Input() story8: Story;
+    @Input() story?: Story;
+    @Input() story2?: Story;
+    @Input() story3?: Story;
+    @Input() story4?: Story;
+    @Input() story5?: Story;
+    @Input() story6?: Story;
+    @Input() story7?: Story;
+    @Input() story8?: Story;
 
     constructor() {}
 
