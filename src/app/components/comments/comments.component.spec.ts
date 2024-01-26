@@ -30,10 +30,10 @@ describe('CommentsComponent', () => {
     steps.whenIDetectChanges();
 
     const component = steps.component;
-    expect(component.comment.id).toBe(component.commentId);
-    expect(component.comment.by).toBe('duskblade');
-    expect(component.comment.kids?.length).toBe(0);
-    expect(component.comment.type).toBe('comment');
+    expect(component.comment?.id).toBe(component.commentId);
+    expect(component.comment?.by).toBe('duskblade');
+    expect(component.comment?.kids?.length).toBe(0);
+    expect(component.comment?.type).toBe('comment');
   });
 
   it('should populate `posted` based on calculations', () => {
