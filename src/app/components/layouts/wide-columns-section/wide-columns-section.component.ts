@@ -7,10 +7,10 @@ import type Story from 'src/app/models/hackernews/Item/Story';
     styleUrls: ['./wide-columns-section.component.sass'],
 })
 export class WideColumnsSectionComponent implements OnInit {
-    @Input() story: Story;
-    @Input() story2: Story;
-    @Input() story3: Story;
-    @Input() story4: Story;
+    @Input() story?: Story;
+    @Input() story2?: Story;
+    @Input() story3?: Story;
+    @Input() story4?: Story;
 
     constructor() {}
 

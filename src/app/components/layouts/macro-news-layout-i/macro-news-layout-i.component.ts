@@ -8,9 +8,9 @@ import { FakerimgService } from 'src/app/services/fakerimg.service';
     styleUrls: ['./macro-news-layout-i.component.sass'],
 })
 export class MacroNewsLayoutIComponent implements OnInit {
-    @Input() story: Story;
-    @Input() story2: Story;
-    @Input() story3: Story;
+    @Input() story?: Story;
+    @Input() story2?: Story;
+    @Input() story3?: Story;
 
     constructor(private fakerimgService: FakerimgService) {}
 

@@ -14,7 +14,7 @@ import { HackernewsService } from 'src/app/services/hackernews.service';
     styleUrls: ['./individual.component.sass'],
 })
 export class IndividualComponent implements OnInit, OnDestroy {
-    public story: Story;
+    public story?: Story;
     public posted: Date = new Date();
     public routeSubscription: Subscription;
     public storySubscription: Subscription;

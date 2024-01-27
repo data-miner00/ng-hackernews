@@ -12,7 +12,7 @@ import { HackernewsService } from 'src/app/services/hackernews.service';
 export class CommentsComponent implements OnInit, OnDestroy {
     @Input() commentId: number;
 
-    public comment: Comment;
+    public comment?: Comment;
     public commentSubscription: Subscription;
     public posted: Date = new Date();
 

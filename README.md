@@ -16,7 +16,7 @@
   <p align="center">
     An Angular implementation of Hackernews with <a href="https://www.nytimes.com/">NY Times</a> vibes.
     <br />
-    <a href="https://hackernews-4ea93.web.app"><strong>View Website »</strong></a>
+    <a href="https://hn.mumk.dev"><strong>View Website »</strong></a>
     <br />
     <br />
     <a href="https://github.com/data-miner00/ng-hackernews">Explore the docs</a>
@@ -216,6 +216,7 @@ List of resources that are helpful and would like to give credit to.
 - [Using Different Layout Frames For Different Routes In Angular](https://javascript.plainenglish.io/using-different-layout-frames-for-different-routes-in-angular-d96ed096c633)
 - [How to Unit Test an HTTP Service in Angular](https://braydoncoyer.dev/blog/how-to-unit-test-an-http-service-in-angular)
 - [unit-testing for values set async in ngOnInit() function of an angular component](https://stackoverflow.com/questions/44294960/unit-testing-for-values-set-async-in-ngoninit-function-of-an-angular-component)
+- [Angular migration helper](https://update.angular.io/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

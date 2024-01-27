@@ -7,11 +7,11 @@ import type Story from 'src/app/models/hackernews/Item/Story';
     styleUrls: ['./macro-news-layout-ii.component.sass'],
 })
 export class MacroNewsLayoutIiComponent implements OnInit {
-    @Input() story: Story;
-    @Input() story2: Story;
-    @Input() story3: Story;
-    @Input() story4: Story;
-    @Input() story5: Story;
+    @Input() story?: Story;
+    @Input() story2?: Story;
+    @Input() story3?: Story;
+    @Input() story4?: Story;
+    @Input() story5?: Story;
 
     constructor() {}
 
