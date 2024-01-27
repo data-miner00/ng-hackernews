@@ -107,7 +107,8 @@
               "src/styles.sass"
             ],
             "scripts": [],
-            "codeCoverage": true
+            "codeCoverage": true,
+            "codeCoverageExclude": ["src/**/*.steps.ts", "src/test-utils/**/*"]
           }
         },
         "deploy": {
