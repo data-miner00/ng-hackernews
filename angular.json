@@ -77,10 +77,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ng-hackernews:build:production"
+              "buildTarget": "ng-hackernews:build:production"
             },
             "development": {
-              "browserTarget": "ng-hackernews:build:development"
+              "buildTarget": "ng-hackernews:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -88,7 +88,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ng-hackernews:build"
+            "buildTarget": "ng-hackernews:build"
           }
         },
         "test": {

@@ -1,0 +1,49 @@
+The installed Angular CLI version is outdated.
+Installing a temporary Angular CLI versioned 17.1.1 to perform the update.
+✔ Packages successfully installed.
+Using package manager: npm
+Collecting installed dependencies...
+Found 31 dependencies.
+Fetching dependency metadata from registry...
+    Updating package.json with dependency @angular-devkit/build-angular @ "17.1.1" (was "16.2.12")...
+    Updating package.json with dependency @angular/cli @ "17.1.1" (was "16.2.12")...
+    Updating package.json with dependency @angular/compiler-cli @ "17.1.1" (was "16.2.12")...
+    Updating package.json with dependency typescript @ "5.3.3" (was "4.9.5")...
+    Updating package.json with dependency @angular/animations @ "17.1.1" (was "16.2.12")...
+    Updating package.json with dependency @angular/common @ "17.1.1" (was "16.2.12")...
+    Updating package.json with dependency @angular/compiler @ "17.1.1" (was "16.2.12")...
+    Updating package.json with dependency @angular/core @ "17.1.1" (was "16.2.12")...
+    Updating package.json with dependency @angular/forms @ "17.1.1" (was "16.2.12")...
+    Updating package.json with dependency @angular/platform-browser @ "17.1.1" (was "16.2.12")...
+    Updating package.json with dependency @angular/platform-browser-dynamic @ "17.1.1" (was "16.2.12")...
+    Updating package.json with dependency @angular/router @ "17.1.1" (was "16.2.12")...
+    Updating package.json with dependency zone.js @ "0.14.3" (was "0.13.3")...
+UPDATE package.json (1865 bytes)
+✔ Packages successfully installed.
+** Executing migrations of package '@angular/cli' **
+
+> Replace usages of '@nguniversal/builders' with '@angular-devkit/build-angular'.
+  Migration completed (No changes made).
+
+> Replace usages of '@nguniversal/' packages with '@angular/ssr'.
+  Migration completed (No changes made).
+
+> Replace deprecated options in 'angular.json'.
+UPDATE angular.json (3861 bytes)
+  Migration completed (1 file modified).
+
+> Add 'browser-sync' as dev dependency when '@angular-devkit/build-angular:ssr-dev-server' is used, as it is no longer a direct dependency of '@angular-devkit/build-angular'.
+  Migration completed (No changes made).
+
+** Executing migrations of package '@angular/core' **
+
+> Angular v17 introduces a new control flow syntax that uses the @ and } characters.
+  This migration replaces the existing usages with their corresponding HTML entities.
+  Migration completed (No changes made).
+
+> Updates `TransferState`, `makeStateKey`, `StateKey` imports from `@angular/platform-browser` to `@angular/core`.
+  Migration completed (No changes made).
+
+> CompilerOption.useJit and CompilerOption.missingTranslation are unused under Ivy.
+  This migration removes their usage
+  Migration completed (No changes made).
