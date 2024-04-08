@@ -29,7 +29,7 @@ describe('CachedHackernewsService', () => {
 
       steps
         .whenICallCachedTopStories()
-        .thenIExpectHnServiceTopStoriesCalled(1) // not incresing
+        .thenIExpectHnServiceTopStoriesCalled(1) // not increasing
         .thenIExpectResultToBe(stories);
     });
 
@@ -63,7 +63,7 @@ describe('CachedHackernewsService', () => {
 
       steps
         .whenICallCachedAskStories()
-        .thenIExpectHnServiceAskStoriesCalled(1) // not incresing
+        .thenIExpectHnServiceAskStoriesCalled(1) // not increasing
         .thenIExpectResultToBe(stories);
     });
 
@@ -97,7 +97,7 @@ describe('CachedHackernewsService', () => {
 
       steps
         .whenICallCachedShowStories()
-        .thenIExpectHnServiceShowStoriesCalled(1) // not incresing
+        .thenIExpectHnServiceShowStoriesCalled(1) // not increasing
         .thenIExpectResultToBe(stories);
     });
 
@@ -131,7 +131,7 @@ describe('CachedHackernewsService', () => {
 
       steps
         .whenICallCachedJobStories()
-        .thenIExpectHnServiceJobStoriesCalled(1) // not incresing
+        .thenIExpectHnServiceJobStoriesCalled(1) // not increasing
         .thenIExpectResultToBe(stories);
     });
 

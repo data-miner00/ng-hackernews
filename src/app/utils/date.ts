@@ -1,6 +1,6 @@
 export enum Time {
     Seconds = 1,
-    Miliseconds = Seconds / 1000,
+    Milliseconds = Seconds / 1000,
     Minutes = 60,
     Hours = Minutes * 60,
     Days = Hours * 24,
