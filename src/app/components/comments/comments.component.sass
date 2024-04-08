@@ -7,6 +7,26 @@
             font-style: italic
             color: $gray-500
 
+.btnWrapper
+    padding-left: 15px
+    border-left: 1px solid $gray-300
+
+    &.collapsed
+        margin-bottom: 15px
+
+    .collapseButton
+        border: 1px solid black
+        border-radius: 4px
+        padding: 4px
+        font-size: 10px
+
+        .decoration
+            display: inline-block
+            color: $gray-500
+
 .subcomments
     padding-left: 15px
     border-left: 1px solid $gray-300
+
+    &.collapsed
+        display: none

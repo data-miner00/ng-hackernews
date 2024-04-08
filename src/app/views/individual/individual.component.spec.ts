@@ -111,7 +111,7 @@ xdescribe('IndividualComponent', () => {
     expect(div.textContent).toBe('Upvoted 20 times');
   });
 
-  it('should render the date posted corrrectly', () => {
+  it('should render the date posted correctly', () => {
     fixture.detectChanges();
 
     const div: HTMLElement = debugElement.query(

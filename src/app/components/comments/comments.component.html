@@ -6,7 +6,20 @@
   </div>
 </div>
 
-<div class="subcomments">
+<div
+  *ngIf="comment?.kids"
+  class="btnWrapper"
+  [ngClass]="{ collapsed: threadCollapsed }"
+>
+  <button class="collapseButton" (click)="toggleThreadCollapse()">
+    {{ collapseButtonText }}
+    <span *ngIf="threadCollapsed" class="decoration" aria-hidden="true">
+      •••
+    </span>
+  </button>
+</div>
+
+<div #subcomments class="subcomments">
   <app-comments
     *ngFor="let cmt of comment?.kids"
     [commentId]="cmt"
