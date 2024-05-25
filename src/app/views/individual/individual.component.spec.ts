@@ -19,7 +19,10 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { AuthService } from 'src/app/services/auth.service';
 import User from 'src/app/models/hackernews/User';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import {
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
 
 xdescribe('IndividualComponent', () => {
   let component: IndividualComponent;
@@ -41,17 +44,17 @@ xdescribe('IndividualComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    declarations: [IndividualComponent, DurationElapsedPipe],
-    imports: [RouterTestingModule],
-    providers: [
+      declarations: [IndividualComponent, DurationElapsedPipe],
+      imports: [RouterTestingModule],
+      providers: [
         { provide: ActivatedRoute, useValue: fakeActivatedRoute },
         HackernewsService,
         { provide: FirestoreService, useValue: {} },
         { provide: AuthService, useValue: mockAuthService },
         provideHttpClient(withInterceptorsFromDi()),
         provideHttpClientTesting(),
-    ]
-}).compileComponents();
+      ],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(IndividualComponent);
     component = fixture.componentInstance;

@@ -7,7 +7,10 @@ import { FirestoreService } from 'src/app/services/firestore.service';
 import { HackernewsService } from 'src/app/services/hackernews.service';
 
 import { ReadLaterComponent } from './read-later.component';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import {
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
 
 describe('ReadLaterComponent', () => {
   let component: ReadLaterComponent;
@@ -20,16 +23,16 @@ describe('ReadLaterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    declarations: [ReadLaterComponent],
-    imports: [],
-    providers: [
+      declarations: [ReadLaterComponent],
+      imports: [],
+      providers: [
         { provide: FirestoreService, useValue: {} },
         { provide: HackernewsService, useClass: FakernewsService },
         { provide: AuthService, useValue: mockAuthService },
         provideHttpClient(withInterceptorsFromDi()),
         provideHttpClientTesting(),
-    ]
-}).compileComponents();
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {

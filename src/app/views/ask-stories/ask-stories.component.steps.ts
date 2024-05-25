@@ -5,7 +5,10 @@ import { BaseSteps } from 'src/app/test-utils/BaseSteps';
 import Story from 'src/app/models/hackernews/Item/Story';
 import { AskStoriesComponent } from './ask-stories.component';
 import { CachedHackernewsService } from 'src/app/services/cached-hackernews.service';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import {
+    provideHttpClient,
+    withInterceptorsFromDi,
+} from '@angular/common/http';
 
 export class AskStoriesSteps extends BaseSteps<
     AskStoriesSteps,
@@ -23,10 +26,14 @@ export class AskStoriesSteps extends BaseSteps<
 
     async givenISetupAsync(): Promise<void> {
         await TestBed.configureTestingModule({
-    declarations: [AskStoriesComponent],
-    imports: [],
-    providers: [CachedHackernewsService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
-}).compileComponents();
+            declarations: [AskStoriesComponent],
+            imports: [],
+            providers: [
+                CachedHackernewsService,
+                provideHttpClient(withInterceptorsFromDi()),
+                provideHttpClientTesting(),
+            ],
+        }).compileComponents();
 
         this.fixture = TestBed.createComponent(AskStoriesComponent);
 

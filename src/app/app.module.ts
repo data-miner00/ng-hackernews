@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import {
+    provideHttpClient,
+    withInterceptorsFromDi,
+} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -59,7 +62,8 @@ import { NewsItemBookmarkComponent } from './components/news-item-bookmark/news-
 import { NotFoundComponent } from './views/not-found/not-found.component';
 import { DebugDirective } from './directives/debug.directive';
 
-@NgModule({ declarations: [
+@NgModule({
+    declarations: [
         AppComponent,
         HomeComponent,
         HeaderComponent,
@@ -105,11 +109,20 @@ import { DebugDirective } from './directives/debug.directive';
         NotFoundComponent,
         DebugDirective,
     ],
-    bootstrap: [AppComponent], imports: [BrowserModule,
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
         AppRoutingModule,
         FormsModule,
         provideFirebaseApp(() => initializeApp(environment.firebase)),
         provideAnalytics(() => getAnalytics()),
         provideAuth(() => getAuth()),
-        provideFirestore(() => getFirestore())], providers: [ScreenTrackingService, UserTrackingService, provideHttpClient(withInterceptorsFromDi())] })
+        provideFirestore(() => getFirestore()),
+    ],
+    providers: [
+        ScreenTrackingService,
+        UserTrackingService,
+        provideHttpClient(withInterceptorsFromDi()),
+    ],
+})
 export class AppModule {}
