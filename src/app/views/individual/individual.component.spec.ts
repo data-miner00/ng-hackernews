@@ -14,11 +14,15 @@ import { HackernewsService } from 'src/app/services/hackernews.service';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { DatePipe } from '@angular/common';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { AuthService } from 'src/app/services/auth.service';
 import User from 'src/app/models/hackernews/User';
+import {
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
 
 xdescribe('IndividualComponent', () => {
   let component: IndividualComponent;
@@ -40,13 +44,15 @@ xdescribe('IndividualComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule, RouterTestingModule],
       declarations: [IndividualComponent, DurationElapsedPipe],
+      imports: [RouterTestingModule],
       providers: [
         { provide: ActivatedRoute, useValue: fakeActivatedRoute },
         HackernewsService,
         { provide: FirestoreService, useValue: {} },
         { provide: AuthService, useValue: mockAuthService },
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting(),
       ],
     }).compileComponents();
 

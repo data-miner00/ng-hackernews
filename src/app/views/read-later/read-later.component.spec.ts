@@ -1,4 +1,4 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import type User from 'src/app/models/hackernews/User';
 import { AuthService } from 'src/app/services/auth.service';
@@ -7,6 +7,10 @@ import { FirestoreService } from 'src/app/services/firestore.service';
 import { HackernewsService } from 'src/app/services/hackernews.service';
 
 import { ReadLaterComponent } from './read-later.component';
+import {
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
 
 describe('ReadLaterComponent', () => {
   let component: ReadLaterComponent;
@@ -19,12 +23,14 @@ describe('ReadLaterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
       declarations: [ReadLaterComponent],
+      imports: [],
       providers: [
         { provide: FirestoreService, useValue: {} },
         { provide: HackernewsService, useClass: FakernewsService },
         { provide: AuthService, useValue: mockAuthService },
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting(),
       ],
     }).compileComponents();
   });
