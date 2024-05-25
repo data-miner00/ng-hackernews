@@ -1,10 +1,11 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { BaseSteps } from 'src/app/test-utils/BaseSteps';
 import type Story from 'src/app/models/hackernews/Item/Story';
 import { ShowStoriesComponent } from './show-stories.component';
 import { CachedHackernewsService } from 'src/app/services/cached-hackernews.service';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 export class ShowStoriesSteps extends BaseSteps<
     ShowStoriesSteps,
@@ -22,10 +23,10 @@ export class ShowStoriesSteps extends BaseSteps<
 
     async givenISetupAsync(): Promise<void> {
         await TestBed.configureTestingModule({
-            imports: [HttpClientTestingModule],
-            declarations: [ShowStoriesComponent],
-            providers: [CachedHackernewsService],
-        }).compileComponents();
+    declarations: [ShowStoriesComponent],
+    imports: [],
+    providers: [CachedHackernewsService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+}).compileComponents();
 
         this.fixture = TestBed.createComponent(ShowStoriesComponent);
 

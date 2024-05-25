@@ -20,15 +20,15 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^17.1.1",
-    "@angular/common": "^17.1.1",
-    "@angular/compiler": "^17.1.1",
-    "@angular/core": "^17.1.1",
+    "@angular/animations": "^18.0.0",
+    "@angular/common": "^18.0.0",
+    "@angular/compiler": "^18.0.0",
+    "@angular/core": "^18.0.0",
     "@angular/fire": "^17.0.1",
-    "@angular/forms": "^17.1.1",
-    "@angular/platform-browser": "^17.1.1",
-    "@angular/platform-browser-dynamic": "^17.1.1",
-    "@angular/router": "^17.1.1",
+    "@angular/forms": "^18.0.0",
+    "@angular/platform-browser": "^18.0.0",
+    "@angular/platform-browser-dynamic": "^18.0.0",
+    "@angular/router": "^18.0.0",
     "firebase": "^9.23.0",
     "rxfire": "6.0.3",
     "rxjs": "^7.8.1",
@@ -36,9 +36,9 @@
     "zone.js": "~0.14.3"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^17.1.1",
-    "@angular/cli": "^17.1.1",
-    "@angular/compiler-cli": "^17.1.1",
+    "@angular-devkit/build-angular": "^18.0.1",
+    "@angular/cli": "^18.0.1",
+    "@angular/compiler-cli": "^18.0.0",
     "@types/jasmine": "~3.8.0",
     "@types/node": "^12.11.1",
     "dotenv": "^16.3.2",
@@ -51,7 +51,7 @@
     "prettier": "^3.2.4",
     "stylelint": "^16.2.0",
     "stylelint-config-standard-scss": "^13.0.0",
-    "typescript": "~5.3.3",
+    "typescript": "~5.4.5",
     "yargs": "^17.3.1"
   }
 }
