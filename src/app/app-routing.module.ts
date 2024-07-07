@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './views/about/about.component';
 import { AskStoriesComponent } from './views/ask-stories/ask-stories.component';
-import { LoginComponent } from './views/auth/login/login.component';
-import { SignupComponent } from './views/auth/signup/signup.component';
 import { FaqsComponent } from './views/faqs/faqs.component';
 import { FavouritesComponent } from './views/favourites/favourites.component';
 import { HomeComponent } from './views/home/home.component';
@@ -81,11 +79,11 @@ const routes: Routes = [
         component: FavouritesComponent,
     },
     {
-        path: 'login',
-        data: {
-            layout: AppLayoutType.Blank,
-        },
-        component: LoginComponent,
+        path: 'auth',
+        loadChildren: () =>
+            import('./views/auth/auth-routing.module').then(
+                (m) => m.AuthRoutingModule
+            ),
     },
     {
         path: 'about',
@@ -93,13 +91,6 @@ const routes: Routes = [
             layout: AppLayoutType.Default,
         },
         component: AboutComponent,
-    },
-    {
-        path: 'signup',
-        data: {
-            layout: AppLayoutType.Blank,
-        },
-        component: SignupComponent,
     },
     {
         path: 'read-later',
