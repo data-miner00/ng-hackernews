@@ -1,5 +1,7 @@
 import { TestBed } from '@angular/core/testing';
+
 import { BaseSteps } from 'src/app/test-utils/BaseSteps';
+
 import { HeadlineComponent } from './headline.component';
 
 export class HeadlineSteps extends BaseSteps<HeadlineSteps, HeadlineComponent> {

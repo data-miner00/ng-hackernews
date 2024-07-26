@@ -162,7 +162,7 @@ Installation is fairly straightforward. Just clone the repo and `npm i && npm st
 - [x] Implement individual page
 - [x] Implement the favourite page
 - [x] Implement the watch later page
-- [ ] Use mixin for repetead css
+- [ ] Use mixin for repeated css
 - [x] Implement better footer
 - [x] Implement 404 page
 - [x] Enhance Login page and Register page (Phase I)
@@ -217,6 +217,7 @@ List of resources that are helpful and would like to give credit to.
 - [How to Unit Test an HTTP Service in Angular](https://braydoncoyer.dev/blog/how-to-unit-test-an-http-service-in-angular)
 - [unit-testing for values set async in ngOnInit() function of an angular component](https://stackoverflow.com/questions/44294960/unit-testing-for-values-set-async-in-ngoninit-function-of-an-angular-component)
 - [Angular migration helper](https://update.angular.io/)
+- [Angular Best Practices](https://app.pluralsight.com/library/courses/best-angular-practices/table-of-contents)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

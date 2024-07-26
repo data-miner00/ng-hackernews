@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import type Story from '../models/hackernews/Item/Story';
 import { Observable, forkJoin, of, switchMap, tap } from 'rxjs';
+
 import { HackernewsService } from './hackernews.service';
+
+import type Story from '../models/hackernews/Item/Story';
 
 @Injectable({
     providedIn: 'root',

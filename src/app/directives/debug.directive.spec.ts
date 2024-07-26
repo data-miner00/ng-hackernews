@@ -1,6 +1,7 @@
 import { ElementRef, Renderer2 } from '@angular/core';
-import { DebugDirective } from './debug.directive';
 import { TestBed } from '@angular/core/testing';
+
+import { DebugDirective } from './debug.directive';
 
 export class MockElementRef extends ElementRef {}
 

@@ -1,4 +1,4 @@
-import { elapsed, Time } from './date';
+import { Time, elapsed } from './date';
 
 describe('Date utilities', () => {
   // 12/12/2021 12.30 a.m.

@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+
+import { IHackernewsService } from '../models/IHackernewsService';
+import type Base from '../models/hackernews/Item/Base';
 import type Updates from '../models/hackernews/Updates';
 import type User from '../models/hackernews/User';
-import type Base from '../models/hackernews/Item/Base';
-import { IHackernewsService } from '../models/IHackernewsService';
 
 /**
  * Docs: https://hackernews.api-docs.io/v0/overview/introduction

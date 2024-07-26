@@ -5,9 +5,11 @@ import {
 import { Type } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
-import { BaseSteps } from 'src/app/test-utils/BaseSteps';
+
 import { SafeHtmlPipe } from 'src/app/pipes/safe-html.pipe';
 import { HackernewsService } from 'src/app/services/hackernews.service';
+import { BaseSteps } from 'src/app/test-utils/BaseSteps';
+
 import { CommentsComponent } from './comments.component';
 
 export class CommentsSteps extends BaseSteps<CommentsSteps, CommentsComponent> {

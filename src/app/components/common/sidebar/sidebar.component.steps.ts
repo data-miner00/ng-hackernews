@@ -1,6 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+
 import { BaseSteps } from 'src/app/test-utils/BaseSteps';
+
 import { SidebarComponent } from './sidebar.component';
 
 export class SidebarSteps extends BaseSteps<SidebarSteps, SidebarComponent> {

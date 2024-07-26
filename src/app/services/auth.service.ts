@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
 import {
     Auth,
-    createUserWithEmailAndPassword,
-    user,
     User,
+    createUserWithEmailAndPassword,
     sendEmailVerification,
     sendPasswordResetEmail,
     updateProfile,
+    user,
 } from '@angular/fire/auth';
 import {
-    doc,
     DocumentData,
     DocumentReference,
     Firestore,
+    doc,
     setDoc,
 } from '@angular/fire/firestore';
-import { signInWithEmailAndPassword, UserCredential } from 'firebase/auth';
+import { UserCredential, signInWithEmailAndPassword } from 'firebase/auth';
 import { Observable, firstValueFrom } from 'rxjs';
 
 @Injectable({

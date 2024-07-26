@@ -1,10 +1,12 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
-import { BaseSteps } from 'src/app/test-utils/BaseSteps';
+
 import Story from 'src/app/models/hackernews/Item/Story';
-import { JobStoriesComponent } from './job-stories.component';
 import { CachedHackernewsService } from 'src/app/services/cached-hackernews.service';
+import { BaseSteps } from 'src/app/test-utils/BaseSteps';
+
+import { JobStoriesComponent } from './job-stories.component';
 
 export class JobStoriesSteps extends BaseSteps<
     JobStoriesSteps,

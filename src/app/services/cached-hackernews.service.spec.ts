@@ -1,5 +1,6 @@
-import { generateStories } from '../test-utils/story-builder';
 import { CachedHackernewsServiceSteps } from './cached-hackernews.service.steps';
+
+import { generateStories } from '../test-utils/story-builder';
 
 describe('CachedHackernewsService', () => {
   let steps: CachedHackernewsServiceSteps;

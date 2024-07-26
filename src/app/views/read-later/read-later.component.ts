@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { getDoc } from '@angular/fire/firestore';
 import { Subscription } from 'rxjs';
-import Story from 'src/app/models/hackernews/Item/Story';
+
 import { IStoriesPage } from 'src/app/models/IStoriesPage';
+import type Story from 'src/app/models/hackernews/Item/Story';
 import { AuthService } from 'src/app/services/auth.service';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { HackernewsService } from 'src/app/services/hackernews.service';

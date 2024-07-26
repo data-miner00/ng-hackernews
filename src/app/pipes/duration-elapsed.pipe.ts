@@ -1,5 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { elapsed as _elapsed, Time } from '../utils/date';
+
+import { Time, elapsed as _elapsed } from '../utils/date';
 
 @Pipe({
     name: 'durationElapsed',

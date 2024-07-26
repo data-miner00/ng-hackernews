@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import type Story from 'src/app/models/hackernews/Item/Story';
+
 import { IStoriesPage } from 'src/app/models/IStoriesPage';
+import type Story from 'src/app/models/hackernews/Item/Story';
 import { CachedHackernewsService } from 'src/app/services/cached-hackernews.service';
 
 @Component({

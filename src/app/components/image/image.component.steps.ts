@@ -1,5 +1,7 @@
 import { TestBed } from '@angular/core/testing';
+
 import { BaseSteps } from 'src/app/test-utils/BaseSteps';
+
 import { ImageComponent } from './image.component';
 
 export class ImageSteps extends BaseSteps<ImageSteps, ImageComponent> {

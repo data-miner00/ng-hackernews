@@ -1,7 +1,9 @@
 import { InjectionToken } from '@angular/core';
-import { AppConfig } from './appconfig.interface';
+
 import { environment as dev } from 'src/environments/environment';
 import { environment as prod } from 'src/environments/environment.prod';
+
+import { AppConfig } from './appconfig.interface';
 
 export const APP_SERVICE_CONFIG = new InjectionToken<AppConfig>('app.config');
 

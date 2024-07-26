@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '@angular/fire/auth';
+
 import { AuthService } from 'src/app/services/auth.service';
 import { DataService } from 'src/app/services/data.service';
-import { User } from '@angular/fire/auth';
 
 @Component({
     selector: 'app-header',
