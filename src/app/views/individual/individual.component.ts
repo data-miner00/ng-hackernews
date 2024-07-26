@@ -1,10 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
-import type Story from 'src/app/models/hackernews/Item/Story';
-import { FakernewsService } from 'src/app/services/fakernews.service';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+
+import type Story from 'src/app/models/hackernews/Item/Story';
 import { AuthService } from 'src/app/services/auth.service';
+import { FakernewsService } from 'src/app/services/fakernews.service';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { HackernewsService } from 'src/app/services/hackernews.service';
 

@@ -1,11 +1,13 @@
-import { BaseSteps } from 'src/app/test-utils/BaseSteps';
-import { FavouritesComponent } from './favourites.component';
-import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { HackernewsService } from 'src/app/services/hackernews.service';
-import { FirestoreService } from 'src/app/services/firestore.service';
-import { AuthService } from 'src/app/services/auth.service';
+import { TestBed } from '@angular/core/testing';
+
 import User from 'src/app/models/hackernews/User';
+import { AuthService } from 'src/app/services/auth.service';
+import { FirestoreService } from 'src/app/services/firestore.service';
+import { HackernewsService } from 'src/app/services/hackernews.service';
+import { BaseSteps } from 'src/app/test-utils/BaseSteps';
+
+import { FavouritesComponent } from './favourites.component';
 
 export class FavouritesSteps extends BaseSteps<
     FavouritesSteps,

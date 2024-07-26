@@ -1,5 +1,6 @@
-import { TopStoriesSteps } from './top-stories.component.steps';
 import { generateStories } from 'src/app/test-utils/story-builder';
+
+import { TopStoriesSteps } from './top-stories.component.steps';
 
 describe('TopStoriesComponent', () => {
   let steps: TopStoriesSteps;

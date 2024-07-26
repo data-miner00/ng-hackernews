@@ -1,5 +1,6 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import type User from 'src/app/models/hackernews/User';
 import { AuthService } from 'src/app/services/auth.service';
 import { FakernewsService } from 'src/app/services/fakernews.service';

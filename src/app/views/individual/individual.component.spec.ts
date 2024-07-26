@@ -1,24 +1,24 @@
 /*
  *  FIX THE TESTSSS!!!!!!!!!!!
  */
-
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ActivatedRoute } from '@angular/router';
-import { of } from 'rxjs';
-import { DurationElapsedPipe } from 'src/app/pipes/duration-elapsed.pipe';
-import { FakernewsService } from 'src/app/services/fakernews.service';
-import type Story from 'src/app/models/hackernews/Item/Story';
-
-import { IndividualComponent } from './individual.component';
-import { HackernewsService } from 'src/app/services/hackernews.service';
-import { DebugElement } from '@angular/core';
-import { By } from '@angular/platform-browser';
 import { DatePipe } from '@angular/common';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { DebugElement } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { FirestoreService } from 'src/app/services/firestore.service';
-import { AuthService } from 'src/app/services/auth.service';
+import { of } from 'rxjs';
+
+import type Story from 'src/app/models/hackernews/Item/Story';
 import User from 'src/app/models/hackernews/User';
+import { DurationElapsedPipe } from 'src/app/pipes/duration-elapsed.pipe';
+import { AuthService } from 'src/app/services/auth.service';
+import { FakernewsService } from 'src/app/services/fakernews.service';
+import { FirestoreService } from 'src/app/services/firestore.service';
+import { HackernewsService } from 'src/app/services/hackernews.service';
+
+import { IndividualComponent } from './individual.component';
 
 xdescribe('IndividualComponent', () => {
   let component: IndividualComponent;

@@ -1,7 +1,8 @@
 import { OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import type Story from './hackernews/Item/Story';
+
 import { IHackernewsService } from './IHackernewsService';
+import type Story from './hackernews/Item/Story';
 
 export interface IStoriesPage extends OnInit, OnDestroy {
     readonly storiesAmount: number;

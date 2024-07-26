@@ -1,5 +1,6 @@
-import { JobStoriesSteps } from './job-stories.component.steps';
 import { generateStories } from 'src/app/test-utils/story-builder';
+
+import { JobStoriesSteps } from './job-stories.component.steps';
 
 describe('JobStoriesComponent', () => {
   let steps: JobStoriesSteps;

@@ -1,7 +1,9 @@
-import { BaseSteps } from 'src/app/test-utils/BaseSteps';
-import { NewsItemVariantVComponent } from './news-item-variant-v.component';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+
+import { BaseSteps } from 'src/app/test-utils/BaseSteps';
+
+import { NewsItemVariantVComponent } from './news-item-variant-v.component';
 
 export class NewsItemVariantVSteps extends BaseSteps<
     NewsItemVariantVSteps,

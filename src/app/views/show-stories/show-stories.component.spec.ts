@@ -1,5 +1,6 @@
-import { ShowStoriesSteps } from './show-stories.component.steps';
 import { generateStories } from 'src/app/test-utils/story-builder';
+
+import { ShowStoriesSteps } from './show-stories.component.steps';
 
 describe('ShowStoriesComponent', () => {
   let steps: ShowStoriesSteps;

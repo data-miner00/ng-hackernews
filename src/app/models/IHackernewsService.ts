@@ -1,7 +1,8 @@
 import { Observable } from 'rxjs';
+
+import type Base from '../models/hackernews/Item/Base';
 import type Updates from '../models/hackernews/Updates';
 import type User from '../models/hackernews/User';
-import type Base from '../models/hackernews/Item/Base';
 
 export interface IHackernewsService {
     /**

@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { AppLayoutType } from 'src/app/models/AppLayoutType';
+
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import { AppLayoutType } from 'src/app/models/AppLayoutType';
 
 const routes: Routes = [
     {

@@ -1,5 +1,7 @@
 import { TestBed } from '@angular/core/testing';
+
 import { BaseSteps } from 'src/app/test-utils/BaseSteps';
+
 import { CarouselComponent } from './carousel.component';
 
 export class CarouselSteps extends BaseSteps<CarouselSteps, CarouselComponent> {

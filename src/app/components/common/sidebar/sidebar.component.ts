@@ -1,12 +1,13 @@
 import {
     Component,
     ElementRef,
-    OnInit,
-    ViewChild,
-    Renderer2,
     OnDestroy,
+    OnInit,
+    Renderer2,
+    ViewChild,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
+
 import { DataService } from 'src/app/services/data.service';
 
 @Component({

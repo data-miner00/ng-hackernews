@@ -1,4 +1,5 @@
 import { DomSanitizer } from '@angular/platform-browser';
+
 import { SafeHtmlPipe } from './safe-html.pipe';
 
 class MockDomSanitizer extends DomSanitizer {

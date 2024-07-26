@@ -1,5 +1,6 @@
-import { AskStoriesSteps } from './ask-stories.component.steps';
 import { generateStories } from 'src/app/test-utils/story-builder';
+
+import { AskStoriesSteps } from './ask-stories.component.steps';
 
 describe('AskStoriesComponent', () => {
   let steps: AskStoriesSteps;

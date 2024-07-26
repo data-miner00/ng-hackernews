@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+import { AppLayoutType } from './models/AppLayoutType';
 import { AboutComponent } from './views/about/about.component';
 import { AskStoriesComponent } from './views/ask-stories/ask-stories.component';
 import { FaqsComponent } from './views/faqs/faqs.component';
@@ -7,12 +9,11 @@ import { FavouritesComponent } from './views/favourites/favourites.component';
 import { HomeComponent } from './views/home/home.component';
 import { IndividualComponent } from './views/individual/individual.component';
 import { JobStoriesComponent } from './views/job-stories/job-stories.component';
+import { NotFoundComponent } from './views/not-found/not-found.component';
+import { RandomStoriesComponent } from './views/random-stories/random-stories.component';
+import { ReadLaterComponent } from './views/read-later/read-later.component';
 import { ShowStoriesComponent } from './views/show-stories/show-stories.component';
 import { TopStoriesComponent } from './views/top-stories/top-stories.component';
-import { ReadLaterComponent } from './views/read-later/read-later.component';
-import { AppLayoutType } from './models/AppLayoutType';
-import { RandomStoriesComponent } from './views/random-stories/random-stories.component';
-import { NotFoundComponent } from './views/not-found/not-found.component';
 
 const routes: Routes = [
     {
