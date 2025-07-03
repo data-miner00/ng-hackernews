@@ -10,12 +10,12 @@ export class FavouriteService {
 
     constructor(private localStore: LocalstoreService) {}
 
-    public getFavourites(): Array<string> {
+    public getFavourites(): Array<number> {
         const favourites = this.localStore.getItem(this.FAVOURITES_KEY);
         return favourites ? JSON.parse(favourites) : [];
     }
 
-    public addFavourite(storyId: string): void {
+    public addFavourite(storyId: number): void {
         const favourites = this.getFavourites();
         if (!favourites.includes(storyId)) {
             favourites.push(storyId);
@@ -26,7 +26,7 @@ export class FavouriteService {
         }
     }
 
-    public removeFavourite(storyId: string): void {
+    public removeFavourite(storyId: number): void {
         const favourites = this.getFavourites();
         const index = favourites.indexOf(storyId);
         if (index > -1) {
