@@ -31,14 +31,14 @@ describe('WatchLaterService', () => {
     localStoreSpy.getItem.and.returnValue('[123]');
     const watchLater = service.getWatchLater();
     expect(watchLater).toEqual([123]);
-    expect(localStoreSpy.getItem).toHaveBeenCalledWith('watch');
+    expect(localStoreSpy.getItem).toHaveBeenCalledWith('readLater');
   });
 
   it('should add an item to watch later', () => {
     localStoreSpy.getItem.and.returnValue('[123]');
     service.addToWatchLater(456);
     expect(localStoreSpy.setItem).toHaveBeenCalledWith(
-      'watch',
+      'readLater',
       JSON.stringify([123, 456])
     );
   });
@@ -53,7 +53,7 @@ describe('WatchLaterService', () => {
     localStoreSpy.getItem.and.returnValue('[123, 456]');
     service.removeFromWatchLater(123);
     expect(localStoreSpy.setItem).toHaveBeenCalledWith(
-      'watch',
+      'readLater',
       JSON.stringify([456])
     );
   });

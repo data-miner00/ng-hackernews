@@ -6,7 +6,7 @@ import { LocalstoreService } from './localstore.service';
     providedIn: 'root',
 })
 export class WatchLaterService {
-    private readonly WATCH_LATER_KEY = 'watch';
+    private readonly WATCH_LATER_KEY = 'readLater';
 
     constructor(private localStore: LocalstoreService) {}
 
