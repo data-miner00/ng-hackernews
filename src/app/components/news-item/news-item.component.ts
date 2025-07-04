@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { AuthService } from 'src/app/services/auth.service';
-import { FirestoreService } from 'src/app/services/firestore.service';
+import { WatchLaterService } from 'src/app/services/watch-later.service';
 
 @Component({
     selector: 'app-news-item',
@@ -23,19 +22,14 @@ export class NewsItemComponent implements OnInit {
     public posted: Date;
     public addedToReadLater: boolean;
 
-    private userId: string;
-
-    public constructor(
-        public firestore: FirestoreService,
-        public auth: AuthService
-    ) {}
+    public constructor(private readonly watchLater: WatchLaterService) {}
 
     public get identiconUrl(): string {
         const strId = String(this.id);
         return `https://github.com/identicons/${strId.slice(0, 4)}.png`;
     }
 
-    public async ngOnInit(): Promise<void> {
+    public ngOnInit(): void {
         if (this.alreadyAdded) {
             this.addedToReadLater = true;
         }
@@ -56,27 +50,13 @@ export class NewsItemComponent implements OnInit {
         } else {
             this.domain = 'unknown.com';
         }
-
-        this.userId = (await this.auth.getUser())?.uid ?? '';
     }
 
-    public async onClickAddToWatchLater() {
-        if (this.userId === '') return;
-
+    public onClickAddToWatchLater() {
         if (!this.addedToReadLater) {
-            await this.firestore.addToArrayAsync(
-                'users',
-                this.userId,
-                'readLater',
-                this.id
-            );
+            this.watchLater.addToWatchLater(this.id);
         } else {
-            await this.firestore.removeFromArrayAsync(
-                'users',
-                this.userId,
-                'readLater',
-                this.id
-            );
+            this.watchLater.removeFromWatchLater(this.id);
         }
         this.addedToReadLater = !this.addedToReadLater;
     }
