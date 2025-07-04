@@ -29,6 +29,14 @@ module.exports = function (config) {
       dir: require('path').join(__dirname, './coverage/ng-hackernews'),
       subdir: '.',
       reporters: [{ type: 'html' }, { type: 'text-summary' }],
+      check: {
+        global: {
+          statements: 70,
+          branches: 60,
+          functions: 70,
+          lines: 70,
+        },
+      },
     },
     reporters: ['progress', 'kjhtml'],
     port: 9876,
@@ -45,8 +53,8 @@ module.exports = function (config) {
       },
     },
     captureTimeout: 210000,
-    browserDisconnectTolerance: 3, 
-    browserDisconnectTimeout : 210000,
-    browserNoActivityTimeout : 210000,
+    browserDisconnectTolerance: 3,
+    browserDisconnectTimeout: 210000,
+    browserNoActivityTimeout: 210000,
   });
 };
