@@ -26,10 +26,10 @@ export class SignupComponent implements OnInit {
 
     ngOnInit(): void {}
 
-    public async signup() {
+    public signup() {
         try {
             this.loading = true;
-            await this.auth.emailSignup(
+            this.auth.emailSignup(
                 this.formInput.email,
                 this.formInput.password,
                 this.formInput.displayName

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '@angular/fire/auth';
 
+import { type User } from 'src/app/models/User';
 import { AuthService } from 'src/app/services/auth.service';
 import { DataService } from 'src/app/services/data.service';
 
@@ -10,7 +10,7 @@ import { DataService } from 'src/app/services/data.service';
     styleUrls: ['./header.component.sass'],
 })
 export class HeaderComponent implements OnInit {
-    user: User | null;
+    user?: User;
     now: Date = new Date();
 
     public constructor(
@@ -19,9 +19,7 @@ export class HeaderComponent implements OnInit {
     ) {}
 
     async ngOnInit(): Promise<void> {
-        this.auth.user$.subscribe((user: User | null) => {
-            this.user = user;
-        });
+        this.user = this.auth.currentUser;
     }
 
     public toggleSidebar(): void {
