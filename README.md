@@ -45,7 +45,6 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -61,7 +60,7 @@
 
 ![Landing Page](/images/landing-page.png)
 
-A simple implementation of the Hackernews interface in Angular using the official [Hackernews API](https://github.com/HackerNews/API). Project started out on 2021 and still haven't completed in 2023. The feature includes authentication via Firebase Auth and save any of the post to "read later" list.
+A simple implementation of the Hackernews interface in Angular using the official [Hackernews API](https://github.com/HackerNews/API). Save your favourite posts or interesting topics to the read later lists that are stored entirely on your browser.
 
 ![Stories List](/images/story-list.png)
 
@@ -81,8 +80,6 @@ The technologies and tools used in the project.
 - Sass
 - TypeScript
 - Jasmine/Karma
-- Firebase
-- Circle CI
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -90,12 +87,12 @@ The technologies and tools used in the project.
 
 ### Design
 
-There are not much design considerations when it comes to this project and hence very straightforward and simple. The portal itself consumes the data from Hackernews API and persistence via Firebase.
+There are not much design considerations when it comes to this project and hence very straightforward and simple. The portal itself consumes the data from Hackernews API and persistence via localStorage.
 
 ```mermaid
 graph LR
     hn[Hackernews API] -- Stories --> Portal
-    Firebase -- Persistence --> Portal
+    localStorage -- Persistence --> Portal
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -120,7 +117,7 @@ The list of tools that are used for development.
 
 ### Installation
 
-Installation is fairly straightforward. Just clone the repo and `npm i && npm start`. For first timers, gather the newly created Firebase credentials and replace the credentials in `.env.example` and save them in a new file named `.env`.
+Installation is fairly straightforward. Just clone the repo and `npm i && npm start`.
 
 1. Clone the repo
    ```sh
@@ -157,22 +154,12 @@ Installation is fairly straightforward. Just clone the repo and `npm i && npm st
 
 ## Roadmap
 
-- [x] Implement carousel
 - [ ] Add Pexels API for image
-- [x] Implement individual page
-- [x] Implement the favourite page
-- [x] Implement the watch later page
 - [ ] Use mixin for repeated css
-- [x] Implement better footer
-- [x] Implement 404 page
-- [x] Enhance Login page and Register page (Phase I)
 - [ ] Implement User Page
 - [ ] Add upvote count to comment
 - [ ] Implement random page
-- [x] Hydrate landing page
 - [ ] Add linter
-- [x] Add formatter
-- [ ] Achieve 85% code coverage
 - [ ] Improve mobile responsiveness
 - [ ] Use RxJs ShareReplay to **cache results**
 
