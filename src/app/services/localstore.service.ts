@@ -13,4 +13,8 @@ export class LocalstoreService {
     public setItem(key: string, value: string): void {
         localStorage.setItem(key, value);
     }
+
+    public removeItem(key: string): void {
+        localStorage.removeItem(key);
+    }
 }

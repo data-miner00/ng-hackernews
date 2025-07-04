@@ -42,4 +42,15 @@ describe('LocalstoreService', () => {
     const result = localStorage.getItem(testKey);
     expect(result).toBe(testValue);
   });
+
+  it('should remove item in localStorage', () => {
+    localStorage.setItem(testKey, testValue);
+    const testItem = service.getItem(testKey);
+    expect(testItem).toBe(testValue);
+
+    service.removeItem(testKey);
+
+    const result = localStorage.getItem(testKey);
+    expect(result).toBeNull();
+  });
 });
