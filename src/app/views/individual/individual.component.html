@@ -1,5 +1,4 @@
 <div class="individual">
-  <!-- <p *ngIf="isNew" class="mark">NEW</p> -->
   <h1>{{ story?.title }}</h1>
 
   <section class="metadata">
@@ -55,7 +54,11 @@
             />
           </svg>
         </a>
-        <button (click)="getLinkToClipboard()" class="action">
+        <button
+          title="Copy to clipboard"
+          (click)="getLinkToClipboard()"
+          class="action"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="22"
