@@ -57,6 +57,15 @@ export abstract class BaseSteps<TSteps, TComponent> {
         return this.getClass;
     }
 
+    whenIClick() {
+        if (!this.elUnderTest) {
+            throw new Error('Element under test is not defined');
+        }
+        this.elUnderTest.triggerEventHandler('click', null);
+
+        return this.getClass;
+    }
+
     whenIDebug(showComponent = true, showEl = true, showCompiled = true) {
         console.log('------ Debug Logs ------');
         if (showComponent) {

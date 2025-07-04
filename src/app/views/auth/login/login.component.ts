@@ -24,13 +24,10 @@ export class LoginComponent implements OnInit {
 
     ngOnInit(): void {}
 
-    async login(): Promise<void> {
+    login(): void {
         try {
             this.loading = true;
-            await this.auth.emailLogin(
-                this.formInput.email,
-                this.formInput.password
-            );
+            this.auth.emailLogin(this.formInput.email, this.formInput.password);
             this.loading = false;
             this.router.navigateByUrl('/');
         } catch (exception) {

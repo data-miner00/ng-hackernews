@@ -18,6 +18,7 @@ module.exports = function (config) {
         // the possible options are listed at https://jasmine.github.io/api/edge/Configuration.html
         // for example, you can disable the random execution with `random: false`
         // or set a specific seed with `seed: 4321`
+        random: false,
       },
       clearContext: false, // leave Jasmine Spec Runner output visible in browser
     },
@@ -28,6 +29,14 @@ module.exports = function (config) {
       dir: require('path').join(__dirname, './coverage/ng-hackernews'),
       subdir: '.',
       reporters: [{ type: 'html' }, { type: 'text-summary' }],
+      check: {
+        global: {
+          statements: 70,
+          branches: 60,
+          functions: 70,
+          lines: 70,
+        },
+      },
     },
     reporters: ['progress', 'kjhtml'],
     port: 9876,
@@ -43,5 +52,9 @@ module.exports = function (config) {
         flags: ['--no-sandbox'],
       },
     },
+    captureTimeout: 210000,
+    browserDisconnectTolerance: 3,
+    browserDisconnectTimeout: 210000,
+    browserNoActivityTimeout: 210000,
   });
 };

@@ -4,10 +4,9 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 import type Story from 'src/app/models/hackernews/Item/Story';
-import { AuthService } from 'src/app/services/auth.service';
-import { FakernewsService } from 'src/app/services/fakernews.service';
-import { FirestoreService } from 'src/app/services/firestore.service';
+import { FavouriteService } from 'src/app/services/favourite.service';
 import { HackernewsService } from 'src/app/services/hackernews.service';
+import { WatchLaterService } from 'src/app/services/watch-later.service';
 
 @Component({
     selector: 'app-individual',
@@ -22,14 +21,13 @@ export class IndividualComponent implements OnInit, OnDestroy {
 
     public addedToReadLater: boolean;
     public addedToFavourites: boolean;
-    private userId: string;
 
     public constructor(
-        private route: ActivatedRoute,
-        private hnService: HackernewsService,
-        private router: Router,
-        public firestore: FirestoreService,
-        public auth: AuthService
+        private readonly route: ActivatedRoute,
+        private readonly hnService: HackernewsService,
+        private readonly router: Router,
+        private readonly watchLater: WatchLaterService,
+        private readonly favourite: FavouriteService
     ) {}
 
     public get isNew(): boolean {
@@ -59,15 +57,12 @@ export class IndividualComponent implements OnInit, OnDestroy {
         return `https://github.com/identicons/${strId.slice(0, 4)}.png`;
     }
 
-    public async ngOnInit(): Promise<void> {
-        this.userId = (await this.auth.getUser())?.uid ?? '';
-
+    public ngOnInit(): void {
         this.routeSubscription = this.route.params.subscribe((params) => {
             this.storySubscription = this.hnService
                 .item<Story>(params.id)
                 .subscribe((story) => {
                     this.story = story;
-                    console.log(this.story);
                     this.posted = new Date(story.time! * 1000);
                 });
         });
@@ -78,44 +73,20 @@ export class IndividualComponent implements OnInit, OnDestroy {
         if (this.routeSubscription) this.routeSubscription.unsubscribe();
     }
 
-    public async onClickAddToWatchLater(): Promise<void> {
-        if (this.userId === '') return;
-
+    public onClickAddToWatchLater(): void {
         if (!this.addedToReadLater) {
-            await this.firestore.addToArrayAsync(
-                'users',
-                this.userId,
-                'readLater',
-                this.story?.id
-            );
+            this.watchLater.addToWatchLater(this.story!.id);
         } else {
-            await this.firestore.removeFromArrayAsync(
-                'users',
-                this.userId,
-                'readLater',
-                this.story?.id
-            );
+            this.watchLater.removeFromWatchLater(this.story!.id);
         }
         this.addedToReadLater = !this.addedToReadLater;
     }
 
-    public async onClickAddToFavourites(): Promise<void> {
-        if (this.userId == '') return;
-
+    public onClickAddToFavourites(): void {
         if (!this.addedToFavourites) {
-            await this.firestore.addToArrayAsync(
-                'users',
-                this.userId,
-                'favourites',
-                this.story?.id
-            );
+            this.favourite.addFavourite(this.story!.id);
         } else {
-            await this.firestore.removeFromArrayAsync(
-                'users',
-                this.userId,
-                'favourites',
-                this.story?.id
-            );
+            this.favourite.removeFavourite(this.story!.id);
         }
         this.addedToFavourites = !this.addedToFavourites;
     }

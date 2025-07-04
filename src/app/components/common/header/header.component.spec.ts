@@ -1,11 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { getAuth, provideAuth } from '@angular/fire/auth';
-import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 
 import { AuthService } from 'src/app/services/auth.service';
-
-import { environment } from 'src/environments/environment';
 
 import { HeaderComponent } from './header.component';
 
@@ -16,12 +11,7 @@ describe('HeaderComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [HeaderComponent],
-      imports: [
-        provideFirebaseApp(() => initializeApp(environment.firebase)),
-        // provideAnalytics(() => getAnalytics()),
-        provideAuth(() => getAuth()),
-        provideFirestore(() => getFirestore()),
-      ],
+      imports: [],
       providers: [AuthService],
     }).compileComponents();
   });

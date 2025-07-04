@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { AuthService } from 'src/app/services/auth.service';
-import { FirestoreService } from 'src/app/services/firestore.service';
+import { FavouriteService } from 'src/app/services/favourite.service';
 
 @Component({
     selector: 'app-news-item-bookmark',
@@ -21,21 +20,16 @@ export class NewsItemBookmarkComponent implements OnInit {
 
     public domain: string;
     public posted: Date;
-    public addedToFavourites: boolean;
+    public addedToFavourites: boolean = false;
 
-    private userId: string;
-
-    public constructor(
-        public firestore: FirestoreService,
-        public auth: AuthService
-    ) {}
+    public constructor(private readonly favouriteService: FavouriteService) {}
 
     public get identiconUrl(): string {
         const strId = String(this.id);
         return `https://github.com/identicons/${strId.slice(0, 4)}.png`;
     }
 
-    public async ngOnInit(): Promise<void> {
+    public ngOnInit(): void {
         if (this.alreadyAdded) {
             this.addedToFavourites = true;
         }
@@ -56,27 +50,13 @@ export class NewsItemBookmarkComponent implements OnInit {
         } else {
             this.domain = 'unknown.com';
         }
-
-        this.userId = (await this.auth.getUser())?.uid ?? '';
     }
 
-    public async onClickAddToFavourites() {
-        if (this.userId === '') return;
-
+    public onClickAddToFavourites() {
         if (!this.addedToFavourites) {
-            await this.firestore.addToArrayAsync(
-                'users',
-                this.userId,
-                'favourites',
-                this.id
-            );
+            this.favouriteService.addFavourite(this.id);
         } else {
-            await this.firestore.removeFromArrayAsync(
-                'users',
-                this.userId,
-                'favourites',
-                this.id
-            );
+            this.favouriteService.removeFavourite(this.id);
         }
         this.addedToFavourites = !this.addedToFavourites;
     }

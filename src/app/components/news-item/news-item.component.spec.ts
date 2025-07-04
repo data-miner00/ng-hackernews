@@ -1,76 +1,46 @@
 import { DatePipe } from '@angular/common';
-import { DebugElement } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
 
-import User from 'src/app/models/hackernews/User';
-import { DurationElapsedPipe } from 'src/app/pipes/duration-elapsed.pipe';
-import { AuthService } from 'src/app/services/auth.service';
-import { FirestoreService } from 'src/app/services/firestore.service';
-
-import { NewsItemComponent } from './news-item.component';
+import { NewsItemComponentSteps } from './news-item.component.steps';
 
 describe('NewsItemComponent', () => {
-  let component: NewsItemComponent;
-  let fixture: ComponentFixture<NewsItemComponent>;
-  let debugElement: DebugElement;
-  let mockFirestoreService: jasmine.SpyObj<FirestoreService>;
-  let mockAuthService: jasmine.SpyObj<AuthService>;
+  let steps: NewsItemComponentSteps;
 
   beforeEach(async () => {
-    mockFirestoreService = jasmine.createSpyObj([
-      'addToArrayAsync',
-      'removeFromArrayAsync',
-    ]);
+    steps = new NewsItemComponentSteps();
 
-    const user: User = { id: 'user-id', created: 123, karma: 123 };
-
-    mockAuthService = jasmine.createSpyObj(['getUser']);
-    mockAuthService.getUser.and.returnValue(Promise.resolve(user as any));
-
-    await TestBed.configureTestingModule({
-      declarations: [NewsItemComponent, DurationElapsedPipe],
-      providers: [
-        { provide: FirestoreService, useValue: mockFirestoreService },
-        { provide: AuthService, useValue: mockAuthService },
-      ],
-    }).compileComponents();
+    await steps.givenISetupAsync();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NewsItemComponent);
-    component = fixture.componentInstance;
-    debugElement = fixture.debugElement;
-
-    component.by = 'janeson516';
-    component.url = 'https://www.example.com/notes/52888';
-    component.descendants = 40;
-    component.id = 123456789;
-    component.score = 234;
-    component.title = 'General rule of thumb for Heincwf';
-    component.type = 'story';
-    component.time = 1639118165;
+    steps.givenIHaveNewsDetails({
+      by: 'janeson516',
+      url: 'https://www.example.com/notes/52888',
+      descendants: 40,
+      id: 123456789,
+      score: 234,
+      title: 'General rule of thumb for Heincwf',
+      type: 'story',
+      time: 1639118165,
+    });
   });
 
   it('should create', () => {
-    fixture.detectChanges();
-    expect(component).toBeTruthy();
+    steps.thenIExpectComponentToBeConstructed();
   });
 
   it('should render domain, comment counts, upvotes and date correctly', () => {
     const datePipe = new DatePipe('en-US');
-
-    fixture.detectChanges();
-
-    const info = debugElement.query(By.css('.info'))
-      .nativeElement as HTMLElement;
-
     const domain = 'www.example.com';
-    const posted = datePipe.transform(component.posted, 'MMMM d, yyyy');
 
-    expect(info.textContent).toBe(
-      `${domain} | ${component.descendants} comments | ${component.score} upvotes | ${posted}`
-    );
+    steps.whenIDetectChanges();
+
+    const posted = datePipe.transform(steps.component.posted, 'MMMM d, yyyy');
+
+    steps
+      .whenIQuery('.info')
+      .thenIExpectElementToHaveTextContent(
+        `${domain} | ${steps.component.descendants} comments | ${steps.component.score} upvotes | ${posted}`
+      );
   });
 
   describe('url-domain rendering', () => {
@@ -104,20 +74,35 @@ describe('NewsItemComponent', () => {
 
     urlTestScenario.forEach((scenario) => {
       it(`should render correct domain given ${scenario.condition}`, () => {
-        const rightSection: HTMLElement = debugElement.query(
-          By.css('.info')
-        ).nativeElement;
-
-        expect(component.domain).toBeUndefined();
-
-        component.url = scenario.url;
-
-        fixture.detectChanges();
-
-        expect(component.domain).not.toBeUndefined();
-        expect(component.domain).toBe(scenario.domain);
-        expect(rightSection.textContent).toContain(scenario.domain);
+        steps
+          .whenIQuery('.info')
+          .thenIExpectDomainToBeUndefined()
+          .whenISetUrlTo(scenario.url)
+          .whenIDetectChanges()
+          .thenIExpectDomainToBe(scenario.domain)
+          .thenIExpectElementToHaveTextContent(scenario.domain);
       });
+    });
+  });
+
+  describe('watch later functionality', () => {
+    it('should add to watch later', () => {
+      steps
+        .whenIDetectChanges()
+        .whenIQuery('button[title="Save to watch later"]')
+        .whenIClick()
+        .whenIDetectChanges()
+        .thenIExpectAddWatchLaterToHaveBeenCalledWith(steps.component.id);
+    });
+
+    it('should remove from watch later', () => {
+      steps
+        .givenThisIsAlreadyAddedToWatchLaters()
+        .whenIDetectChanges()
+        .whenIQuery('button[title="Remove from Read Later"]')
+        .whenIClick()
+        .whenIDetectChanges()
+        .thenIExpectRemoveWatchLaterToHaveBeenCalledWith(steps.component.id);
     });
   });
 });

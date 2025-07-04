@@ -1,9 +1,8 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
-import User from 'src/app/models/hackernews/User';
-import { AuthService } from 'src/app/services/auth.service';
-import { FirestoreService } from 'src/app/services/firestore.service';
+import { FakernewsService } from 'src/app/services/fakernews.service';
+import { FavouriteService } from 'src/app/services/favourite.service';
 import { HackernewsService } from 'src/app/services/hackernews.service';
 import { BaseSteps } from 'src/app/test-utils/BaseSteps';
 
@@ -13,32 +12,34 @@ export class FavouritesSteps extends BaseSteps<
     FavouritesSteps,
     FavouritesComponent
 > {
-    hnService: HackernewsService;
+    private mockFavouriteService: jasmine.SpyObj<FavouriteService>;
 
     get getClass(): FavouritesSteps {
         return this;
     }
 
     async givenISetupAsync(): Promise<void> {
-        const user: User = { id: 'user-id', created: 123, karma: 123 };
-
-        const mockAuthService = jasmine.createSpyObj(['getUser']);
-        mockAuthService.getUser.and.returnValue(Promise.resolve(user));
+        this.mockFavouriteService = jasmine.createSpyObj('FavouriteService', [
+            'getFavourites',
+            'addFavourite',
+            'removeFavourite',
+        ]);
 
         await TestBed.configureTestingModule({
             imports: [HttpClientTestingModule],
             declarations: [FavouritesComponent],
             providers: [
-                HackernewsService,
                 {
-                    provide: FirestoreService,
-                    useValue: {},
+                    provide: HackernewsService,
+                    useClass: FakernewsService,
                 },
-                { provide: AuthService, useValue: mockAuthService },
+                {
+                    provide: FavouriteService,
+                    useValue: this.mockFavouriteService,
+                },
             ],
         }).compileComponents();
 
         this.fixture = TestBed.createComponent(FavouritesComponent);
-        this.hnService = this.injector.inject(HackernewsService);
     }
 }

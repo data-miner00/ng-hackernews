@@ -1,79 +1,64 @@
 import { Injectable } from '@angular/core';
-import {
-    Auth,
-    User,
-    createUserWithEmailAndPassword,
-    sendEmailVerification,
-    sendPasswordResetEmail,
-    updateProfile,
-    user,
-} from '@angular/fire/auth';
-import {
-    DocumentData,
-    DocumentReference,
-    Firestore,
-    doc,
-    setDoc,
-} from '@angular/fire/firestore';
-import { UserCredential, signInWithEmailAndPassword } from 'firebase/auth';
-import { Observable, firstValueFrom } from 'rxjs';
+
+import { LocalstoreService } from './localstore.service';
+
+import { type User } from '../models/User';
 
 @Injectable({
     providedIn: 'root',
 })
 export class AuthService {
-    user$: Observable<User | null>;
+    private readonly USERS_KEY = 'users';
+    private readonly CURRENT_USER_KEY = 'current_user';
+    private users: User[];
+    private user?: User;
 
-    constructor(
-        private auth: Auth,
-        private firestore: Firestore
-    ) {
-        this.user$ = user(auth);
+    constructor(private readonly localStore: LocalstoreService) {
+        const users = this.localStore.getItem(this.USERS_KEY);
+
+        this.users = users ? JSON.parse(users) : [];
+
+        const currentUser = this.localStore.getItem(this.CURRENT_USER_KEY);
+
+        this.user = currentUser ? JSON.parse(currentUser) : undefined;
     }
 
-    async getUser(): Promise<User | null> {
-        return await firstValueFrom(this.user$);
+    get currentUser(): User | undefined {
+        return this.user;
     }
 
-    async emailLogin(email: string, password: string): Promise<UserCredential> {
-        return await signInWithEmailAndPassword(this.auth, email, password);
+    get allUsers(): User[] {
+        return this.users;
     }
 
-    async emailSignup(email: string, password: string, displayName: string) {
-        const userCred: UserCredential = await createUserWithEmailAndPassword(
-            this.auth,
+    emailLogin(email: string, password: string): void {
+        const foundUser = this.users.find(
+            (x) => x.email == email && x.password == password
+        );
+
+        if (!foundUser) {
+            throw new Error('Invalid credentials.');
+        }
+
+        this.user = foundUser;
+        this.localStore.setItem(
+            this.CURRENT_USER_KEY,
+            JSON.stringify(foundUser)
+        );
+    }
+
+    emailSignup(email: string, password: string, displayName: string) {
+        const user: User = {
             email,
-            password
-        );
-        this.sendEmailVerification();
-        this.createProfile(userCred.user, displayName);
-    }
-
-    async sendEmailVerification() {
-        const currentUser = this.auth.currentUser;
-        currentUser && (await sendEmailVerification(currentUser));
-    }
-
-    async forgotPassword(passwordResetEmail: string) {
-        await sendPasswordResetEmail(this.auth, passwordResetEmail);
-    }
-
-    async signOut() {
-        await this.auth.signOut();
-    }
-
-    async createProfile(user: User, displayName: string) {
-        updateProfile(user, {
+            password,
             displayName,
-        });
+        };
 
-        const userRef: DocumentReference<DocumentData> = doc(
-            this.firestore,
-            `users/${user.uid}`
-        );
-        setDoc(userRef, {
-            favourites: [],
-            readLater: [],
-        });
+        this.users.push(user);
+        this.localStore.setItem(this.USERS_KEY, JSON.stringify(this.users));
+    }
+
+    signOut() {
+        this.localStore.removeItem(this.CURRENT_USER_KEY);
     }
 }
