@@ -1,14 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import {
-    ScreenTrackingService,
-    UserTrackingService,
-    getAnalytics,
-    provideAnalytics,
-} from '@angular/fire/analytics';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { getAuth, provideAuth } from '@angular/fire/auth';
-import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -58,8 +49,6 @@ import { ReadLaterComponent } from './views/read-later/read-later.component';
 import { ShowStoriesComponent } from './views/show-stories/show-stories.component';
 import { TopStoriesComponent } from './views/top-stories/top-stories.component';
 
-import { environment } from '../environments/environment';
-
 @NgModule({
     declarations: [
         AppComponent,
@@ -107,17 +96,7 @@ import { environment } from '../environments/environment';
         NotFoundComponent,
         DebugDirective,
     ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        FormsModule,
-        provideFirebaseApp(() => initializeApp(environment.firebase)),
-        provideAnalytics(() => getAnalytics()),
-        provideAuth(() => getAuth()),
-        provideFirestore(() => getFirestore()),
-    ],
-    providers: [ScreenTrackingService, UserTrackingService],
+    imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
