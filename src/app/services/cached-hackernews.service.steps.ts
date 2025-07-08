@@ -1,3 +1,7 @@
+import {
+    provideHttpClient,
+    withInterceptorsFromDi,
+} from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed, getTestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
@@ -6,7 +10,6 @@ import Story from 'src/app/models/hackernews/Item/Story';
 import { HackernewsService } from 'src/app/services/hackernews.service';
 
 import { CachedHackernewsService } from './cached-hackernews.service';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 export class CachedHackernewsServiceSteps {
     mockStories: Story[];
@@ -28,9 +31,13 @@ export class CachedHackernewsServiceSteps {
 
     async givenISetupAsync(): Promise<void> {
         await TestBed.configureTestingModule({
-    imports: [],
-    providers: [HackernewsService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
-}).compileComponents();
+            imports: [],
+            providers: [
+                HackernewsService,
+                provideHttpClient(withInterceptorsFromDi()),
+                provideHttpClientTesting(),
+            ],
+        }).compileComponents();
 
         this.hnService = this.injector.inject(HackernewsService);
         this.chnService = this.injector.inject(CachedHackernewsService);

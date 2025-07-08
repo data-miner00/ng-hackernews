@@ -1,3 +1,7 @@
+import {
+    provideHttpClient,
+    withInterceptorsFromDi,
+} from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
@@ -7,7 +11,6 @@ import { WatchLaterService } from 'src/app/services/watch-later.service';
 import { BaseSteps } from 'src/app/test-utils/BaseSteps';
 
 import { ReadLaterComponent } from './read-later.component';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 export class ReadLaterComponentSteps extends BaseSteps<
     ReadLaterComponentSteps,
@@ -27,18 +30,18 @@ export class ReadLaterComponentSteps extends BaseSteps<
         ]);
 
         await TestBed.configureTestingModule({
-    declarations: [ReadLaterComponent],
-    imports: [],
-    providers: [
-        {
-            provide: WatchLaterService,
-            useValue: this.mockWatchLaterService,
-        },
-        { provide: HackernewsService, useClass: FakernewsService },
-        provideHttpClient(withInterceptorsFromDi()),
-        provideHttpClientTesting(),
-    ]
-}).compileComponents();
+            declarations: [ReadLaterComponent],
+            imports: [],
+            providers: [
+                {
+                    provide: WatchLaterService,
+                    useValue: this.mockWatchLaterService,
+                },
+                { provide: HackernewsService, useClass: FakernewsService },
+                provideHttpClient(withInterceptorsFromDi()),
+                provideHttpClientTesting(),
+            ],
+        }).compileComponents();
 
         this.fixture = TestBed.createComponent(ReadLaterComponent);
     }

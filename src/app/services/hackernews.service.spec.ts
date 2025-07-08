@@ -1,8 +1,14 @@
-import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
+import {
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
+import {
+  HttpTestingController,
+  provideHttpClientTesting,
+} from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
 import { HackernewsService } from './hackernews.service';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 const baseUrl: string = 'https://hacker-news.firebaseio.com/v0';
 
@@ -12,9 +18,13 @@ describe('HackernewsService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-    imports: [],
-    providers: [HackernewsService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
-});
+      imports: [],
+      providers: [
+        HackernewsService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting(),
+      ],
+    });
 
     service = TestBed.inject(HackernewsService);
     httpMock = TestBed.inject(HttpTestingController);
