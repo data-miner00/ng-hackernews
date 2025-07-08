@@ -14,15 +14,17 @@
       type="submit"
       [disabled]="!loginForm.valid"
       [ngClass]="{ loading: loading }"
-    >
+      >
       Login
     </button>
-    <p *ngIf="errorMessage" class="error">
-      {{ errorMessage }}
-    </p>
+    @if (errorMessage) {
+      <p class="error">
+        {{ errorMessage }}
+      </p>
+    }
   </form>
 
   <a class="link" routerLink="/auth/signup"
     >Don't have an account? Register here</a
-  >
-</div>
+    >
+  </div>

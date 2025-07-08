@@ -7,9 +7,11 @@
       {{ description }}
     </p>
   </div>
-  <div class="right" *ngIf="mode">
-    <div>
-      <app-image [src]="imgSrc" [description]="imgDescription"></app-image>
+  @if (mode) {
+    <div class="right">
+      <div>
+        <app-image [src]="imgSrc" [description]="imgDescription"></app-image>
+      </div>
     </div>
-  </div>
+  }
 </a>

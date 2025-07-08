@@ -1,14 +1,15 @@
 <main class="ask-stories-page">
   <h1 class="story-page-heading">Ask Stories</h1>
-  <app-news-item
-    *ngFor="let story of stories"
-    [id]="story.id"
-    [title]="story.title"
-    [by]="story.by"
-    [descendants]="story.descendants"
-    [score]="story.score"
-    [type]="story.type"
-    [url]="story.url"
-    [time]="story.time"
-  ></app-news-item>
+  @for (story of stories; track story) {
+    <app-news-item
+      [id]="story.id"
+      [title]="story.title"
+      [by]="story.by"
+      [descendants]="story.descendants"
+      [score]="story.score"
+      [type]="story.type"
+      [url]="story.url"
+      [time]="story.time"
+    ></app-news-item>
+  }
 </main>

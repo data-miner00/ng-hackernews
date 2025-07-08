@@ -1,11 +1,13 @@
 <a [routerLink]="['/stories', id]" class="variant-iii">
   <div class="flex">
     <!-- optional avatar -->
-    <div *ngIf="avatar" class="left">
-      <div class="avatar">
-        <img [src]="avatar" alt="Fake avatar" />
+    @if (avatar) {
+      <div class="left">
+        <div class="avatar">
+          <img [src]="avatar" alt="Fake avatar" />
+        </div>
       </div>
-    </div>
+    }
     <div class="right">
       <h3>{{ title }}</h3>
       <p>

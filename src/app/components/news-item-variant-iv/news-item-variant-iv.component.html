@@ -5,12 +5,16 @@
   </div>
 
   <div class="right">
-    <div *ngIf="avatarImgSrc" class="avatar">
-      <img [src]="avatarImgSrc" [alt]="author" />
-    </div>
+    @if (avatarImgSrc) {
+      <div class="avatar">
+        <img [src]="avatarImgSrc" [alt]="author" />
+      </div>
+    }
 
-    <div *ngIf="contentImgSrc" class="content-img">
-      <img [src]="contentImgSrc" [alt]="title" />
-    </div>
+    @if (contentImgSrc) {
+      <div class="content-img">
+        <img [src]="contentImgSrc" [alt]="title" />
+      </div>
+    }
   </div>
 </a>

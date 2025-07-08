@@ -1,23 +1,25 @@
 <div class="favourites-page">
   <h1 class="story-page-heading">Favourites</h1>
 
-  <div class="favourites-inner" *ngIf="stories.length > 0; else nothing">
-    <app-news-item-bookmark
-      *ngFor="let story of stories"
-      [id]="story.id"
-      [title]="story.title"
-      [by]="story.by"
-      [descendants]="story.descendants"
-      [score]="story.score"
-      [type]="story.type"
-      [url]="story.url"
-      [time]="story.time"
-      [alreadyAdded]="true"
-    ></app-news-item-bookmark>
-  </div>
-  <ng-template #nothing>
+  @if (stories.length > 0) {
+    <div class="favourites-inner">
+      @for (story of stories; track story) {
+        <app-news-item-bookmark
+          [id]="story.id"
+          [title]="story.title"
+          [by]="story.by"
+          [descendants]="story.descendants"
+          [score]="story.score"
+          [type]="story.type"
+          [url]="story.url"
+          [time]="story.time"
+          [alreadyAdded]="true"
+        ></app-news-item-bookmark>
+      }
+    </div>
+  } @else {
     <div class="nothing">
       <p>Looks like you have not favourited any stories yet. Go add one!</p>
     </div>
-  </ng-template>
+  }
 </div>
