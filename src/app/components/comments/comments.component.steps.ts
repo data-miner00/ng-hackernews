@@ -1,7 +1,4 @@
-import {
-    HttpClientTestingModule,
-    HttpTestingController,
-} from '@angular/common/http/testing';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { Type } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
@@ -11,6 +8,7 @@ import { HackernewsService } from 'src/app/services/hackernews.service';
 import { BaseSteps } from 'src/app/test-utils/BaseSteps';
 
 import { CommentsComponent } from './comments.component';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 export class CommentsSteps extends BaseSteps<CommentsSteps, CommentsComponent> {
     comment: object;
@@ -25,10 +23,10 @@ export class CommentsSteps extends BaseSteps<CommentsSteps, CommentsComponent> {
         };
 
         await TestBed.configureTestingModule({
-            imports: [HttpClientTestingModule],
-            declarations: [CommentsComponent, SafeHtmlPipe],
-            providers: [{ provide: HackernewsService, useValue: serviceStub }],
-        }).compileComponents();
+    declarations: [CommentsComponent, SafeHtmlPipe],
+    imports: [],
+    providers: [{ provide: HackernewsService, useValue: serviceStub }, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+}).compileComponents();
 
         this.fixture = TestBed.createComponent(CommentsComponent);
         this.component.commentId = 323456;
