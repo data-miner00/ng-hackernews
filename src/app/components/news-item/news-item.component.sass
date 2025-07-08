@@ -1,5 +1,5 @@
-@import "../../../assets/sass/_colors"
-@import "../../../assets/sass/_breakpoints"
+@use "../../../assets/sass/_colors"
+@use "../../../assets/sass/_breakpoints"
 
 .news-item
     margin: 40px 0
@@ -12,7 +12,7 @@
             display: flex
             align-items: center
             .avatar
-                background: $gray-200
+                background: colors.$gray-200
                 overflow: hidden
                 height: 20px
                 width: 20px
@@ -24,7 +24,7 @@
                 &.square1
                     border-radius: 5px
                 &.circle
-                    border: 1px solid $gray-200
+                    border: 1px solid colors.$gray-200
                     border-radius: 50%
             .username
                 margin-left: 10px
@@ -36,7 +36,7 @@
             align-items: center
 
             & > *
-                color: $gray-600
+                color: colors.$gray-600
                 display: flex
                 justify-content: center
                 align-items: center
@@ -46,7 +46,7 @@
                 cursor: pointer
 
                 &:hover
-                    background: $gray-100
+                    background: colors.$gray-100
 
                 svg
                     display: block
@@ -58,4 +58,4 @@
 
         .info
             font-size: 13px
-            color: $gray-600
+            color: colors.$gray-600

@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "./assets/sass/_fonts"
-@import "./assets/sass/_colors"
+@use "assets/sass/_fonts"
+@use "assets/sass/_colors"
 
 *,
 *::before,
@@ -12,8 +12,8 @@
 
 html,
 body
-    font-family: $playfair-display
-    color: $font
+    font-family: fonts.$playfair-display
+    color: colors.$font
 
 a
     color: inherit
@@ -24,7 +24,7 @@ h1.story-page-heading
 
 /* Take note */
 .section-label
-    font-family: $readex-pro
+    font-family: fonts.$readex-pro
     text-transform: uppercase
     font-size: 12px
     font-weight: 600
@@ -40,5 +40,5 @@ button
 article pre
     padding: 15px 0
     margin: 8px 0
-    background: $gray-50
+    background: colors.$gray-50
     overflow-x: scroll

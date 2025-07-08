@@ -1,6 +1,6 @@
-@import "../../../../assets/sass/_colors"
-@import "../../../../assets/sass/_fonts"
-@import "../../../../assets/sass/_breakpoints"
+@use "../../../../assets/sass/_colors"
+@use "../../../../assets/sass/_fonts"
+@use "../../../../assets/sass/_breakpoints"
 
 .footer-wrapper
     background: white
@@ -8,7 +8,7 @@
 
     .decorator
         height: 2px
-        background: $font
+        background: colors.$font
         width: 100%
         position: relative
         &::after
@@ -18,19 +18,19 @@
             bottom: -3px
             left: 0
             height: 1px
-            background: $font
+            background: colors.$font
     footer
         max-width: 1200px
         margin: 0 auto
         padding: 30px 0
 
         .logo
-            font-family: $cloister-black
+            font-family: fonts.$cloister-black
             font-size: 24px
             margin-bottom: 30px
 
         .grid
-            font-family: $readex-pro
+            font-family: fonts.$readex-pro
             display: grid
             grid-template-columns: repeat(6, 1fr)
             font-size: 14px
@@ -49,7 +49,7 @@
                 display: block
 
             .item
-                color: $gray-700
+                color: colors.$gray-700
                 font-size: 13px
 
                 &:hover

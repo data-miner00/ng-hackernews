@@ -1,14 +1,14 @@
-@import "../../../assets/sass/_breakpoints"
-@import "../../../assets/sass/_colors"
+@use "../../../assets/sass/_breakpoints"
+@use "../../../assets/sass/_colors"
 
 .individual
-    max-width: $sm
+    max-width: breakpoints.$sm
     margin: 0 auto
 
     .fakeimg
         height: 400px
         width: 100%
-        background: $blue-50
+        background: colors.$blue-50
         overflow: hidden
 
     .metadata
@@ -24,8 +24,8 @@
             .pfp
                 border-radius: 50%
                 overflow: hidden
-                border: 1px solid $gray-300
-                background: $gray-300
+                border: 1px solid colors.$gray-300
+                background: colors.$gray-300
 
                 img
                     display: block
@@ -39,7 +39,7 @@
             font-weight: 600
 
         .date
-            color: $gray-600
+            color: colors.$gray-600
             font-size: 14px
 
     .buttons,
@@ -57,19 +57,19 @@
             align-items: center
             height: 30px
             width: 30px
-            color: $gray-400
+            color: colors.$gray-400
             transition: color .2 ease
 
             svg
                 display: block
 
             &:hover
-                color: $gray-500
+                color: colors.$gray-500
 
         .actions
             padding-left: 20px
             margin-left: 20px
-            border-left: 1px solid $gray-400
+            border-left: 1px solid colors.$gray-400
 
     .comments
         margin: 2rem 0
@@ -84,7 +84,7 @@
                 font-size: 2rem
                 font-weight: 600
 
-@media screen and (min-width: $xl)
+@media screen and (min-width: breakpoints.$xl)
     .individual
         .comments
             margin-top: 4rem
