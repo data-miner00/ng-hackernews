@@ -9,7 +9,7 @@ import { HackernewsService } from 'src/app/services/hackernews.service';
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.sass'],
-    standalone: false
+    standalone: false,
 })
 export class HomeComponent implements OnInit, OnDestroy {
     private readonly STORY_AMOUNT: number = 12;

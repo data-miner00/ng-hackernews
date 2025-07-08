@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
     selector: 'app-blank',
     templateUrl: './blank.component.html',
     styleUrls: ['./blank.component.sass'],
-    standalone: false
+    standalone: false,
 })
 export class BlankComponent implements OnInit {
     constructor() {}

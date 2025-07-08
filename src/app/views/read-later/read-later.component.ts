@@ -10,7 +10,7 @@ import { WatchLaterService } from 'src/app/services/watch-later.service';
     selector: 'app-read-later',
     templateUrl: './read-later.component.html',
     styleUrls: ['./read-later.component.sass'],
-    standalone: false
+    standalone: false,
 })
 export class ReadLaterComponent implements IStoriesPage {
     public storiesAmount: number = 20;

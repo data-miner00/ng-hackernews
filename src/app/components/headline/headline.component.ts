@@ -4,7 +4,7 @@ import { Component, Input, OnInit } from '@angular/core';
     selector: 'app-headline',
     templateUrl: './headline.component.html',
     styleUrls: ['./headline.component.sass'],
-    standalone: false
+    standalone: false,
 })
 export class HeadlineComponent implements OnInit {
     @Input() headline: string =

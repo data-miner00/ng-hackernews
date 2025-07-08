@@ -6,7 +6,7 @@ import type Story from 'src/app/models/hackernews/Item/Story';
     selector: 'app-wide-columns-section',
     templateUrl: './wide-columns-section.component.html',
     styleUrls: ['./wide-columns-section.component.sass'],
-    standalone: false
+    standalone: false,
 })
 export class WideColumnsSectionComponent implements OnInit {
     @Input() story?: Story;

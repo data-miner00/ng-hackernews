@@ -9,7 +9,7 @@ import { CachedHackernewsService } from 'src/app/services/cached-hackernews.serv
     selector: 'app-ask-stories',
     templateUrl: './ask-stories.component.html',
     styleUrls: ['./ask-stories.component.sass'],
-    standalone: false
+    standalone: false,
 })
 export class AskStoriesComponent implements OnInit {
     public stories: Array<Story> = [];

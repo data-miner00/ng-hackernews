@@ -6,7 +6,7 @@ import { FavouriteService } from 'src/app/services/favourite.service';
     selector: 'app-news-item-bookmark',
     templateUrl: './news-item-bookmark.component.html',
     styleUrls: ['./news-item-bookmark.component.sass'],
-    standalone: false
+    standalone: false,
 })
 export class NewsItemBookmarkComponent implements OnInit {
     @Input() by?: string;

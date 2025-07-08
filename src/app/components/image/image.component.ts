@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core';
     selector: 'app-image',
     templateUrl: './image.component.html',
     styleUrls: ['./image.component.sass'],
-    standalone: false
+    standalone: false,
 })
 export class ImageComponent {
     // The source of the image.

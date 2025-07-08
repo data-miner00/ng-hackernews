@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
     selector: 'app-not-found',
     templateUrl: './not-found.component.html',
     styleUrls: ['./not-found.component.sass'],
-    standalone: false
+    standalone: false,
 })
 export class NotFoundComponent implements OnInit {
     constructor() {}

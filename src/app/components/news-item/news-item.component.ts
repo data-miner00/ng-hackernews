@@ -6,7 +6,7 @@ import { WatchLaterService } from 'src/app/services/watch-later.service';
     selector: 'app-news-item',
     templateUrl: './news-item.component.html',
     styleUrls: ['./news-item.component.sass'],
-    standalone: false
+    standalone: false,
 })
 export class NewsItemComponent implements OnInit {
     @Input() by?: string;

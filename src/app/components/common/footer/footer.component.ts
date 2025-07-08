@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
     selector: 'app-footer',
     templateUrl: './footer.component.html',
     styleUrls: ['./footer.component.sass'],
-    standalone: false
+    standalone: false,
 })
 export class FooterComponent implements OnInit {
     constructor() {}

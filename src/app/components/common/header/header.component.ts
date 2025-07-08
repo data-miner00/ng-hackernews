@@ -8,7 +8,7 @@ import { DataService } from 'src/app/services/data.service';
     selector: 'app-header',
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.sass'],
-    standalone: false
+    standalone: false,
 })
 export class HeaderComponent implements OnInit {
     user?: User;

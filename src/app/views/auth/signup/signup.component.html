@@ -19,13 +19,13 @@
         type="confirm-password"
         name="confirm-password"
         [(ngModel)]="formInput.confirmPassword"
-        />
+      />
     </div>
     <button
       type="submit"
       [disabled]="!signupForm.valid"
       [ngClass]="{ loading }"
-      >
+    >
       Sign up
     </button>
     @if (errorMessage) {

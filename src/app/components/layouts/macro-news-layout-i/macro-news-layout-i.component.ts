@@ -7,7 +7,7 @@ import { FakerimgService } from 'src/app/services/fakerimg.service';
     selector: 'app-macro-news-layout-i',
     templateUrl: './macro-news-layout-i.component.html',
     styleUrls: ['./macro-news-layout-i.component.sass'],
-    standalone: false
+    standalone: false,
 })
 export class MacroNewsLayoutIComponent implements OnInit {
     @Input() story?: Story;

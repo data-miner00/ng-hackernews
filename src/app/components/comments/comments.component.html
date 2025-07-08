@@ -7,16 +7,11 @@
 </div>
 
 @if (comment?.kids) {
-  <div
-    class="btnWrapper"
-    [ngClass]="{ collapsed: threadCollapsed }"
-    >
+  <div class="btnWrapper" [ngClass]="{ collapsed: threadCollapsed }">
     <button class="collapseButton" (click)="toggleThreadCollapse()">
       {{ collapseButtonText }}
       @if (threadCollapsed) {
-        <span class="decoration" aria-hidden="true">
-          •••
-        </span>
+        <span class="decoration" aria-hidden="true"> ••• </span>
       }
     </button>
   </div>
@@ -24,8 +19,6 @@
 
 <div #subcomments class="subcomments">
   @for (cmt of comment?.kids; track cmt) {
-    <app-comments
-      [commentId]="cmt"
-    ></app-comments>
+    <app-comments [commentId]="cmt"></app-comments>
   }
 </div>

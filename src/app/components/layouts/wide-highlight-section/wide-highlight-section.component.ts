@@ -6,7 +6,7 @@ import type Story from 'src/app/models/hackernews/Item/Story';
     selector: 'app-wide-highlight-section',
     templateUrl: './wide-highlight-section.component.html',
     styleUrls: ['./wide-highlight-section.component.sass'],
-    standalone: false
+    standalone: false,
 })
 export class WideHighlightSectionComponent implements OnInit {
     @Input() story?: Story;
