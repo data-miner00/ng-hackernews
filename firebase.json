@@ -1,7 +1,7 @@
 {
   "hosting": {
     "target": "ng-hackernews",
-    "public": "dist/ng-hackernews",
+    "public": "dist/ng-hackernews/browser",
     "ignore": [
       "**/.*"
     ],
