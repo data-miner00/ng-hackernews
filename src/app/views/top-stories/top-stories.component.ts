@@ -8,6 +8,7 @@ import { CachedHackernewsService } from 'src/app/services/cached-hackernews.serv
     selector: 'app-top-stories',
     templateUrl: './top-stories.component.html',
     styleUrls: ['./top-stories.component.sass'],
+    standalone: false
 })
 export class TopStoriesComponent implements OnInit {
     public stories: Array<Story> = [];

@@ -1,0 +1,108 @@
+The installed Angular CLI version is outdated.
+Installing a temporary Angular CLI versioned 19.2.15 to perform the update.
+Using package manager: npm
+Collecting installed dependencies...
+Found 27 dependencies.
+Fetching dependency metadata from registry...
+    Updating package.json with dependency @angular-devkit/build-angular @ "19.2.15" (was "18.2.20")...
+    Updating package.json with dependency @angular/cli @ "19.2.15" (was "18.2.20")...
+    Updating package.json with dependency @angular/compiler-cli @ "19.2.14" (was "18.2.13")...
+    Updating package.json with dependency @angular/animations @ "19.2.14" (was "18.2.13")...
+    Updating package.json with dependency @angular/common @ "19.2.14" (was "18.2.13")...
+    Updating package.json with dependency @angular/compiler @ "19.2.14" (was "18.2.13")...
+    Updating package.json with dependency @angular/core @ "19.2.14" (was "18.2.13")...
+    Updating package.json with dependency @angular/forms @ "19.2.14" (was "18.2.13")...
+    Updating package.json with dependency @angular/platform-browser @ "19.2.14" (was "18.2.13")...
+    Updating package.json with dependency @angular/platform-browser-dynamic @ "19.2.14" (was "18.2.13")...
+    Updating package.json with dependency @angular/router @ "19.2.14" (was "18.2.13")...
+    Updating package.json with dependency zone.js @ "0.15.1" (was "0.14.10")...
+UPDATE package.json (1695 bytes)
+✔ Cleaning node modules directory
+✔ Installing packages
+** Executing migrations of package '@angular/cli' **
+
+❯ Update '@angular/ssr' import paths to use the new '/node' entry point when 'CommonEngine' is detected.
+  Migration completed (No changes made).
+
+❯ Update the workspace configuration by replacing deprecated options in 'angular.json' for compatibility with the latest Angular CLI changes.
+  Migration completed (No changes made).
+
+** Optional migrations of package '@angular/cli' **
+
+This package has 1 optional migration that can be executed.
+Optional migrations may be skipped and executed after the update process, if preferred.
+
+ Select the migrations that you'd like to run [use-application-builder] Migrate application projects to the new build system. 
+(https://angular.dev/tools/cli/build-system-migration)
+
+❯ Migrate application projects to the new build system.
+  Application projects that are using the '@angular-devkit/build-angular' package's 'browser' and/or 'browser-esbuild' builders will be migrated to use 
+the new 'application' builder.
+  You can read more about this, including known issues and limitations, here: https://angular.dev/tools/cli/build-system-migration
+    The output location of the browser build has been updated from "dist/ng-hackernews" to "dist/ng-hackernews/browser". You might need to adjust your deployment pipeline or, as an alternative, set outputPath.browser to "" in order to maintain the previous functionality.
+UPDATE angular.json (3946 bytes)
+UPDATE tsconfig.json (893 bytes)
+  Migration completed (2 files modified).
+
+** Executing migrations of package '@angular/core' **
+
+❯ Updates non-standalone Directives, Component and Pipes to 'standalone:false' and removes 'standalone:true' from those who are standalone.
+UPDATE src/app/views/about/about.component.ts (299 bytes)
+UPDATE src/app/views/ask-stories/ask-stories.component.ts (783 bytes)
+UPDATE src/app/views/faqs/faqs.component.ts (295 bytes)
+UPDATE src/app/views/favourites/favourites.component.ts (1433 bytes)
+UPDATE src/app/views/home/home.component.ts (1989 bytes)
+UPDATE src/app/views/individual/individual.component.ts (3698 bytes)
+UPDATE src/app/views/job-stories/job-stories.component.ts (746 bytes)
+UPDATE src/app/views/not-found/not-found.component.ts (314 bytes)
+UPDATE src/app/views/random-stories/random-stories.component.ts (334 bytes)
+UPDATE src/app/views/read-later/read-later.component.ts (1414 bytes)
+UPDATE src/app/views/show-stories/show-stories.component.ts (751 bytes)
+UPDATE src/app/views/top-stories/top-stories.component.ts (739 bytes)
+UPDATE src/app/views/auth/login/login.component.ts (984 bytes)
+UPDATE src/app/views/auth/signup/signup.component.ts (1132 bytes)
+UPDATE src/app/app.component.ts (1221 bytes)
+UPDATE src/app/components/carousel/carousel.component.ts (915 bytes)
+UPDATE src/app/components/comments/comments.component.ts (1636 bytes)
+UPDATE src/app/components/common/footer/footer.component.ts (303 bytes)
+UPDATE src/app/components/common/header/header.component.ts (1238 bytes)
+UPDATE src/app/components/common/sidebar/sidebar.component.ts (1253 bytes)
+UPDATE src/app/components/full-width-ads/full-width-ads.component.ts (333 bytes)
+UPDATE src/app/components/headline/headline.component.ts (419 bytes)
+UPDATE src/app/components/image/image.component.ts (714 bytes)
+UPDATE src/app/components/layouts/aside-news-layout/aside-news-layout.component.ts (590 bytes)
+UPDATE src/app/components/layouts/macro-news-layout-i/macro-news-layout-i.component.ts (1177 bytes)
+UPDATE src/app/components/layouts/macro-news-layout-ii/macro-news-layout-ii.component.ts (638 bytes)
+UPDATE src/app/components/layouts/wide-columns-section/wide-columns-section.component.ts (544 bytes)
+UPDATE src/app/components/layouts/wide-highlight-section/wide-highlight-section.component.ts (734 bytes)
+UPDATE src/app/components/layouts/wide-news-section-i/wide-news-section-i.component.ts (810 bytes)
+UPDATE src/app/components/news-item-bookmark/news-item-bookmark.component.ts (1885 bytes)
+UPDATE src/app/components/news-item-variant-i/news-item-variant-i.component.ts (838 bytes)
+UPDATE src/app/components/news-item-variant-ii/news-item-variant-ii.component.ts (1095 bytes)
+UPDATE src/app/components/news-item-variant-iii/news-item-variant-iii.component.ts (810 bytes)
+UPDATE src/app/components/news-item-variant-iv/news-item-variant-iv.component.ts (703 bytes)
+UPDATE src/app/components/news-item-variant-v/news-item-variant-v.component.ts (872 bytes)
+UPDATE src/app/components/news-item-variant-vi/news-item-variant-vi.component.ts (1168 bytes)
+UPDATE src/app/components/news-item-variant-vii/news-item-variant-vii.component.ts (516 bytes)
+UPDATE src/app/components/news-item/news-item.component.ts (1831 bytes)
+UPDATE src/app/components/paid-post/paid-post.component.ts (314 bytes)
+UPDATE src/app/directives/debug.directive.ts (864 bytes)
+UPDATE src/app/layouts/blank/blank.component.ts (299 bytes)
+UPDATE src/app/layouts/default/default.component.ts (381 bytes)
+UPDATE src/app/pipes/duration-elapsed.pipe.ts (1071 bytes)
+UPDATE src/app/pipes/safe-html.pipe.ts (408 bytes)
+  Migration completed (44 files modified).
+
+❯ Updates ExperimentalPendingTasks to PendingTasks.
+  Migration completed (No changes made).
+
+** Optional migrations of package '@angular/core' **
+
+This package has 1 optional migration that can be executed.
+Optional migrations may be skipped and executed after the update process, if preferred.
+
+ Select the migrations that you'd like to run [provide-initializer] Replaces `APP_INITIALIZER`, `ENVIRONMENT_INITIALIZER` & `PLATFORM_INITIALIZER`      
+respectively with `provideAppInitializer`, `provideEnvironmentInitializer` & `providePlatformInitializer`.
+
+❯ Replaces `APP_INITIALIZER`, `ENVIRONMENT_INITIALIZER` & `PLATFORM_INITIALIZER` respectively with `provideAppInitializer`, `provideEnvironmentInitializer` & `providePlatformInitializer`.
+  Migration completed (No changes made).

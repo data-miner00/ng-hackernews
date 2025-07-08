@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
     selector: 'app-default',
     templateUrl: './default.component.html',
     styleUrls: ['./default.component.sass'],
+    standalone: false
 })
 export class DefaultComponent implements OnInit {
     constructor() {}

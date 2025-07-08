@@ -7,6 +7,7 @@ import { AuthService } from 'src/app/services/auth.service';
     selector: 'app-login',
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.sass'],
+    standalone: false
 })
 export class LoginComponent implements OnInit {
     errorMessage = '';

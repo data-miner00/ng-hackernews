@@ -16,6 +16,7 @@ import { HackernewsService } from 'src/app/services/hackernews.service';
     selector: 'app-comments',
     templateUrl: './comments.component.html',
     styleUrls: ['./comments.component.sass'],
+    standalone: false
 })
 export class CommentsComponent implements OnInit, OnDestroy {
     @Input() commentId: number;

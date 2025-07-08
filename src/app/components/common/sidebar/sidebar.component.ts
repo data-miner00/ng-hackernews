@@ -14,6 +14,7 @@ import { DataService } from 'src/app/services/data.service';
     selector: 'app-sidebar',
     templateUrl: './sidebar.component.html',
     styleUrls: ['./sidebar.component.sass'],
+    standalone: false
 })
 export class SidebarComponent implements OnInit, OnDestroy {
     @ViewChild('overlay') overlay: ElementRef<HTMLDivElement>;

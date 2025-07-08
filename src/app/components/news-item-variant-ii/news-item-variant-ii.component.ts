@@ -10,6 +10,7 @@ import {
     templateUrl: './news-item-variant-ii.component.html',
     styleUrls: ['./news-item-variant-ii.component.sass'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class NewsItemVariantIiComponent implements OnInit {
     // Main props

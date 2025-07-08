@@ -8,6 +8,7 @@ import { CachedHackernewsService } from 'src/app/services/cached-hackernews.serv
     selector: 'app-job-stories',
     templateUrl: './job-stories.component.html',
     styleUrls: ['./job-stories.component.sass'],
+    standalone: false
 })
 export class JobStoriesComponent implements OnInit {
     public stories: Array<Story> = [];
