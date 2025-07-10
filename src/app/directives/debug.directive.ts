@@ -9,6 +9,7 @@ import {
 
 @Directive({
     selector: '[appDebug]',
+    standalone: false,
 })
 export class DebugDirective implements OnInit {
     @Input() color: string = 'red';

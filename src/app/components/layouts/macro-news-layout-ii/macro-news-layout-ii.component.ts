@@ -6,6 +6,7 @@ import type Story from 'src/app/models/hackernews/Item/Story';
     selector: 'app-macro-news-layout-ii',
     templateUrl: './macro-news-layout-ii.component.html',
     styleUrls: ['./macro-news-layout-ii.component.sass'],
+    standalone: false,
 })
 export class MacroNewsLayoutIiComponent implements OnInit {
     @Input() story?: Story;

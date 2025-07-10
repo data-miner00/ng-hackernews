@@ -45,15 +45,11 @@
     </div>
     <div class="right">
       <button class="subscribe">Subscribe for $0.00/Week</button>
-      <a
-        class="login"
-        routerLink="/auth/login"
-        *ngIf="!user; else logout_button"
-        >Login</a
-      >
-      <ng-template #logout_button>
+      @if (!user) {
+        <a class="login" routerLink="/auth/login">Login</a>
+      } @else {
         <button (click)="logout()" class="logout">Logout</button>
-      </ng-template>
+      }
     </div>
   </div>
   <header>
@@ -81,15 +77,13 @@
       <div>
         <span>{{ timeInDay }} {{ now | date: 'shortTime' | lowercase }}</span>
       </div>
-      <ng-template [ngIf]="user" [ngIfElse]="loginLink">
+      @if (user) {
         <div>
           <span>{{ user.email }}</span>
         </div>
-      </ng-template>
-
-      <ng-template #loginLink>
+      } @else {
         <div>Not logged in</div>
-      </ng-template>
+      }
     </div>
   </header>
   <nav>

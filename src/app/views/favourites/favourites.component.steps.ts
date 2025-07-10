@@ -1,4 +1,8 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import {
+    provideHttpClient,
+    withInterceptorsFromDi,
+} from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
 import { FakernewsService } from 'src/app/services/fakernews.service';
@@ -26,8 +30,8 @@ export class FavouritesSteps extends BaseSteps<
         ]);
 
         await TestBed.configureTestingModule({
-            imports: [HttpClientTestingModule],
             declarations: [FavouritesComponent],
+            imports: [],
             providers: [
                 {
                     provide: HackernewsService,
@@ -37,6 +41,8 @@ export class FavouritesSteps extends BaseSteps<
                     provide: FavouriteService,
                     useValue: this.mockFavouriteService,
                 },
+                provideHttpClient(withInterceptorsFromDi()),
+                provideHttpClientTesting(),
             ],
         }).compileComponents();
 

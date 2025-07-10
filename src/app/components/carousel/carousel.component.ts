@@ -10,6 +10,7 @@ import {
     selector: 'app-carousel',
     templateUrl: './carousel.component.html',
     styleUrls: ['./carousel.component.sass'],
+    standalone: false,
 })
 export class CarouselComponent implements AfterViewInit {
     @ViewChild('container') container: ElementRef<HTMLDivElement>;

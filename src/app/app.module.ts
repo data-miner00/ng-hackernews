@@ -1,4 +1,7 @@
-import { HttpClientModule } from '@angular/common/http';
+import {
+    provideHttpClient,
+    withInterceptorsFromDi,
+} from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -96,7 +99,8 @@ import { TopStoriesComponent } from './views/top-stories/top-stories.component';
         NotFoundComponent,
         DebugDirective,
     ],
-    imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
     bootstrap: [AppComponent],
+    imports: [BrowserModule, AppRoutingModule, FormsModule],
+    providers: [provideHttpClient(withInterceptorsFromDi())],
 })
 export class AppModule {}

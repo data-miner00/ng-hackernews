@@ -12,6 +12,7 @@ import { WatchLaterService } from 'src/app/services/watch-later.service';
     selector: 'app-individual',
     templateUrl: './individual.component.html',
     styleUrls: ['./individual.component.sass'],
+    standalone: false,
 })
 export class IndividualComponent implements OnInit, OnDestroy {
     public story?: Story;

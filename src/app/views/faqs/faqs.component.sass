@@ -1,14 +1,14 @@
-@import "../../../assets/sass/_breakpoints"
-@import "../../../assets/sass/_colors"
+@use "../../../assets/sass/_breakpoints"
+@use "../../../assets/sass/_colors"
 article
-    max-width: $md
+    max-width: breakpoints.$md
     margin: 0 auto 100px
 
     section.heading
         text-align: center
         padding: 40px 0
         margin-bottom: 60px
-        border: 1px solid $font
+        border: 1px solid colors.$font
         h1
             font-size: 2.5rem
             font-weight: 800
@@ -23,4 +23,4 @@ article
         text-align: right
         margin-top: 60px
         font-size: .75rem
-        color: $gray-500
+        color: colors.$gray-500

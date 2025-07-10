@@ -7,6 +7,7 @@ import { AuthService } from 'src/app/services/auth.service';
     selector: 'app-signup',
     templateUrl: './signup.component.html',
     styleUrls: ['./signup.component.sass'],
+    standalone: false,
 })
 export class SignupComponent implements OnInit {
     errorMessage = '';

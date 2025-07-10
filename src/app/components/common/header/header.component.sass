@@ -1,11 +1,11 @@
-@import "../../../../assets/sass/_colors"
-@import "../../../../assets/sass/_fonts"
-@import "../../../../assets/sass/_breakpoints"
+@use "../../../../assets/sass/_colors"
+@use "../../../../assets/sass/_fonts"
+@use "../../../../assets/sass/_breakpoints"
 
 .header-wrapper
-    border-bottom: $font 1px solid
-    background: $white
-    font-family: $readex-pro
+    border-bottom: colors.$font 1px solid
+    background: colors.$white
+    font-family: fonts.$readex-pro
 
     .actions
         max-width: 1200px
@@ -40,20 +40,20 @@
                 font-weight: 600
                 text-transform: uppercase
                 border-radius: 3px
-                background: $gray-800
+                background: colors.$gray-800
                 border: none
                 padding: 8px
                 cursor: pointer
                 transition: background .2s
                 &:hover
-                    background-color: $gray-700
+                    background-color: colors.$gray-700
             .logout, .login
                 box-sizing: content-box
                 background: white
-                border: $gray-800 1px solid
-                color: $gray-800
+                border: colors.$gray-800 1px solid
+                color: colors.$gray-800
                 &:hover
-                    background-color: $gray-100
+                    background-color: colors.$gray-100
             .subscribe
                 margin-right: 5px
                 cursor: not-allowed
@@ -103,9 +103,9 @@
 
                     &.active
                         color: white
-                        background: $black
+                        background: colors.$black
 
-@media screen and (min-width: $xl)
+@media screen and (min-width: breakpoints.$xl)
     .header-wrapper
         header
             .logo

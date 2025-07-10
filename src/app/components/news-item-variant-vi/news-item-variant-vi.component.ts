@@ -10,6 +10,7 @@ import {
     templateUrl: './news-item-variant-vi.component.html',
     styleUrls: ['./news-item-variant-vi.component.sass'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false,
 })
 export class NewsItemVariantViComponent implements OnInit {
     @Input() id: number = 0;

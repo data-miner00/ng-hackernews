@@ -1,6 +1,10 @@
 import {
-    HttpClientTestingModule,
+    provideHttpClient,
+    withInterceptorsFromDi,
+} from '@angular/common/http';
+import {
     HttpTestingController,
+    provideHttpClientTesting,
 } from '@angular/common/http/testing';
 import { Type } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
@@ -25,9 +29,13 @@ export class CommentsSteps extends BaseSteps<CommentsSteps, CommentsComponent> {
         };
 
         await TestBed.configureTestingModule({
-            imports: [HttpClientTestingModule],
             declarations: [CommentsComponent, SafeHtmlPipe],
-            providers: [{ provide: HackernewsService, useValue: serviceStub }],
+            imports: [],
+            providers: [
+                { provide: HackernewsService, useValue: serviceStub },
+                provideHttpClient(withInterceptorsFromDi()),
+                provideHttpClientTesting(),
+            ],
         }).compileComponents();
 
         this.fixture = TestBed.createComponent(CommentsComponent);

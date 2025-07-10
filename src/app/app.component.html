@@ -1,4 +1,8 @@
-<ng-container [ngSwitch]="layout$ | async">
-  <app-default *ngSwitchCase="AppLayoutType.Default"> </app-default>
-  <app-blank *ngSwitchCase="AppLayoutType.Blank"> </app-blank>
-</ng-container>
+@switch (layout$ | async) {
+  @case (AppLayoutType.Default) {
+    <app-default> </app-default>
+  }
+  @case (AppLayoutType.Blank) {
+    <app-blank> </app-blank>
+  }
+}

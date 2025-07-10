@@ -4,6 +4,7 @@ import { Time, elapsed as _elapsed } from '../utils/date';
 
 @Pipe({
     name: 'durationElapsed',
+    standalone: false,
 })
 export class DurationElapsedPipe implements PipeTransform {
     public transform(value: Date): string {

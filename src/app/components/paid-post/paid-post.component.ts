@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
     selector: 'app-paid-post',
     templateUrl: './paid-post.component.html',
     styleUrls: ['./paid-post.component.sass'],
+    standalone: false,
 })
 export class PaidPostComponent implements OnInit {
     constructor() {}

@@ -1,7 +1,7 @@
 
-@import "../../../../assets/sass/_colors"
-@import "../../../../assets/sass/_breakpoints"
-@import "../../../../assets/sass/_fonts"
+@use "../../../../assets/sass/_colors"
+@use "../../../../assets/sass/_breakpoints"
+@use "../../../../assets/sass/_fonts"
 
 .overlay
     position: fixed
@@ -30,15 +30,15 @@
         width: 250px
         background: white
         height: 100%
-        border-right: 1px solid $font
+        border-right: 1px solid colors.$font
         display: flex
         flex-direction: column
 
         li
-            border-top: 1px solid $font
+            border-top: 1px solid colors.$font
 
             &:last-of-type
-                border-bottom: 1px solid $font
+                border-bottom: 1px solid colors.$font
 
             a
                 display: block
@@ -48,7 +48,7 @@
                 &.active,
                 &:hover
                     color: white
-                    background: $font
+                    background: colors.$font
 
         footer
             padding: 20px
@@ -61,9 +61,9 @@
                 transition: color .4s ease
 
                 &:hover
-                    color: $blue-500
+                    color: colors.$blue-500
 
-@media screen and (min-width: $xl)
+@media screen and (min-width: breakpoints.$xl)
     .overlay
         nav
             width: 300px

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { IStoriesPage } from 'src/app/models/IStoriesPage';
 import type Story from 'src/app/models/hackernews/Item/Story';
 import { CachedHackernewsService } from 'src/app/services/cached-hackernews.service';
 
@@ -8,6 +7,7 @@ import { CachedHackernewsService } from 'src/app/services/cached-hackernews.serv
     selector: 'app-show-stories',
     templateUrl: './show-stories.component.html',
     styleUrls: ['./show-stories.component.sass'],
+    standalone: false,
 })
 export class ShowStoriesComponent implements OnInit {
     public stories: Array<Story> = [];

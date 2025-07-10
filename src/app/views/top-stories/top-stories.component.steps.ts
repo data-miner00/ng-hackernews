@@ -1,4 +1,8 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import {
+    provideHttpClient,
+    withInterceptorsFromDi,
+} from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 
@@ -24,9 +28,13 @@ export class TopStoriesSteps extends BaseSteps<
 
     async givenISetupAsync(): Promise<void> {
         await TestBed.configureTestingModule({
-            imports: [HttpClientTestingModule],
             declarations: [TopStoriesComponent],
-            providers: [CachedHackernewsService],
+            imports: [],
+            providers: [
+                CachedHackernewsService,
+                provideHttpClient(withInterceptorsFromDi()),
+                provideHttpClientTesting(),
+            ],
         }).compileComponents();
 
         this.fixture = TestBed.createComponent(TopStoriesComponent);

@@ -6,6 +6,7 @@ import type Story from 'src/app/models/hackernews/Item/Story';
     selector: 'app-aside-news-layout',
     templateUrl: './aside-news-layout.component.html',
     styleUrls: ['./aside-news-layout.component.sass'],
+    standalone: false,
 })
 export class AsideNewsLayoutComponent implements OnInit {
     @Input() story?: Story;

@@ -10,6 +10,7 @@ import { HackernewsService } from 'src/app/services/hackernews.service';
     selector: 'app-favourites',
     templateUrl: './favourites.component.html',
     styleUrls: ['./favourites.component.sass'],
+    standalone: false,
 })
 export class FavouritesComponent implements IStoriesPage {
     public storiesAmount: number = 20;

@@ -28,9 +28,11 @@
     >
       Sign up
     </button>
-    <p *ngIf="errorMessage" class="error">
-      {{ errorMessage }}
-    </p>
+    @if (errorMessage) {
+      <p class="error">
+        {{ errorMessage }}
+      </p>
+    }
   </form>
 
   <a class="link" routerLink="/auth/login">Already have an account? Login</a>
