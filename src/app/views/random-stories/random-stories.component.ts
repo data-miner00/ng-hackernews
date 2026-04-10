@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import type Story from 'src/app/models/hackernews/Item/Story';
+import { CachedHackernewsService } from 'src/app/services/cached-hackernews.service';
+
 @Component({
     selector: 'app-random-stories',
     templateUrl: './random-stories.component.html',
@@ -7,7 +10,13 @@ import { Component, OnInit } from '@angular/core';
     standalone: false,
 })
 export class RandomStoriesComponent implements OnInit {
-    constructor() {}
+    public stories: Array<Story> = [];
 
-    ngOnInit(): void {}
+    public constructor(public chnService: CachedHackernewsService) {}
+
+    public ngOnInit(): void {
+        this.chnService
+            .randomstories()
+            .subscribe((stories) => (this.stories = stories));
+    }
 }

@@ -145,6 +145,8 @@ Installation is fairly straightforward. Just clone the repo and `npm i && npm st
    ```
 7. Deployment
    ```sh
+   firebase logout
+   firebase login
    firebase deploy
    ```
 
@@ -158,7 +160,6 @@ Installation is fairly straightforward. Just clone the repo and `npm i && npm st
 - [ ] Use mixin for repeated css
 - [ ] Implement User Page
 - [ ] Add upvote count to comment
-- [ ] Implement random page
 - [ ] Add linter
 - [ ] Improve mobile responsiveness
 - [ ] Use RxJs ShareReplay to **cache results**

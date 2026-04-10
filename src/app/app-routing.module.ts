@@ -1,5 +1,5 @@
-import { NgModule, inject } from '@angular/core';
-import { Router, RouterModule, Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppLayoutType } from './models/AppLayoutType';
 import { AskStoriesComponent } from './views/ask-stories/ask-stories.component';
@@ -55,7 +55,6 @@ const routes: Routes = [
         data: {
             layout: AppLayoutType.Default,
         },
-        canMatch: [() => inject(Router).createUrlTree(['/top'])], // Re-route to top stories for now
         component: RandomStoriesComponent,
     },
     {
