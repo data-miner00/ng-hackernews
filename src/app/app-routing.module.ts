@@ -2,7 +2,6 @@ import { NgModule, inject } from '@angular/core';
 import { Router, RouterModule, Routes } from '@angular/router';
 
 import { AppLayoutType } from './models/AppLayoutType';
-import { AboutComponent } from './views/about/about.component';
 import { AskStoriesComponent } from './views/ask-stories/ask-stories.component';
 import { FaqsComponent } from './views/faqs/faqs.component';
 import { FavouritesComponent } from './views/favourites/favourites.component';
@@ -86,13 +85,6 @@ const routes: Routes = [
             import('./views/auth/auth-routing.module').then(
                 (m) => m.AuthRoutingModule
             ),
-    },
-    {
-        path: 'about',
-        data: {
-            layout: AppLayoutType.Default,
-        },
-        component: AboutComponent,
     },
     {
         path: 'read-later',

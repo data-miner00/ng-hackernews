@@ -2,8 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import type Story from 'src/app/models/hackernews/Item/Story';
-import { FakernewsService } from 'src/app/services/fakernews.service';
-import { HackernewsService } from 'src/app/services/hackernews.service';
+import { CachedHackernewsService } from 'src/app/services/cached-hackernews.service';
 
 @Component({
     selector: 'app-home',
@@ -12,47 +11,32 @@ import { HackernewsService } from 'src/app/services/hackernews.service';
     standalone: false,
 })
 export class HomeComponent implements OnInit, OnDestroy {
-    private readonly STORY_AMOUNT: number = 12;
     public topStories: Array<Story> = [];
     public askStories: Array<Story> = [];
     public showStories: Array<Story> = [];
     public jobStories: Array<Story> = [];
     private subscriptionQueue: Array<Subscription> = [];
 
-    public constructor(private hnService: HackernewsService) {}
+    public constructor(private hnService: CachedHackernewsService) {}
 
     public ngOnInit(): void {
         this.hnService
             .topstories()
-            .subscribe(this.fetchStories(this.topStories));
+            .subscribe((stories) => (this.topStories = stories));
         this.hnService
             .askstories()
-            .subscribe(this.fetchStories(this.askStories));
+            .subscribe((stories) => (this.askStories = stories));
         this.hnService
             .showstories()
-            .subscribe(this.fetchStories(this.showStories));
+            .subscribe((stories) => (this.showStories = stories));
         this.hnService
             .jobstories()
-            .subscribe(this.fetchStories(this.jobStories));
+            .subscribe((stories) => (this.jobStories = stories));
     }
 
     public ngOnDestroy(): void {
         this.subscriptionQueue.forEach((subscription) => {
             subscription.unsubscribe();
         });
-    }
-
-    private fetchStories(storyQueue: Array<Story>) {
-        return (storiesId: Array<number>) => {
-            for (let i = 0; i < this.STORY_AMOUNT; i++) {
-                const storyId = storiesId[i];
-                const subscriber = this.hnService
-                    .item<Story>(storyId)
-                    .subscribe((story: Story) => {
-                        storyQueue.push(story);
-                    });
-                this.subscriptionQueue.push(subscriber);
-            }
-        };
     }
 }

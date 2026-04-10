@@ -37,7 +37,6 @@ import { BlankComponent } from './layouts/blank/blank.component';
 import { DefaultComponent } from './layouts/default/default.component';
 import { DurationElapsedPipe } from './pipes/duration-elapsed.pipe';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
-import { AboutComponent } from './views/about/about.component';
 import { AskStoriesComponent } from './views/ask-stories/ask-stories.component';
 import { LoginComponent } from './views/auth/login/login.component';
 import { SignupComponent } from './views/auth/signup/signup.component';
@@ -71,7 +70,6 @@ import { TopStoriesComponent } from './views/top-stories/top-stories.component';
         DurationElapsedPipe,
         FavouritesComponent,
         LoginComponent,
-        AboutComponent,
         SignupComponent,
         CarouselComponent,
         HeadlineComponent,
