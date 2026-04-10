@@ -19,9 +19,9 @@ steps:
         dir
     displayName: Show working directory
 
-  - task: NodeTool@0
+  - task: UseNode@1
     inputs:
-      versionSpec: '22.x'
+      version: '22.x'
     displayName: 'Install Node.js'
 
   - script: npm ci
