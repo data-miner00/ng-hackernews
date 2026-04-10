@@ -1,7 +1,7 @@
 {
   "name": "ng-hackernews",
   "description": "A Hackernews implementation in Angular, with interface inspired by Nytimes.",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "author": {
     "name": "Shaun",
     "email": "pkay_@live.com"
@@ -12,7 +12,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
+    "test": "ng test --no-watch",
+    "test:watch": "ng test --watch",
     "test:headless": "ng test --no-watch --no-progress --browsers=ChromeHeadless --code-coverage",
     "coverage": "ng test --no-watch --code-coverage",
     "format": "prettier . --write",
