@@ -22,6 +22,7 @@ export class CachedHackernewsServiceSteps {
     showStoriesSpy: jasmine.Spy;
     askStoriesSpy: jasmine.Spy;
     itemSpy: jasmine.Spy;
+    maxItemSpy: jasmine.Spy;
 
     injector: TestBed = getTestBed();
 
@@ -83,6 +84,16 @@ export class CachedHackernewsServiceSteps {
         return this;
     }
 
+    givenHnServiceMaxItemReturns(
+        mockId: number
+    ): CachedHackernewsServiceSteps {
+        this.maxItemSpy = spyOn(
+            this.hnService,
+            'maxitem'
+        ).and.returnValue(of(mockId));
+        return this;
+    }
+
     givenHnServiceItemSequentiallyReturns(
         stories: Story[]
     ): CachedHackernewsServiceSteps {
@@ -112,6 +123,11 @@ export class CachedHackernewsServiceSteps {
         return this;
     }
 
+    whenICallCachedRandomStories(): CachedHackernewsServiceSteps {
+        this.chnService.randomstories().subscribe((x) => (this.mockStories = x));
+        return this;
+    }
+
     thenIExpectHnServiceTopStoriesCalled(
         times: number
     ): CachedHackernewsServiceSteps {
@@ -137,6 +153,13 @@ export class CachedHackernewsServiceSteps {
         times: number
     ): CachedHackernewsServiceSteps {
         expect(this.jobStoriesSpy).toHaveBeenCalledTimes(times);
+        return this;
+    }
+
+    thenIExpectHnServiceMaxItemCalled(
+        times: number
+    ): CachedHackernewsServiceSteps {
+        expect(this.maxItemSpy).toHaveBeenCalledTimes(times);
         return this;
     }
 

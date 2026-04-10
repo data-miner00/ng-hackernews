@@ -150,4 +150,45 @@ describe('CachedHackernewsService', () => {
         .thenIExpectResultToBe(expectedStories);
     });
   });
+
+  describe('Random Stories', () => {
+    it('should call service when local cache is empty and use cache subsequently', () => {
+      const maxId = 1000;
+      const stories = generateStories(100);
+
+      steps
+        .givenHnServiceMaxItemReturns(maxId)
+        .givenHnServiceItemSequentiallyReturns(stories)
+        .whenICallCachedRandomStories()
+        .thenIExpectHnServiceMaxItemCalled(1)
+        .thenIExpectHnServiceItemCalled(100)
+        .thenIExpectResultToBe(stories.slice(0, 20));
+
+      steps
+        .whenICallCachedRandomStories()
+        .thenIExpectHnServiceMaxItemCalled(1) // not increasing
+        .thenIExpectResultToBe(stories.slice(0, 20));
+    });
+
+    it('should fetch more batches if first batch does not have enough stories', () => {
+      const maxId = 1000;
+      const mixedItems: any[] = [];
+      for (let i = 0; i < 90; i++) {
+        mixedItems.push({ id: i, type: 'comment' });
+      }
+      for (let i = 90; i < 200; i++) {
+        mixedItems.push({ id: i, title: `Story no. ${i}`, type: 'story' });
+      }
+
+      const expectedStories = mixedItems.filter((x: any) => x.type === 'story').slice(0, 20);
+
+      steps
+        .givenHnServiceMaxItemReturns(maxId)
+        .givenHnServiceItemSequentiallyReturns(mixedItems as any)
+        .whenICallCachedRandomStories()
+        .thenIExpectHnServiceMaxItemCalled(1)
+        .thenIExpectHnServiceItemCalled(150)
+        .thenIExpectResultToBe(expectedStories);
+    });
+  });
 });

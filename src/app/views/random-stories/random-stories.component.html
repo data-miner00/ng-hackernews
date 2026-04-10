@@ -1,1 +1,19 @@
-<p>Work in Progress!</p>
+<main class="random-stories-page">
+  <h1 class="story-page-heading-trimmed">Random Stories</h1>
+  <p class="story-page-description">
+    The following stories are randomly selected from the HackerNews API.
+  </p>
+
+  @for (story of stories; track story) {
+    <app-news-item
+      [id]="story.id"
+      [title]="story.title"
+      [by]="story.by"
+      [descendants]="story.descendants"
+      [score]="story.score"
+      [type]="story.type"
+      [url]="story.url"
+      [time]="story.time"
+    ></app-news-item>
+  }
+</main>
