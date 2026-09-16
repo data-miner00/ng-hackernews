@@ -1,4 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    Input,
+    OnInit,
+} from '@angular/core';
 
 import type Story from 'src/app/models/hackernews/Item/Story';
 
@@ -6,6 +11,7 @@ import type Story from 'src/app/models/hackernews/Item/Story';
     selector: 'app-wide-highlight-section',
     templateUrl: './wide-highlight-section.component.html',
     styleUrls: ['./wide-highlight-section.component.sass'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false,
 })
 export class WideHighlightSectionComponent implements OnInit {

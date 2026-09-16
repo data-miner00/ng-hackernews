@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { IStoriesPage } from 'src/app/models/IStoriesPage';
@@ -10,6 +10,7 @@ import { WatchLaterService } from 'src/app/services/watch-later.service';
     selector: 'app-read-later',
     templateUrl: './read-later.component.html',
     styleUrls: ['./read-later.component.sass'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false,
 })
 export class ReadLaterComponent implements IStoriesPage {

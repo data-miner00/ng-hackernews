@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map, mergeMap } from 'rxjs/operators';
@@ -9,6 +9,7 @@ import { AppLayoutType } from './models/AppLayoutType';
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.sass'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false,
 })
 export class AppComponent {

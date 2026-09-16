@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { IStoriesPage } from 'src/app/models/IStoriesPage';
@@ -9,6 +9,7 @@ import { CachedHackernewsService } from 'src/app/services/cached-hackernews.serv
     selector: 'app-ask-stories',
     templateUrl: './ask-stories.component.html',
     styleUrls: ['./ask-stories.component.sass'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false,
 })
 export class AskStoriesComponent implements OnInit {

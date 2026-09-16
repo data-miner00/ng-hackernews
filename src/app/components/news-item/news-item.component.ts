@@ -1,4 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    Input,
+    OnInit,
+} from '@angular/core';
 
 import { WatchLaterService } from 'src/app/services/watch-later.service';
 
@@ -6,6 +11,7 @@ import { WatchLaterService } from 'src/app/services/watch-later.service';
     selector: 'app-news-item',
     templateUrl: './news-item.component.html',
     styleUrls: ['./news-item.component.sass'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false,
 })
 export class NewsItemComponent implements OnInit {

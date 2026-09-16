@@ -1,4 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    Input,
+    OnInit,
+} from '@angular/core';
 
 import type Story from 'src/app/models/hackernews/Item/Story';
 
@@ -6,6 +11,7 @@ import type Story from 'src/app/models/hackernews/Item/Story';
     selector: 'app-macro-news-layout-ii',
     templateUrl: './macro-news-layout-ii.component.html',
     styleUrls: ['./macro-news-layout-ii.component.sass'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false,
 })
 export class MacroNewsLayoutIiComponent implements OnInit {

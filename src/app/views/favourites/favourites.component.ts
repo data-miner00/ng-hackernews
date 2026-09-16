@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { IStoriesPage } from 'src/app/models/IStoriesPage';
@@ -10,6 +10,7 @@ import { HackernewsService } from 'src/app/services/hackernews.service';
     selector: 'app-favourites',
     templateUrl: './favourites.component.html',
     styleUrls: ['./favourites.component.sass'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false,
 })
 export class FavouritesComponent implements IStoriesPage {

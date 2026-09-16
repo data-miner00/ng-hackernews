@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 import { type User } from 'src/app/models/User';
 import { AuthService } from 'src/app/services/auth.service';
@@ -8,6 +8,7 @@ import { DataService } from 'src/app/services/data.service';
     selector: 'app-header',
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.sass'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false,
 })
 export class HeaderComponent implements OnInit {

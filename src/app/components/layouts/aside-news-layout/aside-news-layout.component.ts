@@ -1,4 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    Input,
+    OnInit,
+} from '@angular/core';
 
 import type Story from 'src/app/models/hackernews/Item/Story';
 
@@ -6,6 +11,7 @@ import type Story from 'src/app/models/hackernews/Item/Story';
     selector: 'app-aside-news-layout',
     templateUrl: './aside-news-layout.component.html',
     styleUrls: ['./aside-news-layout.component.sass'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false,
 })
 export class AsideNewsLayoutComponent implements OnInit {

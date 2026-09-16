@@ -1,6 +1,7 @@
 import {
     provideHttpClient,
     withInterceptorsFromDi,
+    withXhr,
 } from '@angular/common/http';
 import {
     HttpTestingController,
@@ -33,7 +34,7 @@ export class CommentsSteps extends BaseSteps<CommentsSteps, CommentsComponent> {
             imports: [],
             providers: [
                 { provide: HackernewsService, useValue: serviceStub },
-                provideHttpClient(withInterceptorsFromDi()),
+                provideHttpClient(withXhr(), withInterceptorsFromDi()),
                 provideHttpClientTesting(),
             ],
         }).compileComponents();

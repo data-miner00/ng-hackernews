@@ -1,6 +1,7 @@
 import {
   provideHttpClient,
   withInterceptorsFromDi,
+  withXhr,
 } from '@angular/common/http';
 import {
   HttpTestingController,
@@ -21,7 +22,7 @@ describe('HackernewsService', () => {
       imports: [],
       providers: [
         HackernewsService,
-        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClient(withXhr(), withInterceptorsFromDi()),
         provideHttpClientTesting(),
       ],
     });

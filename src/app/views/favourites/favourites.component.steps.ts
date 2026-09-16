@@ -1,6 +1,7 @@
 import {
     provideHttpClient,
     withInterceptorsFromDi,
+    withXhr,
 } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
@@ -41,7 +42,7 @@ export class FavouritesSteps extends BaseSteps<
                     provide: FavouriteService,
                     useValue: this.mockFavouriteService,
                 },
-                provideHttpClient(withInterceptorsFromDi()),
+                provideHttpClient(withXhr(), withInterceptorsFromDi()),
                 provideHttpClientTesting(),
             ],
         }).compileComponents();

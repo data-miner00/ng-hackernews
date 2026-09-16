@@ -1,6 +1,7 @@
 import {
     provideHttpClient,
     withInterceptorsFromDi,
+    withXhr,
 } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
@@ -32,7 +33,7 @@ export class ShowStoriesSteps extends BaseSteps<
             imports: [],
             providers: [
                 CachedHackernewsService,
-                provideHttpClient(withInterceptorsFromDi()),
+                provideHttpClient(withXhr(), withInterceptorsFromDi()),
                 provideHttpClientTesting(),
             ],
         }).compileComponents();

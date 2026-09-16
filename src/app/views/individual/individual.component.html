@@ -171,7 +171,11 @@
             />
           </svg>
         </a>
-        <a [href]="story?.url" target="_blank" class="action">
+        <a
+          [href]="$safeNavigationMigration(story?.url)"
+          target="_blank"
+          class="action"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
