@@ -6,9 +6,6 @@
       "vitest/globals"
     ]
   },
-  "files": [
-    "src/polyfills.ts"
-  ],
   "include": [
     "src/**/*.vitest-spec.ts",
     "src/**/*.d.ts"
