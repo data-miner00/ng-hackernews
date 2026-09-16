@@ -25,6 +25,7 @@
             },
             "index": "src/index.html",
             "polyfills": [
+              "zone.js",
               "src/polyfills.ts"
             ],
             "tsConfig": "tsconfig.app.json",
@@ -71,6 +72,14 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "testing": {
+              "aot": false,
+              "optimization": false,
+              "extractLicenses": false,
+              "styles": [
+                "src/styles.sass"
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -98,7 +107,7 @@
           "options": {
             "main": "src/test.ts",
             "polyfills": [
-              "src/polyfills.ts"
+              "zone.js"
             ],
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
@@ -113,6 +122,22 @@
             "scripts": [],
             "codeCoverage": true,
             "codeCoverageExclude": ["src/**/*.steps.ts", "src/test-utils/**/*"]
+          }
+        },
+        "test-vitest": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "tsconfig.vitest.spec.json",
+            "include": [
+              "**/*.vitest-spec.ts"
+            ],
+            "coverage": false,
+            "reporters": [
+              "default"
+            ],
+            "buildTarget": ":build:testing",
+            "runner": "vitest",
+            "watch": false
           }
         },
         "deploy": {
