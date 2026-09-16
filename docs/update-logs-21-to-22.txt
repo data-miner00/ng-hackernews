@@ -1,0 +1,140 @@
+The installed Angular CLI version is outdated.
+Installing a temporary Angular CLI versioned 22.1.8 to perform the update.
+Using package manager: npm
+Collecting installed dependencies...
+Found 27 dependencies.
+Fetching dependency metadata from registry...
+Updating package.json with dependency @angular/animations to version 22.1.6...
+Updating package.json with dependency @angular/common to version 22.1.6...
+Updating package.json with dependency @angular/compiler to version 22.1.6...
+Updating package.json with dependency @angular/core to version 22.1.6...
+Updating package.json with dependency @angular/forms to version 22.1.6...
+Updating package.json with dependency @angular/platform-browser to version 22.1.6...
+Updating package.json with dependency @angular/platform-browser-dynamic to version 22.1.6...
+Updating package.json with dependency @angular/router to version 22.1.6...
+Updating package.json with dependency @angular/build to version 22.1.8...
+Updating package.json with dependency @angular/cli to version 22.1.8...
+Updating package.json with dependency @angular/compiler-cli to version 22.1.6...
+Updating package.json with dependency @types/node to version 26.6.1...
+Updating package.json with dependency typescript to version 6.0.3...
+✔ Cleaning node modules directory
+✔ Installing packages
+** Executing migrations of package '@angular/core' **
+
+❯ Adds the required third argument to canMatch callsites.
+  Migration completed (No changes made).
+
+❯ Adds `ChangeDetectionStrategy.Eager` to all components.
+UPDATE src/app/views/ask-stories/ask-stories.component.ts (885 bytes)
+UPDATE src/app/views/faqs/faqs.component.ts (386 bytes)
+UPDATE src/app/views/favourites/favourites.component.ts (1554 bytes)
+UPDATE src/app/views/home/home.component.ts (1525 bytes)
+UPDATE src/app/views/individual/individual.component.ts (3883 bytes)
+UPDATE src/app/views/job-stories/job-stories.component.ts (847 bytes)
+UPDATE src/app/views/not-found/not-found.component.ts (405 bytes)
+UPDATE src/app/views/random-stories/random-stories.component.ts (801 bytes)
+UPDATE src/app/views/read-later/read-later.component.ts (1535 bytes)
+UPDATE src/app/views/show-stories/show-stories.component.ts (791 bytes)
+UPDATE src/app/views/top-stories/top-stories.component.ts (840 bytes)
+UPDATE src/app/views/auth/login/login.component.ts (1102 bytes)
+UPDATE src/app/views/auth/signup/signup.component.ts (1256 bytes)
+UPDATE src/app/app.component.ts (1339 bytes)
+UPDATE src/app/components/carousel/carousel.component.ts (1015 bytes)
+UPDATE src/app/components/comments/comments.component.ts (1751 bytes)
+UPDATE src/app/components/common/footer/footer.component.ts (394 bytes)
+UPDATE src/app/components/common/header/header.component.ts (1365 bytes)
+UPDATE src/app/components/common/sidebar/sidebar.component.ts (1363 bytes)
+UPDATE src/app/components/full-width-ads/full-width-ads.component.ts (424 bytes)
+UPDATE src/app/components/headline/headline.component.ts (513 bytes)
+UPDATE src/app/components/image/image.component.ts (815 bytes)
+UPDATE src/app/components/layouts/aside-news-layout/aside-news-layout.component.ts (690 bytes)
+UPDATE src/app/components/layouts/macro-news-layout-i/macro-news-layout-i.component.ts (1288 bytes)
+UPDATE src/app/components/layouts/macro-news-layout-ii/macro-news-layout-ii.component.ts (741 bytes)
+UPDATE src/app/components/layouts/wide-columns-section/wide-columns-section.component.ts (642 bytes)
+UPDATE src/app/components/layouts/wide-highlight-section/wide-highlight-section.component.ts (840 bytes)
+UPDATE src/app/components/layouts/wide-news-section-i/wide-news-section-i.component.ts (919 bytes)
+UPDATE src/app/components/news-item-bookmark/news-item-bookmark.component.ts (2027 bytes)
+UPDATE src/app/components/news-item/news-item.component.ts (1973 bytes)
+UPDATE src/app/components/paid-post/paid-post.component.ts (405 bytes)
+UPDATE src/app/layouts/blank/blank.component.ts (390 bytes)
+UPDATE src/app/layouts/default/default.component.ts (476 bytes)
+  Migration completed (33 files modified).
+
+❯ Adds 'withXhr' to 'provideHttpClient' function calls when the 'HttpXhrBackend' is used.
+  For more information see: https://angular.dev/api/common/http/withXhr
+UPDATE src/app/app.module.ts (5662 bytes)
+UPDATE src/app/components/comments/comments.component.steps.ts (1804 bytes)
+UPDATE src/app/services/cached-hackernews.service.steps.ts (5478 bytes)
+UPDATE src/app/services/hackernews.service.spec.ts (2195 bytes)
+UPDATE src/app/views/ask-stories/ask-stories.component.steps.ts (2130 bytes)
+UPDATE src/app/views/favourites/favourites.component.steps.ts (1724 bytes)
+UPDATE src/app/views/home/home.component.spec.ts (1137 bytes)
+UPDATE src/app/views/job-stories/job-stories.component.steps.ts (2133 bytes)
+UPDATE src/app/views/read-later/read-later.component.steps.ts (1701 bytes)
+UPDATE src/app/views/show-stories/show-stories.component.steps.ts (2152 bytes)
+UPDATE src/app/views/top-stories/top-stories.component.steps.ts (2130 bytes)
+  Migration completed (11 files modified).
+
+❯ Adds withNoIncrementalHydration() opt out to provideClientHydration() when incremental hydration is not enabled to retain pre-v22 behavior-.
+  Migration completed (No changes made).
+
+❯ Migrate broken duplicate outputs.
+  Migration completed (No changes made).
+
+❯ Wraps optional chaining expressions in $safeNavigationMigration().
+UPDATE src/app/views/individual/individual.component.html (8082 bytes)
+  Migration completed (1 file modified).
+
+❯ Disables the 'nullishCoalescingNotNullable & optionalChainNotNullable extended diagnostics.
+UPDATE tsconfig.app.json (482 bytes)
+UPDATE tsconfig.spec.json (528 bytes)
+  Migration completed (2 files modified).
+
+❯ Adds 'strictTemplates: false' in tsconfig.json when not set.
+  Migration completed (No changes made).
+
+** Executing migrations of package '@angular/cli' **
+
+❯ Add 'istanbul-lib-instrument' to 'devDependencies' if Karma unit testing is used.
+UPDATE package.json (1755 bytes)
+✔ Packages installed successfully.
+  Migration completed (1 file modified).
+
+❯ Add 'trustProxyHeaders' configuration to 'AngularNodeAppEngine' or 'AngularAppEngine'.
+  For more information see: https://angular.dev/best-practices/security#configuring-trusted-proxy-headers
+  Migration completed (No changes made).
+
+❯ Update the angular workspace configuration.
+  Migration completed (No changes made).
+
+** Optional migrations of package '@angular/cli' **
+
+This package has 2 optional migrations that can be executed.
+Optional migrations may be skipped and executed after the update process, if preferred.
+
+Select the migrations that you'd like to run [migrate-karma-to-vitest] Migrate projects using legacy Karma unit-test builder to the new unit-test builder with Vitest., [use-application-builder] Migrate application projects to the new build system. (https://angular.dev/tools/cli/build-system-migration)
+
+❯ Migrate projects using legacy Karma unit-test builder to the new unit-test builder with Vitest.
+    Project "ng-hackernews" uses the "kjhtml" reporter. This has not been automatically mapped. For an interactive test UI in Vitest, consider setting the "ui" option to true in your test target options and installing "@vitest/ui".
+    Project "ng-hackernews" uses a custom Karma configuration file "karma.conf.js". Tests have been migrated to use Vitest, but you may need to manually migrate 
+    Project "ng-hackernews" uses a "main" entry file for tests: "src/test.ts". This has been mapped to the unit-test builder "setupFiles" array. Please ensure you remove any TestBed.initTestEnvironment calls from this file as the builder now handles test environment initialization automatically.
+    
+    --- Karma to Vitest Migration Summary ---
+    Projects migrated: 1
+      - ng-hackernews
+    Projects skipped (non-applications): 0
+    Projects skipped (missing application builder): 0
+    
+    The following Karma configuration files require manual migration:
+    
+    Note: To refactor your test files from Jasmine to Vitest, consider running the following command:
+      ng g @schematics/angular:refactor-jasmine-vitest <project_name>
+    
+UPDATE tsconfig.spec.json (535 bytes)
+UPDATE angular.json (4934 bytes)
+UPDATE package.json (1816 bytes)
+npm warn using --force Recommended protections disabled.
+npm error Cannot read properties of null (reading 'edgesOut')
+npm error A complete log of this run can be found in: C:\Users\User\AppData\Local\npm-cache\_logs\2026-09-16T02_46_29_760Z-debug-0.log
+✖ Package install failed, see above.
+✖ Migration failed. See above for further details. // see npm-i-failed-rca.md
