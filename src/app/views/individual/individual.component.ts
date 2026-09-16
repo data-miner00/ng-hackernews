@@ -1,4 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    OnDestroy,
+    OnInit,
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -12,6 +17,7 @@ import { WatchLaterService } from 'src/app/services/watch-later.service';
     selector: 'app-individual',
     templateUrl: './individual.component.html',
     styleUrls: ['./individual.component.sass'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false,
 })
 export class IndividualComponent implements OnInit, OnDestroy {

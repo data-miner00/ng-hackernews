@@ -1,4 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    Input,
+    OnInit,
+} from '@angular/core';
 
 import { FavouriteService } from 'src/app/services/favourite.service';
 
@@ -6,6 +11,7 @@ import { FavouriteService } from 'src/app/services/favourite.service';
     selector: 'app-news-item-bookmark',
     templateUrl: './news-item-bookmark.component.html',
     styleUrls: ['./news-item-bookmark.component.sass'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false,
 })
 export class NewsItemBookmarkComponent implements OnInit {

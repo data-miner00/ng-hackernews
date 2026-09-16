@@ -1,6 +1,7 @@
 import {
     provideHttpClient,
     withInterceptorsFromDi,
+    withXhr,
 } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed, getTestBed } from '@angular/core/testing';
@@ -35,7 +36,7 @@ export class CachedHackernewsServiceSteps {
             imports: [],
             providers: [
                 HackernewsService,
-                provideHttpClient(withInterceptorsFromDi()),
+                provideHttpClient(withXhr(), withInterceptorsFromDi()),
                 provideHttpClientTesting(),
             ],
         }).compileComponents();
@@ -84,13 +85,10 @@ export class CachedHackernewsServiceSteps {
         return this;
     }
 
-    givenHnServiceMaxItemReturns(
-        mockId: number
-    ): CachedHackernewsServiceSteps {
-        this.maxItemSpy = spyOn(
-            this.hnService,
-            'maxitem'
-        ).and.returnValue(of(mockId));
+    givenHnServiceMaxItemReturns(mockId: number): CachedHackernewsServiceSteps {
+        this.maxItemSpy = spyOn(this.hnService, 'maxitem').and.returnValue(
+            of(mockId)
+        );
         return this;
     }
 
@@ -124,7 +122,9 @@ export class CachedHackernewsServiceSteps {
     }
 
     whenICallCachedRandomStories(): CachedHackernewsServiceSteps {
-        this.chnService.randomstories().subscribe((x) => (this.mockStories = x));
+        this.chnService
+            .randomstories()
+            .subscribe((x) => (this.mockStories = x));
         return this;
     }
 

@@ -1,4 +1,5 @@
 import {
+    ChangeDetectionStrategy,
     Component,
     ElementRef,
     Input,
@@ -16,6 +17,7 @@ import { HackernewsService } from 'src/app/services/hackernews.service';
     selector: 'app-comments',
     templateUrl: './comments.component.html',
     styleUrls: ['./comments.component.sass'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false,
 })
 export class CommentsComponent implements OnInit, OnDestroy {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 import { IStoriesPage } from 'src/app/models/IStoriesPage';
 import type Story from 'src/app/models/hackernews/Item/Story';
@@ -8,6 +8,7 @@ import { CachedHackernewsService } from 'src/app/services/cached-hackernews.serv
     selector: 'app-job-stories',
     templateUrl: './job-stories.component.html',
     styleUrls: ['./job-stories.component.sass'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false,
 })
 export class JobStoriesComponent implements OnInit {

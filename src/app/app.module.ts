@@ -1,6 +1,7 @@
 import {
     provideHttpClient,
     withInterceptorsFromDi,
+    withXhr,
 } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -99,6 +100,6 @@ import { TopStoriesComponent } from './views/top-stories/top-stories.component';
     ],
     bootstrap: [AppComponent],
     imports: [BrowserModule, AppRoutingModule, FormsModule],
-    providers: [provideHttpClient(withInterceptorsFromDi())],
+    providers: [provideHttpClient(withXhr(), withInterceptorsFromDi())],
 })
 export class AppModule {}
