@@ -2,6 +2,7 @@
 # Build a Node.js project that uses Angular.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+name: $(semanticVersion)-build$(rev:rrr)
 
 trigger:
   - master
@@ -29,6 +30,9 @@ steps:
 
   - script: npm run test:headless
     displayName: 'Run headless unit tests'
+
+  - script: npm run test-vitest
+    displayName: 'Run vitest unit tests'
 
   - script: npm run build
     displayName: 'Build for production'
