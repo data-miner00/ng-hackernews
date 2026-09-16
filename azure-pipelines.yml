@@ -31,6 +31,9 @@ steps:
   - script: npm run test:headless
     displayName: 'Run headless unit tests'
 
+  - script: npm run test-vitest
+    displayName: 'Run vitest unit tests'
+
   - script: npm run build
     displayName: 'Build for production'
 
