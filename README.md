@@ -80,6 +80,8 @@ The technologies and tools used in the project.
 - Sass
 - TypeScript
 - Jasmine/Karma
+- Vitest
+- Docker
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -130,6 +132,11 @@ Installation is fairly straightforward. Just clone the repo and `npm i && npm st
 3. Recommend to run tests to check if things are breaking
    ```sh
    npm test
+   ```
+   Alternatively, run the tests explicitly with Karma or Vitest
+   ```sh
+   npm run test-karma
+   npm run test-vitest
    ```
 4. Lint the Sass files
    ```sh
