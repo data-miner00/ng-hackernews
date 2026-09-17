@@ -80,6 +80,8 @@ The technologies and tools used in the project.
 - Sass
 - TypeScript
 - Jasmine/Karma
+- Vitest
+- Docker
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -131,6 +133,11 @@ Installation is fairly straightforward. Just clone the repo and `npm i && npm st
    ```sh
    npm test
    ```
+   Alternatively, run the tests explicitly with Karma or Vitest
+   ```sh
+   npm run test-karma
+   npm run test-vitest
+   ```
 4. Lint the Sass files
    ```sh
    npm run lint:css
@@ -148,6 +155,20 @@ Installation is fairly straightforward. Just clone the repo and `npm i && npm st
    firebase logout
    firebase login
    firebase deploy
+   ```
+
+### Docker
+
+Docker containerization commands.
+
+1. Build image
+   ```sh
+   docker build . -t hackernews:latest
+   ```
+
+2. Run container from image
+   ```sh
+   docker-compose up -d
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
