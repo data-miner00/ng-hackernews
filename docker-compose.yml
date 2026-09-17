@@ -1,0 +1,7 @@
+services:
+  hackernews:
+    build: .
+    container_name: hackernews
+    ports:
+      - '5000:80'
+    restart: unless-stopped

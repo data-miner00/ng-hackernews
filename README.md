@@ -150,6 +150,20 @@ Installation is fairly straightforward. Just clone the repo and `npm i && npm st
    firebase deploy
    ```
 
+### Docker
+
+Docker containerization commands.
+
+1. Build image
+   ```sh
+   docker build . -t hackernews:latest
+   ```
+
+2. Run container from image
+   ```sh
+   docker-compose up -d
+   ```
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ROADMAP -->
