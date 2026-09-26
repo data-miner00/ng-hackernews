@@ -95,6 +95,23 @@
           },
           "defaultConfiguration": "development"
         },
+        "serve-https": {
+          "builder": "@angular/build:dev-server",
+          "options": {
+            "ssl": true,
+            "sslKey": ".cert/localhost.key",
+            "sslCert": ".cert/localhost.crt"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "ng-hackernews:build:production"
+            },
+            "development": {
+              "buildTarget": "ng-hackernews:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
         "extract-i18n": {
           "builder": "@angular/build:extract-i18n",
           "options": {

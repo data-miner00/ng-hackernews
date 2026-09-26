@@ -10,6 +10,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "startssl": "ng run ng-hackernews:serve-https",
+    "startssl2": "ng serve --ssl --ssl-key .cert/localhost.key --ssl-cert .cert/localhost.crt",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test --no-watch",
