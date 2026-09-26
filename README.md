@@ -70,6 +70,8 @@ The listing page for **Top Stories**, **Ask Stories**, **Show Stories** and **Jo
 
 The page for an individual story with details and discussions.
 
+Other pages include **Random Stories**, **FAQs**, **Favourites** and **Read Later**.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
@@ -107,6 +109,10 @@ graph LR
 
 The list of tools that are used for development.
 
+- [Node.js](https://nodejs.org/) v22.22.3. The exact version is also pinned in `.nvmrc`
+  ```sh
+  nvm use
+  ```
 - npm
   ```sh
   npm install npm@latest -g
@@ -185,7 +191,7 @@ Docker containerization commands.
 - [ ] Use mixin for repeated css
 - [ ] Implement User Page
 - [ ] Add upvote count to comment
-- [ ] Add linter
+- [ ] Add ESLint
 - [ ] Improve mobile responsiveness
 - [ ] Use RxJs ShareReplay to **cache results**
 
