@@ -144,7 +144,11 @@ Installation is fairly straightforward. Just clone the repo and `npm i && npm st
    ```
 5. Start local dev server
    ```sh
-   npm start
+   npm start # http://localhost:4200
+   ```
+   Alternatively, run the dev server with TLS enabled.
+   ```sh
+   npm run startssl # https://localhost:4200
    ```
 6. Compile for production
    ```sh
