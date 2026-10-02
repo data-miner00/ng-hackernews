@@ -41,6 +41,22 @@
       </div>
     </div>
 
+    <!-- Lower section -->
+    <div class="lower">
+      @for (n of [0, 1, 2, 3]; track n) {
+        <app-news-item-variant-viii
+          class="world-news"
+          topic="World News"
+          src="/assets/images/display3.webp"
+          alt="World news thumbnail"
+          [firstStory]="topStories[0]"
+          [secondStory]="topStories[1]"
+          [thirdStory]="topStories[2]"
+          (headline-click)="onHeadlineClick($event)"
+        ></app-news-item-variant-viii>
+      }
+    </div>
+
     <!-- Ads -->
     <app-full-width-ads></app-full-width-ads>
 

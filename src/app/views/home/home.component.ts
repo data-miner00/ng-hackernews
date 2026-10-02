@@ -4,8 +4,10 @@ import {
     OnDestroy,
     OnInit,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
+import type { HeadlineClickDetail } from 'src/app/components/news-item-variant-viii/news-item-variant-viii.element';
 import type Story from 'src/app/models/hackernews/Item/Story';
 import { CachedHackernewsService } from 'src/app/services/cached-hackernews.service';
 
@@ -23,7 +25,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     public jobStories: Array<Story> = [];
     private subscriptionQueue: Array<Subscription> = [];
 
-    public constructor(private hnService: CachedHackernewsService) {}
+    public constructor(
+        private hnService: CachedHackernewsService,
+        private router: Router
+    ) {}
 
     public ngOnInit(): void {
         this.hnService
@@ -38,6 +43,11 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.hnService
             .jobstories()
             .subscribe((stories) => (this.jobStories = stories));
+    }
+
+    public onHeadlineClick(event: Event): void {
+        const { id } = (event as CustomEvent<HeadlineClickDetail>).detail;
+        this.router.navigate(['/stories', id]);
     }
 
     public ngOnDestroy(): void {
