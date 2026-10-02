@@ -13,7 +13,7 @@ describe('NewsItemVariantViiiElement', () => {
     el.shadowRoot!.querySelector<T>(selector);
   const queryAll = <T extends Element>(selector: string) =>
     Array.from(el.shadowRoot!.querySelectorAll<T>(selector));
-  const story = (id: number, title: string): Story => ({
+  const makeStory = (id: number, title: string): Story => ({
     id,
     title,
     type: 'story',
@@ -52,9 +52,9 @@ describe('NewsItemVariantViiiElement', () => {
   });
 
   it('should render a link per story in order', () => {
-    el.firstStory = story(1, 'First headline');
-    el.secondStory = story(2, 'Second headline');
-    el.thirdStory = story(3, 'Third headline');
+    el.story = makeStory(1, 'First headline');
+    el.story2 = makeStory(2, 'Second headline');
+    el.story3 = makeStory(3, 'Third headline');
 
     const links = queryAll<HTMLAnchorElement>('a');
     expect(links.length).toBe(3);
@@ -65,9 +65,9 @@ describe('NewsItemVariantViiiElement', () => {
   });
 
   it('should skip stories that are not set', () => {
-    el.firstStory = story(1, 'First headline');
-    el.secondStory = undefined;
-    el.thirdStory = story(3, 'Third headline');
+    el.story = makeStory(1, 'First headline');
+    el.story2 = undefined;
+    el.story3 = makeStory(3, 'Third headline');
 
     expect(queryAll('a').map((a) => a.textContent)).toEqual([
       'First headline',
@@ -76,7 +76,7 @@ describe('NewsItemVariantViiiElement', () => {
   });
 
   it('should render titles as text rather than markup', () => {
-    el.firstStory = story(1, '<img src=x onerror=alert(1)>');
+    el.story = makeStory(1, '<img src=x onerror=alert(1)>');
 
     const link = query('a')!;
     expect(link.children.length).toBe(0);
@@ -85,17 +85,17 @@ describe('NewsItemVariantViiiElement', () => {
 
   it('should re-render when inputs change', () => {
     el.setAttribute('topic', 'World News');
-    el.firstStory = story(1, 'Old');
+    el.story = makeStory(1, 'Old');
 
     el.setAttribute('topic', 'Tech');
-    el.firstStory = story(2, 'New');
+    el.story = makeStory(2, 'New');
 
     expect(query('.topic')?.textContent).toBe('Tech');
     expect(queryAll('a').map((a) => a.textContent)).toEqual(['New']);
   });
 
   it('should dispatch a composed headline-click event on left click', () => {
-    el.firstStory = story(42, 'Clickable');
+    el.story = makeStory(42, 'Clickable');
     let detail: HeadlineClickDetail | undefined;
     const listener = (event: Event) =>
       (detail = (event as CustomEvent<HeadlineClickDetail>).detail);
@@ -114,7 +114,7 @@ describe('NewsItemVariantViiiElement', () => {
   });
 
   it('should leave modified clicks to the browser', () => {
-    el.firstStory = story(42, 'Clickable');
+    el.story = makeStory(42, 'Clickable');
     let fired = false;
     let preventedByElement: boolean | undefined;
     const listener = () => (fired = true);

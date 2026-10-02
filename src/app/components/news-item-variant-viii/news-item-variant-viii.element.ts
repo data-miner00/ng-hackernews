@@ -8,7 +8,6 @@ export interface HeadlineClickDetail {
     id: number;
 }
 
-// The fonts are loaded globally and can use inside the shadow root
 const styles = `
     :host {
         display: block;
@@ -61,11 +60,11 @@ export class NewsItemVariantViiiElement extends HTMLElement {
 
     private readonly internals: ElementInternals;
 
-    private _firstStory?: Story;
+    private _story?: Story;
 
-    private _secondStory?: Story;
+    private _story2?: Story;
 
-    private _thirdStory?: Story;
+    private _story3?: Story;
 
     constructor() {
         super();
@@ -77,30 +76,30 @@ export class NewsItemVariantViiiElement extends HTMLElement {
         this.render();
     }
 
-    get firstStory(): Story | undefined {
-        return this._firstStory;
+    get story(): Story | undefined {
+        return this._story;
     }
 
-    set firstStory(value: Story | undefined) {
-        this._firstStory = value;
+    set story(value: Story | undefined) {
+        this._story = value;
         this.render();
     }
 
-    get secondStory(): Story | undefined {
-        return this._secondStory;
+    get story2(): Story | undefined {
+        return this._story2;
     }
 
-    set secondStory(value: Story | undefined) {
-        this._secondStory = value;
+    set story2(value: Story | undefined) {
+        this._story2 = value;
         this.render();
     }
 
-    get thirdStory(): Story | undefined {
-        return this._thirdStory;
+    get story3(): Story | undefined {
+        return this._story3;
     }
 
-    set thirdStory(value: Story | undefined) {
-        this._thirdStory = value;
+    set story3(value: Story | undefined) {
+        this._story3 = value;
         this.render();
     }
 
@@ -153,7 +152,7 @@ export class NewsItemVariantViiiElement extends HTMLElement {
         }
 
         const list = document.createElement('ul');
-        const stories = [this._firstStory, this._secondStory, this._thirdStory];
+        const stories = [this._story, this._story2, this._story3];
         for (const story of stories) {
             if (!story) {
                 continue;
@@ -175,9 +174,6 @@ export class NewsItemVariantViiiElement extends HTMLElement {
         root.replaceChildren(style, card);
     }
 
-    // `routerLink` is unavailable inside the shadow root. Plain left-clicks are
-    // handed to the host as an event so it can navigate client-side, while
-    // modified clicks fall through to the real href (e.g. open in new tab).
     private onHeadlineClick(event: MouseEvent, id: number): void {
         if (
             event.button !== 0 ||
