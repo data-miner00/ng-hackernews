@@ -41,6 +41,46 @@
       </div>
     </div>
 
+    <!-- Lower section -->
+    <div class="lower">
+      <app-news-item-variant-viii
+        topic="Top Stories"
+        src="/assets/images/display1.jpg"
+        alt="Top stories thumbnail"
+        [story]="topStories[0]"
+        [story2]="topStories[1]"
+        [story3]="topStories[2]"
+        (headline-click)="onHeadlineClick($event)"
+      ></app-news-item-variant-viii>
+      <app-news-item-variant-viii
+        topic="Show Stories"
+        src="/assets/images/belhold.webp"
+        alt="Show stories thumbnail"
+        [story]="showStories[0]"
+        [story2]="showStories[1]"
+        [story3]="showStories[2]"
+        (headline-click)="onHeadlineClick($event)"
+      ></app-news-item-variant-viii>
+      <app-news-item-variant-viii
+        topic="Ask Stories"
+        src="/assets/images/display3.webp"
+        alt="Ask stories thumbnail"
+        [story]="askStories[0]"
+        [story2]="askStories[1]"
+        [story3]="askStories[2]"
+        (headline-click)="onHeadlineClick($event)"
+      ></app-news-item-variant-viii>
+      <app-news-item-variant-viii
+        topic="Job Stories"
+        src="/assets/images/display4.jpg"
+        alt="Job stories thumbnail"
+        [story]="jobStories[0]"
+        [story2]="jobStories[1]"
+        [story3]="jobStories[2]"
+        (headline-click)="onHeadlineClick($event)"
+      ></app-news-item-variant-viii>
+    </div>
+
     <!-- Ads -->
     <app-full-width-ads></app-full-width-ads>
 
